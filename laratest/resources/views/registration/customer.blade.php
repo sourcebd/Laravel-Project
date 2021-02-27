@@ -25,7 +25,9 @@
     <!-- Main CSS-->
     <link href="css/Registration.css" rel="stylesheet" media="all">
 	<link rel="stylesheet" type="text/css" href="css/login1.css">
-	
+    <div>
+	<h1><strong><span style="font-size:40px; font-family: Sans-Serif; color:darkblue">E</span><span style="font-size:40px; font-family: Sans-Serif; color:rgb(81, 219, 187)">Pay</span></strong></h1>
+    </div>
 </head>
 
 <body>
