@@ -2,7 +2,7 @@
 
 
 @section('nav_bar')
-<a href="/home/create">Create user</a> |
-<a href="{{route('home.userlist')}}">View user list</a> |
-<a href="/logout">logout</a>
+<a href="{{route('home.Ccreate')}}">Create user</a> |
+<a href="{{route('home.Cuserlist')}}">View User list</a> |
+<a href="{{route('logout.index')}}">logout</a>
 @endsection

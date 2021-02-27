@@ -21,8 +21,8 @@ class AdminCheck
         }
         else
         {
-            $request->session()->flash('msg','Invalid req ... You do not have privilege to be an Admin!');
-            return redirect()->route('home.userlist');
+            $request->session()->flash('msg','Invalid request...you do not have privilege to be an Admin!');
+            return redirect()->route('home.Cuserlist');
         }
     }
 }

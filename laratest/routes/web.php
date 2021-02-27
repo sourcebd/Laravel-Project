@@ -20,33 +20,33 @@ Route::get('/', function () {
 
 Route::get('/E-Pay', 'MainController@index')->name('main.index');
 
-Route::get('/registration', 'RegController@index')->name('registration.index');
-Route::post('/registration', 'RegController@store');
+Route::get('/E-Pay-registration-customer', 'CRegController@index')->name('registration.customer');
+Route::post('/E-Pay-registration-customer', 'CRegController@store');
 
-Route::get('/login', 'LoginController@index')->name('login.index');
-Route::post('/login', 'LoginController@verify');
-Route::get('/logout', 'LogoutController@index')->name('logout.index');
+Route::get('/E-Pay-login-customer', 'CLoginController@index')->name('login.customer');
+Route::post('/E-Pay-login-customer', 'CLoginController@verify');
+Route::get('/E-Pay-logout-customer', 'CLogoutController@index')->name('logout.index');
 
 
 Route::group(['middleware'=>'sess'],function(){
 
-    Route::get('/home', 'HomeController@index')->name('home.index');  /* ->middleware('sess'); */
+    Route::get('/home', 'CHomeController@index')->name('home.customer');  /* ->middleware('sess'); */
     //Route::get('/home', ['uses'=>'HomeController@index']);
 
-    Route::get('/home/create', 'HomeController@create')->name('home.create');
-    Route::post('/home/create', 'HomeController@store');
+    Route::get('/E-Pay-home/create-customer', 'CHomeController@create')->name('home.Ccreate');
+    Route::post('/E-Pay-home/create-customer', 'CHomeController@store');
 
-    Route::get('/home/userlist', 'HomeController@userlist')->name('home.userlist');
+    Route::get('/E-Pay-home/userlist-customer', 'CHomeController@userlist')->name('home.Cuserlist');
 
-    Route::get('/home/edit/{id}', 'HomeController@edit')->name('home.edit');
-    Route::post('/home/edit/{id}', 'HomeController@update');
+    Route::get('/E-Pay-home/edit-customer/{id}', 'CHomeController@edit')->name('home.Cedit');
+    Route::post('/E-Pay-home/edit-customer/{id}', 'CHomeController@update');
 
-    Route::get('/home/details/{id}', 'HomeController@show')->name('home.show');
+    Route::get('/E-Pay-home/details-customer/{id}', 'CHomeController@show')->name('home.Cshow');
 
     Route::group(['middleware'=>'admin'],function(){
 
-    Route::get('/home/delete/{id}', 'HomeController@delete')->name('home.delete');
-    Route::post('/home/delete/{id}', 'HomeController@destroy');
+    Route::get('/E-Pay-home/delete-customer/{id}', 'CHomeController@delete')->name('home.Cdelete');
+    Route::post('/E-Pay-home/delete-customer/{id}', 'CHomeController@destroy');
 
     });
 

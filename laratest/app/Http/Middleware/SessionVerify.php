@@ -18,8 +18,8 @@ class SessionVerify
         if($request->session()->has('username')){
             return $next($request);
         }else{
-            $request->session()->flash('msg', 'invalid request...login first!');
-            return redirect('/login');
+            $request->session()->flash('msg', 'Invalid request...login first!');
+            return redirect()->route('login.customer');
         }
     }
 }
