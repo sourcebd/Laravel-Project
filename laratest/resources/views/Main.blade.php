@@ -190,7 +190,7 @@
             <div class="box">
               <div class="icon"><i class="bi bi-card-checklist"></i></div>
               <h4 class="title"><a href="">Make Payment</a></h4>
-              <p class="description">You can make payments from your <strong><span style="color:darkblue">E</span><span style="color:green">-Pay</span></strong> Account to any “Merchant” who accepts “<span style="color:darkblue">E</span><span style="color:green">-Pay</span> Payment”. Now you can <span style="color:darkblue">E</span><span style="color:green">-Pay</span> your payment more than 50,000 taka at once.</p>
+              <p class="description">You can make payments from your <strong><span style="color:darkblue">E</span><span style="color:green">-Pay</span></strong> Account to any “Merchant” who accepts “<strong><span style="color:darkblue">E</span><span style="color:green">-Pay</span></strong> Payment”. Now you can <strong><span style="color:darkblue">E</span><span style="color:green">-Pay</span></strong> your payment more than 50,000 taka at once.</p>
             </div>
           </div>
 
