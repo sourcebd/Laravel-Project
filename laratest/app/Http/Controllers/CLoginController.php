@@ -33,7 +33,7 @@ class CLoginController extends Controller
 
             $req->session()->put('username', $req->username);
             $req->session()->put('type', 'Admin');
-            return redirect()->route('home.index');
+            return redirect()->route('home.customer');
         }
 
         elseif($req->username !='' && $req->password != '' && count($user)>0){
@@ -54,7 +54,7 @@ class CLoginController extends Controller
             $req->session()->put('username', $req->username);
             $req->session()->put('type','User');
             
-            return redirect()->route('home.index');
+            return redirect()->route('home.customer');
         }
         
         else{
