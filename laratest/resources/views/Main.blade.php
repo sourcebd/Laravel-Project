@@ -42,7 +42,7 @@
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
         <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">nativetube@gmail.com</a></i>
-        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+880 186 510882</span></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4"><a href="tel:+8801869510882">+880 186 510882</a></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
         <a href="https://twitter.com/Nafi71340800" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -161,7 +161,7 @@
               <li><i class="bi bi-check-circle"></i> Easier..</li>
               <li><i class="bi bi-check-circle"></i> Better...</li>
             </ul>
-            <span style="color:darkblue">E</span><span style="color:green">-Pay</span> is a financial service in Bangladesh that allows users to make financial transactions through their mobile phones. More than depositing money into your mobile accounts, you can also access a range of services, particularly transferring and receiving  money domestically. You can also use the website to make payments for your utilities, such as mobile bills—both prepaid and postpaid. 
+            <strong><span style="color:darkblue">E</span><span style="color:green">-Pay</span></strong> is a financial service in Bangladesh that allows users to make financial transactions through their mobile phones. More than depositing money into your mobile accounts, you can also access a range of services, particularly transferring and receiving  money domestically. You can also use the website to make payments for your utilities, such as mobile bills—both prepaid and postpaid. 
           </div>
         </div>
 
@@ -182,7 +182,7 @@
             <div class="box">
               <div class="icon"><i class="bi bi-briefcase"></i></div>
               <h4 class="title"><a href="">Money Transfer</a></h4>
-              <p class="description">Open an Account with <span style="color:darkblue">E</span><span style="color:green">-Pay</span> for Secure Money Transfer.</p>
+              <p class="description">Open an Account with <strong><span style="color:darkblue">E</span><span style="color:green">-Pay</span></strong> for Secure Money Transfer.</p>
             </div>
           </div>
 
@@ -190,7 +190,7 @@
             <div class="box">
               <div class="icon"><i class="bi bi-card-checklist"></i></div>
               <h4 class="title"><a href="">Make Payment</a></h4>
-              <p class="description">You can make payments from your <span style="color:darkblue">E</span><span style="color:green">-Pay</span> Account to any “Merchant” who accepts “<span style="color:darkblue">E</span><span style="color:green">-Pay</span> Payment”. Now you can <span style="color:darkblue">E</span><span style="color:green">-Pay</span> your payment more than 50,000 taka at once.</p>
+              <p class="description">You can make payments from your <strong><span style="color:darkblue">E</span><span style="color:green">-Pay</span></strong> Account to any “Merchant” who accepts “<span style="color:darkblue">E</span><span style="color:green">-Pay</span> Payment”. Now you can <span style="color:darkblue">E</span><span style="color:green">-Pay</span> your payment more than 50,000 taka at once.</p>
             </div>
           </div>
 
@@ -198,7 +198,7 @@
             <div class="box">
               <div class="icon"><i class="bi bi-bar-chart"></i></div>
               <h4 class="title"><a href="">Dual Currency facility</a></h4>
-              <p class="description"><span style="color:darkblue">E</span><span style="color:green">-Pay</span> supports dual currency.</p>
+              <p class="description"><strong><span style="color:darkblue">E</span><span style="color:green">-Pay</span></strong> supports dual currency.</p>
             </div>
           </div>
 
@@ -206,7 +206,7 @@
             <div class="box">
               <div class="icon"><i class="bi bi-binoculars"></i></div>
               <h4 class="title"><a href="">Mobile Recharge</a></h4>
-              <p class="description">You can also recharge your mobile balance frequently through <span style="color:darkblue">E</span><span style="color:green">-Pay website.</span></p>
+              <p class="description">You can also recharge your mobile balance frequently through <strong><span style="color:darkblue">E</span><span style="color:green">-Pay</span></strong> website.</span></p>
             </div>
           </div>
 
@@ -445,7 +445,7 @@
         <div class="row">
           <div class="col-lg-9 text-center text-lg-start">
             <h3 class="cta-title">Call To Action</h3>
-            <p class="cta-text"> <span style="color:#00E9FF">E</span><span style="color:lightgreen">-Pay</span> is one of the fastest online payment systems across the world. We serve for the people, serve for the country.</p>
+            <p class="cta-text"> <strong><span style="color:#00E9FF">E</span><span style="color:lightgreen">-Pay</span></strong> is one of the fastest online payment systems across the world. We serve for the people, serve for the country.</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
             <a class="cta-btn align-middle" href="#">Call To Action</a>
@@ -567,7 +567,7 @@
       </div>
 
       <div class="container mb-4">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22864.11283411948!2d-73.96468908098944!3d40.630720240038435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbg!4v1540447494452" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Mirpur,%20Dhaka,%20Bangladesh+(My%20Business%20Name)&amp;t=k&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
       </div>
 
       <div class="container">
@@ -607,7 +607,7 @@
   <footer id="footer">
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong>Reveal</strong>. All Rights Reserved
+        Copyright  &copy; 2021 | <strong><span style="color:darkblue">E</span><span style="color:green">-Pay</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!--
@@ -616,7 +616,7 @@
         Licensing information: https://bootstrapmade.com/license/
         Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Reveal
       -->
-        Powered by <a href="https://github.com/sourcebd/Laravel-Project">E-Pay Team</a>
+        Powered by <a href="https://github.com/sourcebd/Laravel-Project"><strong><span style="color:darkblue">E</span><span style="color:green">-Pay</span></strong> Team</a>
       </div>
     </div>
   </footer><!-- End Footer -->
