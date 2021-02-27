@@ -445,7 +445,7 @@
         <div class="row">
           <div class="col-lg-9 text-center text-lg-start">
             <h3 class="cta-title">Call To Action</h3>
-            <p class="cta-text"> <span style="color:#00E9FF">E</span><span style="color:lightgreen">-Pay</span> is one of the fastest online payment systems accross the world. We serve for the people, serve for the country.</p>
+            <p class="cta-text"> <span style="color:#00E9FF">E</span><span style="color:lightgreen">-Pay</span> is one of the fastest online payment systems across the world. We serve for the people, serve for the country.</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
             <a class="cta-btn align-middle" href="#">Call To Action</a>
