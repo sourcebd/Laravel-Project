@@ -79,8 +79,8 @@
             <ul>
               <li class="dropdown"><a href="#"><span>Account Access</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
-                  <li><a href="/E-Pay-login-customer">Login</a></li>
-                  <li><a href="/E-Pay-registration-customer">Registration</a></li>
+                  <li><a href="{{route('login.customer')}}">Login</a></li>
+                  <li><a href="{{route('registration.customer')}}">Registration</a></li>
                 </ul>
               </li>
             </ul>

@@ -2,7 +2,7 @@
 
 
 @section('page_title')    
-<h1>Welcome home! {{ session('username') }} </h1>
+<h1>Welcome Home! {{ session('username') }} </h1>
 @endsection
 
 

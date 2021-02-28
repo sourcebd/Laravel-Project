@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>E-Pay | Create User</title>
+    <title>E-Pay | Customer-Create User</title>
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
 </head>
 <body>
-    <h1>Create New user</h1>
-	<a href="{{route('home.Cuserlist')}}"> Back</a>
+    <h1>Create New User</h1>
+	<a href="{{route('home.customer')}}"> Back</a>
 	
     <form method="post" enctype="multipart/form-data">
     	@csrf

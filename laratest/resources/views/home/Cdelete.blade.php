@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>E-Pay | Delete User</title>
+    <title>E-Pay | Customer-Delete User</title>
 </head>
 <body>
-    <h1>Delete User</h1>
+    <h1>Delete User, {{ $user['userId'] }}</h1>
     <a href="{{route('home.Cuserlist')}}"> Back</a>
 
 			<table>

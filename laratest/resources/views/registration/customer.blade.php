@@ -10,21 +10,21 @@
     <meta name="keywords" content="Colorlib Templates">
 
     <!-- Title Page-->
-    <title>E-Pay | Customer Registration</title>
+    <title>E-Pay | Customer-Registration</title>
 
     <!-- Icons font CSS-->
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="{{asset('vendor/mdi-font/css/material-design-iconic-font.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('vendor/font-awesome-4.7/css/font-awesome.min.css')}}" rel="stylesheet" media="all">
     <!-- Font special for pages-->
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Vendor CSS-->
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+    <link href="{{asset('vendor/select2/select2.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('vendor/datepicker/daterangepicker.css')}}" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-    <link href="css/Registration.css" rel="stylesheet" media="all">
-	<link rel="stylesheet" type="text/css" href="css/login1.css">
+    <link href="{{asset('css/Registration.css')}}" rel="stylesheet" media="all">
+	<link href="{{asset('css/login1.css')}}" rel="stylesheet" media="all">
     <div>
 	<h1><strong><span style="font-size:40px; font-family: Sans-Serif; color:darkblue">E</span><span style="font-size:40px; font-family: Sans-Serif; color:rgb(81, 219, 187)">Pay</span></strong></h1>
     </div>
@@ -156,15 +156,15 @@
     </div>
 
     <!-- Jquery JS-->
-    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
     <!-- Vendor JS-->
-    <script src="vendor/select2/select2.min.js"></script>
-    <script src="vendor/datepicker/moment.min.js"></script>
-    <script src="vendor/datepicker/daterangepicker.js"></script>
+    <script src="{{asset('vendor/select2/select2.min.js')}}"></script>
+    <script src="{{asset('vendor/datepicker/moment.min.js')}}"></script>
+    <script src="{{asset('vendor/datepicker/daterangepicker.js')}}"></script>
 
     <!-- Main JS-->
-    <script src="js/Registration.js"></script>
-    <script src="js/login.js"></script>
+    <script src="{{asset('js/Registration.js')}}"></script>
+    <script src="{{asset('js/login.js')}}"></script>
 	
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->

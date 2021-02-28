@@ -1,12 +1,12 @@
 @extends('layout.main')
 
 @section('title')
-E-Pay | User List
+E-Pay | Customer-User List
 @endsection
 
 
 @section('page_title')
-<h1>User list</h1>
+<h1>User List</h1>
 @endsection
 
 
@@ -34,8 +34,8 @@ E-Pay | User List
             <td>{{ $list[$i]['type'] }}</td>
             <td>
                 <a href="{{ route('home.Cedit', [$list[$i]['userId']]) }}">Edit</a> |
-                <a href="/E-Pay-home/delete-customer/{{ $list[$i]['userId'] }}">Delete</a> |
-                <a href="/E-Pay-home/details-customer/{{ $list[$i]['userId'] }}">Details</a>
+                <a href="/E-Pay/home/delete/customer/{{ $list[$i]['userId'] }}">Delete</a> |
+                <a href="/E-Pay/home/details/customer/{{ $list[$i]['userId'] }}">Details</a>
             </td>
         </tr>
         @endfor
