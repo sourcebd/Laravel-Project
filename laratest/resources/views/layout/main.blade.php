@@ -21,7 +21,8 @@
 	</div>
 
 	<div id="footer">
-		copyright@2021
+	Copyright  &copy; 2021 | <strong><span style="color:darkblue">E</span><span style="color:green">-Pay</span></strong>. All Rights Reserved
+	Powered by <a href="https://github.com/sourcebd/Laravel-Project"><strong><span style="color:darkblue">E</span><span style="color:green">-Pay</span></strong> Team</a>
 	</div>
 
 </body>

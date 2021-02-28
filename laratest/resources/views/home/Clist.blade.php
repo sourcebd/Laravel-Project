@@ -12,17 +12,17 @@ E-Pay | User List
 
 @section('nav_bar')
 <a href="{{route('home.customer')}}">Back</a> |
-<a href="{{route('logout.index')}}">logout</a>
+<a href="{{route('logout.index')}}">Logout</a>
 @endsection
 
 
 @section('main_content')
     <table border="1">
         <tr>
-            <td>ID</td>
-            <td>USERNAME</td>
-            <td>PASSWORD</td>
-            <td>TYPE</td>
+            <td>Id</td>
+            <td>Username</td>
+            <td>Password</td>
+            <td>Type</td>
             <td>Action</td>
         </tr>
 

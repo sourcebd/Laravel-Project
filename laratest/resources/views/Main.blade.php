@@ -37,6 +37,11 @@
 
 <body>
 
+<iframe src="music/RunicPower.mp3" allow="autoplay" style="display: none"></iframe>
+<audio id="player" autoplay loop>
+    <source src="music/RunicPower.mp3" type="audio/mp3">
+</audio>
+
   <!-- ======= Top Bar ======= -->
   <section id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
