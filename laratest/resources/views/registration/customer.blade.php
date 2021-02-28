@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
@@ -13,6 +12,7 @@
     <title>E-Pay | Customer-Registration</title>
 
     <!-- Icons font CSS-->
+    <link rel="icon" type="image/png" href="{{asset('images/icons/favicon.png')}}">
     <link href="{{asset('vendor/mdi-font/css/material-design-iconic-font.min.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('vendor/font-awesome-4.7/css/font-awesome.min.css')}}" rel="stylesheet" media="all">
     <!-- Font special for pages-->
