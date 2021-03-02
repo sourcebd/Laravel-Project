@@ -31,6 +31,12 @@
 </head>
 
 <body>
+
+<iframe src="{{asset('music/RunicPower.mp3')}}" allow="autoplay" style="display: none"></iframe>
+<audio id="player" autoplay loop>
+    <source src="{{asset('music/RunicPower.mp3')}}" type="audio/mp3">
+</audio>
+
     <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
         <div class="wrapper wrapper--w680">
             <div class="card card-4">

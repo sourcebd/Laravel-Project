@@ -25,6 +25,11 @@
     </div>
 </head>
 <body>
+
+<iframe src="{{asset('music/RunicPower.mp3')}}" allow="autoplay" style="display: none"></iframe>
+<audio id="player" autoplay loop>
+    <source src="{{asset('music/RunicPower.mp3')}}" type="audio/mp3">
+</audio>
 	
 	<div class="limiter">
 		<div class="container-login100">

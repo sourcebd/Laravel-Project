@@ -39,10 +39,10 @@
 
 <body>
 
-<iframe src="music/RunicPower.mp3" allow="autoplay" style="display: none"></iframe>
+<!-- <iframe src="{{asset('music/RunicPower.mp3')}}" allow="autoplay" style="display: none"></iframe>
 <audio id="player" autoplay loop>
-    <source src="music/RunicPower.mp3" type="audio/mp3">
-</audio>
+    <source src="{{asset('music/RunicPower.mp3')}}" type="audio/mp3">
+</audio> -->
 
   <!-- ======= Top Bar ======= -->
   <section id="topbar" class="d-flex align-items-center">
