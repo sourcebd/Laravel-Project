@@ -29,7 +29,7 @@ Route::get('/E-Pay/logout/customer', 'CLogoutController@index')->name('logout.in
 
 
 Route::group(['middleware'=>'sess'],function(){
-
+/* Customer */
     Route::get('/E-Pay/home/customer', 'CHomeController@index')->name('home.customer');  /* ->middleware('sess'); */
     //Route::get('/home', ['uses'=>'HomeController@index']);
 
@@ -42,6 +42,15 @@ Route::group(['middleware'=>'sess'],function(){
     Route::post('/E-Pay/home/edit/customer/{id}', 'CHomeController@update');
 
     Route::get('/E-Pay/home/details/customer/{id}', 'CHomeController@show')->name('home.Cshow');
+
+/* Customer Review */
+
+    Route::get('/E-Pay/home/edit/review/customer/{id}', 'CReviewController@edit')->name('home.Creviewedit');
+    Route::post('/E-Pay/home/edit/review/customer/{id}', 'CReviewController@update');
+
+    Route::get('/E-Pay/home/list/review/customer', 'CReviewController@userlist')->name('home.Creviewuserlist');
+
+    Route::get('/E-Pay/home/details/review/customer/{id}', 'CReviewController@show')->name('home.Creviewshow');
 
     Route::group(['middleware'=>'admin'],function(){
 

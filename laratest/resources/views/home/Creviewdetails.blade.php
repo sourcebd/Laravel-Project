@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | Customer-Delete User</title>
+  <title>E-Pay | Customer-Review Details</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -73,7 +73,7 @@
       <nav id="navbar" class="navbar">
         <ul>
         <li><a class="nav-link scrollto" href="{{route('home.Ccreate')}}">Create User</a></li>
-        <li><a class="nav-link scrollto" href="{{route('home.Creviewuserlist')}}">Review List</a></li>
+        <li><a class="nav-link scrollto" href="{{route('home.Cuserlist')}}">User List</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
           <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
           </li>
@@ -88,9 +88,9 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>Delete {{$user['name']}}'s details<br><span style="color: red; text-decoration:none"></span></h2>
+      <h2>{{$user['name']}}'s Review Details<br><span style="color: red; text-decoration:none"></span></h2>
       <div>
-        <a href="{{route('home.Cuserlist')}}" class="btn-get-started scrollto">User List</a>
+        <a href="{{route('home.Creviewuserlist')}}" class="btn-get-started scrollto">Review List</a>
       </div>
     </div>
 
@@ -111,7 +111,7 @@
     <!-- ======= Services Section ======= -->
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Remove User</h2>
+          <h2>Feedback Details</h2>
         </div>
 
     <section id="contact">
@@ -119,53 +119,30 @@
  
                 <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-        Remove unwanted Items
+        Here are the details of your opinion
 					</span>
 
-        <table border="0" style="width: 100%; min-height: 90vh">
-         <tr>
+          <table border="0" style="width: 100%; min-height: 70vh">
+          <tr>
 					<td colspan="2">
 						<img src="{{asset('/upload')}}/{{$user['profile_img']}}" width="100px" height="100px"> </td>
 				</tr>
-        <tr>
-					<td>Name</td>
+				<tr>
 					<td>{{$user['name']}}</td>
 				</tr>
 				<tr>
-					<td>Username</td>
 					<td>{{ $user['username']}}</td>
 				</tr>
 				<tr>
-					<td>Password</td>
-					<td>{{ $user['password']}}</td>
+					<td>{{ $user['reviewdate']}}</td>
 				</tr>
                 <tr>
-					<td>CGPA</td>
-					<td>{{ $user['cgpa'] }}</td>
+					<td>{{ $user['review'] }}</td>
 				</tr>
 				<tr>
-					<td>Department</td>
-					<td>{{ $user['dept'] }}</td>
-				</tr>
-        <tr>
-					<td>Type</td>
-					<td>{{ $user['type'] }}</td>
+					<td>{{ $user['feedback'] }}</td>
 				</tr>
 				<tr>
-					<td>
-						<h3>Are you sure?</h3>
-					</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>
-						<form method="post">
-							@csrf
-							<input type="submit" name="submit" style="width:80px; background-color:darkblue; color:white; border-radius:50px; padding:10px" value="Confirm">
-						</form>
-					</td>
-					<td></td>
-				</tr>
 			</table>
     <!-- ======= Contact Section ======= -->
     

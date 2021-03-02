@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | Customer-Delete User</title>
+  <title>E-Pay | Customer-Send Review</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -65,7 +65,7 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('home.Cuserlist')}}">E<span>Pay</span></a></h1>
+        <h1><a href="{{route('home.Creviewuserlist')}}">E<span>Pay</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>
@@ -73,7 +73,7 @@
       <nav id="navbar" class="navbar">
         <ul>
         <li><a class="nav-link scrollto" href="{{route('home.Ccreate')}}">Create User</a></li>
-        <li><a class="nav-link scrollto" href="{{route('home.Creviewuserlist')}}">Review List</a></li>
+		<li><a class="nav-link scrollto" href="{{route('home.Cuserlist')}}">User List</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
           <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
           </li>
@@ -88,9 +88,9 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>Delete {{$user['name']}}'s details<br><span style="color: red; text-decoration:none"></span></h2>
+      <h2>Send {{$user['name']}}'s Review<br><span style="color: red; text-decoration:none"></span></h2>
       <div>
-        <a href="{{route('home.Cuserlist')}}" class="btn-get-started scrollto">User List</a>
+        <a href="{{route('home.Creviewuserlist')}}" class="btn-get-started scrollto">Review List</a>
       </div>
     </div>
 
@@ -111,7 +111,7 @@
     <!-- ======= Services Section ======= -->
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Remove User</h2>
+          <h2>Send Feedback</h2>
         </div>
 
     <section id="contact">
@@ -119,54 +119,88 @@
  
                 <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-        Remove unwanted Items
+						Send your opinion
 					</span>
 
-        <table border="0" style="width: 100%; min-height: 90vh">
-         <tr>
-					<td colspan="2">
-						<img src="{{asset('/upload')}}/{{$user['profile_img']}}" width="100px" height="100px"> </td>
-				</tr>
-        <tr>
-					<td>Name</td>
-					<td>{{$user['name']}}</td>
-				</tr>
-				<tr>
-					<td>Username</td>
-					<td>{{ $user['username']}}</td>
-				</tr>
-				<tr>
-					<td>Password</td>
-					<td>{{ $user['password']}}</td>
-				</tr>
-                <tr>
-					<td>CGPA</td>
-					<td>{{ $user['cgpa'] }}</td>
-				</tr>
-				<tr>
-					<td>Department</td>
-					<td>{{ $user['dept'] }}</td>
-				</tr>
-        <tr>
-					<td>Type</td>
-					<td>{{ $user['type'] }}</td>
-				</tr>
-				<tr>
-					<td>
-						<h3>Are you sure?</h3>
-					</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>
-						<form method="post">
-							@csrf
-							<input type="submit" name="submit" style="width:80px; background-color:darkblue; color:white; border-radius:50px; padding:10px" value="Confirm">
-						</form>
-					</td>
-					<td></td>
-				</tr>
-			</table>
+        <form method="POST" enctype="multipart/form-data">
+					@csrf
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Date of Reviewing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                    <div class="input-group-icon">
+                                        <input class="input--style-4 js-datepicker" type="date" name="dor" value="{{$user['reviewdate']}}">
+                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Review&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                    <div class="p-t-10">
+                                        <label class="radio-container m-r-45">Satisfactory
+                                            <input type="radio" checked="checked" name="review" value="Satisfactory">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">It's Okay
+                                            <input type="radio" name="review" value="It's Okay">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">Not Satisfactory
+                                            <input type="radio" name="review" value="Not Satisfactory">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Your Feedback</label>
+                                    <input class="input--style-4" type="text" rows="5" name="feedback" value="{{$user['feedback']}}">
+                                </div>
+                            </div>
+                            <!-- <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">CGPA</label>
+                                    <input class="input--style-4" type="text" name="cgpa" value="{{old('cgpa')}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label class="label">Type&nbsp;&nbsp;</label>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="type">
+                                    <option disabled="disabled" selected="selected">Choose option</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="User">User</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div> -->
+                        
+						<!-- <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Register</button>
+                        </div> -->
+
+					<!-- Login1.css -->	
+          
+					<div style="width:50%" class="container-login100-form-btn">
+						
+      <button class="login100-form-btn" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
+				Review
+			</button>
+					</div>
+          </form>
+		  @foreach($errors->all() as $err)
+		{{$err}} <br>
+	@endforeach
+</div>
+</div>
+
+
+      </div>
     <!-- ======= Contact Section ======= -->
     
       <div class="container" data-aos="fade-up">

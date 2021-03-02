@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Validator;
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserUpdateRequest;
 
 class CHomeController extends Controller
 {
@@ -97,7 +98,7 @@ class CHomeController extends Controller
     }
 
 
-    public function update($id, Request $req){
+    public function update($id, UserUpdateRequest $req){
 
         $user = User::find($id);
         
@@ -106,6 +107,7 @@ class CHomeController extends Controller
         $user->password = $req->password;
         $user->dept     = $req->dept;
         $user->type     = $req->type;
+        $user->cgpa     = $req->cgpa;
         $user->save();
 
         return redirect()->route('home.Cuserlist');

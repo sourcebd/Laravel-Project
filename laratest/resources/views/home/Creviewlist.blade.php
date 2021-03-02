@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | Customer-Delete User</title>
+  <title>E-Pay | Customer-Review List</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -65,7 +65,7 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('home.Cuserlist')}}">E<span>Pay</span></a></h1>
+        <h1><a href="{{route('home.Creviewuserlist')}}">E<span>Pay</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>
@@ -73,7 +73,6 @@
       <nav id="navbar" class="navbar">
         <ul>
         <li><a class="nav-link scrollto" href="{{route('home.Ccreate')}}">Create User</a></li>
-        <li><a class="nav-link scrollto" href="{{route('home.Creviewuserlist')}}">Review List</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
           <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
           </li>
@@ -88,7 +87,7 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>Delete {{$user['name']}}'s details<br><span style="color: red; text-decoration:none"></span></h2>
+      <h2>Review List<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
       <div>
         <a href="{{route('home.Cuserlist')}}" class="btn-get-started scrollto">User List</a>
       </div>
@@ -111,7 +110,7 @@
     <!-- ======= Services Section ======= -->
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Remove User</h2>
+          <h2>Feedback List</h2>
         </div>
 
     <section id="contact">
@@ -119,54 +118,35 @@
  
                 <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-        Remove unwanted Items
+        You can add, modify, remove your opinion from here
 					</span>
 
-        <table border="0" style="width: 100%; min-height: 90vh">
-         <tr>
-					<td colspan="2">
-						<img src="{{asset('/upload')}}/{{$user['profile_img']}}" width="100px" height="100px"> </td>
-				</tr>
+          <table border="0" style="width: 100%; min-height: 100vh">
         <tr>
-					<td>Name</td>
-					<td>{{$user['name']}}</td>
-				</tr>
-				<tr>
-					<td>Username</td>
-					<td>{{ $user['username']}}</td>
-				</tr>
-				<tr>
-					<td>Password</td>
-					<td>{{ $user['password']}}</td>
-				</tr>
-                <tr>
-					<td>CGPA</td>
-					<td>{{ $user['cgpa'] }}</td>
-				</tr>
-				<tr>
-					<td>Department</td>
-					<td>{{ $user['dept'] }}</td>
-				</tr>
+            <td>Id&nbsp;&nbsp;</td>
+            <td>Username&nbsp;&nbsp;</td>
+            <td>Feedback&nbsp;&nbsp;</td>
+            <td>Action&nbsp;&nbsp;</td>
+        </tr>
+
+        @for($i=0; $i < count($list); $i++)
         <tr>
-					<td>Type</td>
-					<td>{{ $user['type'] }}</td>
-				</tr>
-				<tr>
-					<td>
-						<h3>Are you sure?</h3>
-					</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>
-						<form method="post">
-							@csrf
-							<input type="submit" name="submit" style="width:80px; background-color:darkblue; color:white; border-radius:50px; padding:10px" value="Confirm">
-						</form>
-					</td>
-					<td></td>
-				</tr>
-			</table>
+            <td>{{ $list[$i]['userId'] }}</td>
+            <td>{{ $list[$i]['username'] }}</td>
+            <td>{{ $list[$i]['feedback'] }}</td>
+            <td>
+                <a href="{{ route('home.Creviewedit', [$list[$i]['userId']]) }}">Send</a>
+                <a href="/E-Pay/home/details/review/customer/{{ $list[$i]['userId'] }}">Details</a>
+            </td>
+        </tr>
+        </div>
+        </div>
+        </section>
+        @endfor
+    </table>
+    {{session('msg')}}
+
+      </div>
     <!-- ======= Contact Section ======= -->
     
       <div class="container" data-aos="fade-up">
