@@ -42,7 +42,7 @@ class CReviewController extends Controller
     }
 
 
-    public function update($id, ReviewRequest $req){
+    public function update($id, Request $req){
 
         $user = User::find($id);
         

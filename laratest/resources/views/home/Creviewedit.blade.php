@@ -130,7 +130,7 @@
                                 <div class="input-group">
                                     <label class="label">Date of Reviewing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4 js-datepicker" type="date" name="dor" value="{{$user['reviewdate']}}">
+                                        <input class="input--style-4 js-datepicker" type="date" name="dor">
                                         <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                     </div>
                                 </div>
@@ -140,7 +140,7 @@
                                     <label class="label">Review&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                     <div class="p-t-10">
                                         <label class="radio-container m-r-45">Satisfactory
-                                            <input type="radio" checked="checked" name="review" value="Satisfactory">
+                                            <input type="radio" name="review" value="Satisfactory">
                                             <span class="checkmark"></span>
                                         </label>
                                         <label class="radio-container">It's Okay

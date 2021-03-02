@@ -122,7 +122,7 @@
         You can add, modify, remove your opinion from here
 					</span>
 
-          <table border="0" style="width: 100%; min-height: 100vh">
+          <table border="0" style="width: 100%; min-height: 200vh">
         <tr>
             <td>Id&nbsp;&nbsp;</td>
             <td>Username&nbsp;&nbsp;</td>
