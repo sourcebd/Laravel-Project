@@ -73,6 +73,7 @@
       <nav id="navbar" class="navbar">
         <ul>
         <li><a class="nav-link scrollto" href="{{route('home.Ccreate')}}">Create User</a></li>
+        <li><a class="nav-link scrollto" href="{{route('home.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
           <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
           </li>
