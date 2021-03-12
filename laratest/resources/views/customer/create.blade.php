@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | Customer-Home</title>
+  <title>E-Pay | Customer-Customer</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -48,7 +48,7 @@
   <section id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">nativetube71@gmail.com</a></i>
+        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:epay.management.21@gmail.com">EPay@gmail.com</a></i>
         <i class="bi bi-phone d-flex align-items-center ms-4"><a href="tel:+8801869510882">+880 186 510882</a></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
@@ -65,14 +65,16 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('home.customer')}}">E<span>Pay</span></a></h1>
+        <h1><a href="{{route('customer.create')}}">E<span>Pay</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-        <li><a class="nav-link scrollto" href="{{route('home.Ccreate')}}">Create User</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.reviewlist')}}">Review List</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
           <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
           </li>
@@ -87,10 +89,9 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>Welcome Home!<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
+      <h2>Create New Customer<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
       <div>
-        <a href="{{route('home.Cuserlist')}}" class="btn-get-started scrollto">User List</a>
-        <a href="{{route('home.Creviewuserlist')}}" class="btn-get-started scrollto">Review List</a>
+        <a href="{{route('customer.userlist')}}" class="btn-get-started scrollto">Customer Profile</a>
       </div>
     </div>
 
@@ -111,7 +112,7 @@
     <!-- ======= Services Section ======= -->
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Other</h2>
+          <h2>Assign Customer</h2>
         </div>
 
     <section id="contact">
@@ -119,66 +120,152 @@
  
                 <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-						Other Forms will be here
+						After assigning check out if the details of Customer are absolutely correct
 					</span>
 
-        <form method="POST" enctype="multipart/form-data">
+          <form method="POST" enctype="multipart/form-data">
 					@csrf
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Date&nbsp;&nbsp;</label>
+                                    <label class="label">Username</label>
+                                    <input class="input--style-4" type="text" name="username" value="{{old('username')}}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Password</label>
+                                    <input class="input--style-4" type="password" name="password" value="{{old('password')}}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Name</label>
+                                    <input class="input--style-4" type="text" name="name" value="{{old('name')}}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Date of Birth</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4 js-datepicker" type="date" name="dor" value="{{old('reviewdate')}}">
+                                        <input class="input--style-4 js-datepicker" type="date" name="dob" value="{{old('dob')}}">
                                         <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
+                        </div>
+                                <div class="input-group">
+                                    <label class="label">Email</label>
+                                    <input class="input--style-4" type="text" name="email" value="{{old('email')}}">
+                                </div>
+                        <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Other&nbsp;&nbsp;</label>
-                                    <div class="p-t-10">
-                                        <label class="radio-container m-r-45">Satisfactory
-                                            <input type="radio" checked="checked" name="review" value="Satisfactory">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        <label class="radio-container">It's Okay
-                                            <input type="radio" name="review" value="It's Okay">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        <label class="radio-container">Not Satisfactory
-                                            <input type="radio" name="review" value="Not Satisfactory">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
+                                    <label class="label">Father/Spouse Name</label>
+                                    <input class="input--style-4" type="text" name="father" value="{{old('father')}}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Mother Name</label>
+                                    <input class="input--style-4" type="text" name="mother" value="{{old('mother')}}">
                                 </div>
                             </div>
                         </div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Other</label>
-                                    <input class="input--style-4" type="text" rows="5" name="feedback" value="{{old('feedback')}}">
+                                    <label class="label">Address</label>
+                                    <input class="input--style-4" type="text" name="addr" value="{{old('addr')}}">
                                 </div>
                             </div>
-                            <!-- <div class="col-2">
+                            <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">CGPA</label>
-                                    <input class="input--style-4" type="text" name="cgpa" value="{{old('cgpa')}}">
+                                    <label class="label">Phone Number</label>
+                                    <input class="input--style-4" type="text" name="phone" value="{{old('phone')}}">
                                 </div>
                             </div>
                         </div>
-                        <div class="input-group">
-                            <label class="label">Type&nbsp;&nbsp;</label>
+                        <!-- <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Birthday</label>
+                                    <div class="input-group-icon">
+                                        <input class="input--style-4 js-datepicker" type="text" name="birthday">
+                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Gender</label>
+                                    <div class="p-t-10">
+                                        <label class="radio-container m-r-45">Male
+                                            <input type="radio" checked="checked" name="gender">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">Female
+                                            <input type="radio" name="gender">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="row row-space">
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Gender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                    <div class="p-t-10">
+                                        <label class="radio-container m-r-45">Male
+                                            <input type="radio" name="gender" value="Male">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">Female
+                                            <input type="radio" name="gender" value="Female">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">Others
+                                            <input type="radio" name="gender" value="Others">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                            <div class="input-group">
+                            <label class="label">Blood Group&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                             <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="type">
+                                <select name="blood">
                                     <option disabled="disabled" selected="selected">Choose option</option>
-                                    <option value="Admin">Admin</option>
-                                    <option value="User">User</option>
+                                    <option value="A+">A+</option>
+                                    <option value="B+">B+</option>
+                                    <option value="O-">O-</option>
+                                    <option value="AB+">AB+</option>
                                 </select>
                                 <div class="select-dropdown"></div>
                             </div>
-                        </div> -->
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label class="label">User Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="type">
+                                    <option disabled="disabled" selected="selected">Choose option</option>
+                                    <option value="Customer">Customer</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="Service Provider">Service Provider</option>
+                                    <option value="Desk Manager">Desk Manager</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">NID Number</label>
+                                    <input class="input--style-4" type="text" name="nid" value="{{old('nid')}}">
+                                </div>
+                        </div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -196,8 +283,8 @@
 					<div style="width:50%" class="container-login100-form-btn">
 						
             <button class="login100-form-btn" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-				Other
-			</button>
+							Assign
+						</button>
 					</div>
           </form>
           @foreach($errors->all() as $err)
@@ -238,7 +325,7 @@
             <div class="contact-email">
               <i class="bi bi-envelope"></i>
               <h3>Email</h3>
-              <p><a href="https://sourcebd.github.io/nafi.com/">nafi.com</a></p>
+              <p><a href="mailto:epay.management.21@gmail.com">EPay@gmail.com</a></p>
             </div>
           </div>
 

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | Customer-Edit User</title>
+  <title>E-Pay | Customer-Review Details</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -48,7 +48,7 @@
   <section id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">nativetube71@gmail.com</a></i>
+        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:epay.management.21@gmail.com">EPay@gmail.com</a></i>
         <i class="bi bi-phone d-flex align-items-center ms-4"><a href="tel:+8801869510882">+880 186 510882</a></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
@@ -65,16 +65,17 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('home.Cuserlist')}}">E<span>Pay</span></a></h1>
+        <h1><a href="{{route('customer.userlist')}}">E<span>Pay</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-        <li><a class="nav-link scrollto" href="{{route('home.Ccreate')}}">Create User</a></li>
-		    <li><a class="nav-link scrollto" href="{{route('home.Creviewuserlist')}}">Review List</a></li>
-        <li><a class="nav-link scrollto" href="{{route('home.customer')}}">Home</a></li>
+        <!-- <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Create Customer</a></li> -->
+        <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.userlist')}}">Customer Profile</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
           <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
           </li>
@@ -89,9 +90,9 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>Edit {{$user['name']}}'s details<br><span style="color: red; text-decoration:none"></span></h2>
+      <h2>{{$review['username']}}'s Review Details<br><span style="color: red; text-decoration:none"></span></h2>
       <div>
-        <a href="{{route('home.Cuserlist')}}" class="btn-get-started scrollto">User List</a>
+        <a href="{{route('customer.reviewlist')}}" class="btn-get-started scrollto">Review List</a>
       </div>
     </div>
 
@@ -112,7 +113,7 @@
     <!-- ======= Services Section ======= -->
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Modify User</h2>
+          <h2>Feedback Details</h2>
         </div>
 
     <section id="contact">
@@ -120,80 +121,29 @@
  
                 <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-						Edit Item details
+        Here are the details of your opinion
 					</span>
 
-        <form method="POST" enctype="multipart/form-data">
-					@csrf
-                     <div class="row row-space">
-                          <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Username</label>
-                                    <input class="input--style-4" type="text" name="username" value="{{$user['username']}}">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Password</label>
-                                    <input class="input--style-4" type="password" name="password" value="{{$user['password']}}">
-                                </div>
-                            </div>
-                        </div>
-                     <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Name</label>
-                                    <input class="input--style-4" type="text" name="name" value="{{$user['name']}}">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Department</label>
-                                    <input class="input--style-4" type="text" name="dept" value="{{$user['dept']}}">
-                                </div>
-                            </div>
-                     </div>
-                     <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">CGPA</label>
-                                    <input class="input--style-4" type="text" name="cgpa" value="{{$user['cgpa']}}">
-                                </div>
-                           </div>
-                           <div class="input-group">
-                            <label class="label">Type&nbsp;&nbsp;</label>
-                              <div class="rs-select2 js-select-simple select--no-search">
-                                <select name='type'>
-                                <option value="Admin" @if($user['type'] == 'Admin') selected @endif > ADMIN </option>
-                                <option value="User"  @if($user['type'] == 'User') selected @endif > USER </option>
-                                </select>
-                              <div class="select-dropdown"></div>
-                            </div>
-                          </div>
-                        </div>
-                        
-                            
-                        
-						<!-- <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue" type="submit">Register</button>
-                        </div> -->
+        <table border="0" style="width: 100%; min-height: 70vh">
+        <tr>
+					<td colspan="2">
+						<img src="{{asset('/upload')}}/{{$review['profile_img']}}" width="100px" height="100px"> </td>
+				</tr>
+				<tr>
+					<td>{{ $review['username']}}</td>
+				</tr>
+				<tr>
+					<td>{{ $review['reviewdate']}}</td>
+				</tr>
+        <tr>
+					<td>{{ $review['review'] }}</td>
+				</tr>
+				<tr>
+					<td>{{ $review['feedback'] }}</td>
+				</tr>
+        <tr><td><br></td></tr>
 
-					<!-- Login1.css -->	
-          
-					<div style="width:50%" class="container-login100-form-btn">
-						
-      <button class="login100-form-btn" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-				Update
-			</button>
-					</div>
-          </form>
-		  @foreach($errors->all() as $err)
-		{{$err}} <br>
-	@endforeach
-</div>
-</div>
-
-
+			</table>
     <!-- ======= Contact Section ======= -->
     
       <div class="container" data-aos="fade-up">
@@ -224,7 +174,7 @@
             <div class="contact-email">
               <i class="bi bi-envelope"></i>
               <h3>Email</h3>
-              <p><a href="https://sourcebd.github.io/nafi.com/">nafi.com</a></p>
+              <p><a href="mailto:epay.management.21@gmail.com">EPay@gmail.com</a></p>
             </div>
           </div>
 

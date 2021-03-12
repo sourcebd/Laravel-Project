@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Psy\Command\DumpCommand;
-use App\User;
+use App\Customer;
 use Validator;
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\CustomerRequest;
 
 class CRegController extends Controller
 {
@@ -17,7 +17,7 @@ class CRegController extends Controller
     }
 
     // All 3 ways of Validation-> public function store(Request $req){
-    public function store(UserRequest $req){ // This Validation used by Requests folder
+    public function store(CustomerRequest $req){ // This Validation used by Requests folder
     
     /* 1.
             $this->validate($req, [
@@ -59,16 +59,22 @@ class CRegController extends Controller
 
             $file->move('upload', $filename);
 
-        $user = new User();
-        $user->username = $req->username;
-        $user->password = $req->password;
-        $user->name = $req->name;
-        $user->dept = $req->dept;
-        $user->cgpa = $req->cgpa;
-        $user->type = $req->type;
-        $user->profile_img = $filename;
-
-        $user-> save();
+            $user = new Customer();
+            $user->username     = $req->username;
+            $user->password     = $req->password;
+            $user->email        = $req->email;
+            $user->name         = $req->name;
+            $user->dob          = $req->dob;
+            $user->father_name  = $req->father;
+            $user->mother_name  = $req->mother;
+            $user->gender       = $req->gender;
+            $user->blood_group  = $req->blood;
+            $user->address      = $req->addr;
+            $user->phone       = $req->phone;
+            $user->type         = $req->type;
+            $user->nid_no       = $req->nid;
+            $user->profile_img  = $filename;
+            $user->save();
         
         $req->session()->flash('msg', 'Registration is successful! Please login...');
         return redirect()->route('login.customer');

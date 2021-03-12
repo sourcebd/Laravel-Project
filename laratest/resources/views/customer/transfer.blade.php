@@ -1,51 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Colorlib Templates">
-    <meta name="author" content="Colorlib">
-    <meta name="keywords" content="Colorlib Templates">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <!-- Title Page-->
-    <title>E-Pay | Customer-Registration</title>
+  <title>E-Pay | Customer-Transfer Money</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
-    <!-- Icons font CSS-->
-    <link rel="icon" type="image/png" href="{{asset('images/icons/favicon.png')}}">
-    <link href="{{asset('vendor/mdi-font/css/material-design-iconic-font.min.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('vendor/font-awesome-4.7/css/font-awesome.min.css')}}" rel="stylesheet" media="all">
-    <!-- Font special for pages-->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <!-- Vendor CSS-->
-    <link href="{{asset('vendor/select2/select2.min.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('vendor/datepicker/daterangepicker.css')}}" rel="stylesheet" media="all">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
 
-    <!-- Main CSS-->
-    <link href="{{asset('css/Registration.css')}}" rel="stylesheet" media="all">
-	<link href="{{asset('css/login1.css')}}" rel="stylesheet" media="all">
-    <div>
-	<h1><strong><span style="font-size:40px; font-family: Sans-Serif; color:darkblue">E</span><span style="font-size:40px; font-family: Sans-Serif; color:rgb(81, 219, 187)">Pay</span></strong></h1>
-    </div>
+  <!-- Vendor CSS Files -->
+  <link href="{{asset('vendor/aos/aos.css')}}" rel="stylesheet">
+  <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{asset('vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+  <link href="{{asset('vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+  <link href="{{asset('vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
+  <link href="{{asset('vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{asset('css/MainPage.css')}}" rel="stylesheet">
+  <link href="{{asset('css/Create.css')}}" rel="stylesheet">
+  <link href="{{asset('css/CreateButton.css')}}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Reveal - v4.0.1
+  * Template URL: https://bootstrapmade.com/reveal-bootstrap-corporate-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
 
 <body>
 
-<iframe src="{{asset('music/RunicPower.mp3')}}" allow="autoplay" style="display: none"></iframe>
+<!-- <iframe src="{{asset('music/RunicPower.mp3')}}" allow="autoplay" style="display: none"></iframe>
 <audio id="player" autoplay loop>
     <source src="{{asset('music/RunicPower.mp3')}}" type="audio/mp3">
-</audio>
+</audio> -->
 
-    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
-        <div class="wrapper wrapper--w680">
-            <div class="card card-4">
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:epay.management.21@gmail.com">EPay@gmail.com</a></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4"><a href="tel:+8801869510882">+880 186 510882</a></i>
+      </div>
+      <div class="social-links d-none d-md-flex align-items-center">
+        <a href="https://twitter.com/Nafi71340800" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.facebook.com/nafi.king16/" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/dauntless_nafi/" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/nafi-mahmud-350141185/" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+      </div>
+    </div>
+  </section><!-- End Top Bar-->
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-between">
+
+      <div id="logo">
+        <h1><a href="{{route('customer.create')}}">E<span>Pay</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+        <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.reviewlist')}}">Review List</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
+        <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
+          <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= hero Section ======= -->
+  <section id="hero">
+
+    <div class="hero-content" data-aos="fade-up">
+      <h2>Transfer Money<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
+      <div>
+        <a href="{{route('customer.userlist')}}" class="btn-get-started scrollto">Customer Profile</a>
+      </div>
+    </div>
+
+    <div class="hero-slider swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-image: url('img/hero-carousel/1.jpg');"></div>
+        <div class="swiper-slide" style="background-image: url('img/hero-carousel/2.jpg');"></div>
+        <div class="swiper-slide" style="background-image: url('img/hero-carousel/3.jpg');"></div>
+        <div class="swiper-slide" style="background-image: url('img/hero-carousel/4.jpg');"></div>
+        <div class="swiper-slide" style="background-image: url('img/hero-carousel/5.jpg');"></div>
+      </div>
+    </div>
+
+  </section><!-- End Hero Section -->
+
+  <main id="main">
+<br>
+    <!-- ======= Services Section ======= -->
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Transfer Money</h2>
+        </div>
+
+    <section id="contact">
+      <div class="container">
+ 
                 <div class="card-body">
-				<span class="login100-form-title">
-						Customer Registration
+				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
+						After transfering money check out if the details of transaction are absolutely correct
 					</span>
 
-                    <form method="POST" enctype="multipart/form-data">
+          <form method="POST" enctype="multipart/form-data">
 					@csrf
                         <div class="row row-space">
                             <div class="col-2">
@@ -68,17 +146,14 @@
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Date of Birth</label>
+                                    <label class="label">Date of Birth&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                     <div class="input-group-icon">
                                         <input class="input--style-4 js-datepicker" type="date" name="dob" value="{{old('dob')}}">
+                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                                <div class="input-group">
-                                    <label class="label">Email</label>
-                                    <input class="input--style-4" type="text" name="email" value="{{old('email')}}">
-                                </div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -93,6 +168,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -107,6 +183,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <!-- <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -136,7 +213,7 @@
                         <div class="row row-space">
                         <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Gender</label>
+                                    <label class="label">Gender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                     <div class="p-t-10">
                                         <label class="radio-container m-r-45">Male
                                             <input type="radio" name="gender" value="Male">
@@ -157,7 +234,7 @@
                             <div class="input-group">
                             <label class="label">Blood Group&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                             <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="blood">
+                                <select name="type">
                                     <option disabled="disabled" selected="selected">Choose option</option>
                                     <option value="A+">A+</option>
                                     <option value="B+">B+</option>
@@ -169,7 +246,7 @@
                             </div>
                         </div>
                         <div class="input-group">
-                            <label class="label">User Type</label>
+                            <label class="label">User Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                             <div class="rs-select2 js-select-simple select--no-search">
                                 <select name="type">
                                     <option disabled="disabled" selected="selected">Choose option</option>
@@ -200,49 +277,93 @@
                         </div> -->
 
 					<!-- Login1.css -->	
+          
 					<div style="width:50%" class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Register
+						
+            <button class="login100-form-btn" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
+							Assign
 						</button>
 					</div>
+          </form>
+          @foreach($errors->all() as $err)
+		{{$err}} <br>
+	@endforeach
+</div>
+</div>
 
-					<!-- Login1.css -->
-					<div class="text-center p-t-136">
-						<a class="txt2" style="text-decoration:none" href="{{route('login.customer')}}">
-							Access your Account
-							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-						</a>
-					</div>
-                    <div class="text-center p-t-136">
-						<a class="txt2" style="text-decoration:none" href="{{route('main.index')}}">
-							Home
-							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-						</a>
-					</div>
-                    </form>
 
-                    @foreach($errors->all() as $err)
-                        {{$err}} <br>
-                    @endforeach
-
-                </div>
-            </div>
+      </div>
+    <!-- ======= Contact Section ======= -->
+    
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Contact to Admin</h2>
+          <p><strong><span style="color:darkblue">E</span><span style="color:green">-Pay</span></strong> responses as soon as possible when when we are active. Feel free to discuss with us.</p>
         </div>
+
+        <div class="row contact-info">
+
+          <div class="col-md-4">
+            <div class="contact-address">
+              <i class="bi bi-geo-alt"></i>
+              <h3>Address</h3>
+              <address>Dhaka, Bangladesh</address>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-phone">
+              <i class="bi bi-phone"></i>
+              <h3>Phone Number</h3>
+              <p><a href="tel:+8801869510882">+880 186 9510882</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-email">
+              <i class="bi bi-envelope"></i>
+              <h3>Email</h3>
+              <p><a href="mailto:epay.management.21@gmail.com">EPay@gmail.com</a></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        Copyright  &copy; 2021 | <strong><span style="color:darkblue">E</span><span style="color:green">-Pay</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!--
+        All the links in the footer should remain intact.
+        You can delete the links only if you purchased the pro version.
+        Licensing information: https://bootstrapmade.com/license/
+        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Reveal
+      -->
+        Powered by <a href="https://github.com/sourcebd/Laravel-Project"><strong><span style="color:darkblue">E</span><span style="color:green">-Pay</span></strong> Team</a>
+      </div>
     </div>
+  </footer><!-- End Footer -->
 
-    <!-- Jquery JS-->
-    <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
-    <!-- Vendor JS-->
-    <script src="{{asset('vendor/select2/select2.min.js')}}"></script>
-    <script src="{{asset('vendor/datepicker/moment.min.js')}}"></script>
-    <script src="{{asset('vendor/datepicker/daterangepicker.js')}}"></script>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-    <!-- Main JS-->
-    <script src="{{asset('js/Registration.js')}}"></script>
-    <script src="{{asset('js/login.js')}}"></script>
-	
+  <!-- Vendor JS Files -->
+  <script src="{{asset('vendor/aos/aos.js')}}"></script>
+  <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{asset('vendor/glightbox/js/glightbox.min.js')}}"></script>
+  <script src="{{asset('vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{asset('vendor/php-email-form/validate.js')}}"></script>
+  <script src="{{asset('vendor/swiper/swiper-bundle.min.js')}}"></script>
 
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+  <!-- Template Main JS File -->
+  <script src="{{asset('js/MainPage.js')}}"></script>
+
+</body>
 
 </html>
-<!-- end document-->

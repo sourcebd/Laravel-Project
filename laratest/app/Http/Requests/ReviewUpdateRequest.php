@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ReviewRequest extends FormRequest
+class ReviewUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -55,9 +55,8 @@ class ReviewRequest extends FormRequest
             'myfile.mimes' => "Profile Picture should be in jpeg, png, jpg, gif, svg format...",
 
             'myfile.max' => "The size of Profile Picture must be lower than 2048 kb...",
-
+            
             'review.required' => "Review option must be selected...",
-
 
         ];
     }

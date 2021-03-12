@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Review extends Model
 {
-    protected $table = 'user_table';
+    protected $table = null;
     public $timestamps = false;
-    protected $primaryKey = 'userId';
+    protected $primaryKey = 'reviewId';
 }

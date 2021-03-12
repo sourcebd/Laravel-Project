@@ -30,31 +30,37 @@ Route::get('/E-Pay/logout/customer', 'CLogoutController@index')->name('logout.in
 
 Route::group(['middleware'=>'sess'],function(){
 /* Customer */
-    Route::get('/E-Pay/home/customer', 'CHomeController@index')->name('home.customer');  /* ->middleware('sess'); */
+    Route::get('/E-Pay/home/customer', 'CHomeController@index')->name('customer.customer');  /* ->middleware('sess'); */
     //Route::get('/home', ['uses'=>'HomeController@index']);
 
-    Route::get('/E-Pay/home/create/customer', 'CHomeController@create')->name('home.Ccreate');
+    Route::get('/E-Pay/home/create/customer', 'CHomeController@create')->name('customer.create');
     Route::post('/E-Pay/home/create/customer', 'CHomeController@store');
 
-    Route::get('/E-Pay/home/userlist/customer', 'CHomeController@userlist')->name('home.Cuserlist');
+    Route::get('/E-Pay/home/profile/customer', 'CHomeController@userlist')->name('customer.userlist');
 
-    Route::get('/E-Pay/home/edit/customer/{id}', 'CHomeController@edit')->name('home.Cedit');
+    Route::get('/E-Pay/home/edit/customer/{id}', 'CHomeController@edit')->name('customer.edit');
     Route::post('/E-Pay/home/edit/customer/{id}', 'CHomeController@update');
 
-    Route::get('/E-Pay/home/details/customer/{id}', 'CHomeController@show')->name('home.Cshow');
+    Route::get('/E-Pay/home/details/customer/{id}', 'CHomeController@show')->name('customer.show');
 
 /* Customer Review */
 
-    Route::get('/E-Pay/home/edit/review/customer/{id}', 'CReviewController@edit')->name('home.Creviewedit');
+    Route::get('/E-Pay/home/create/review/customer', 'CReviewController@create')->name('customer.reviewcreate');
+    Route::post('/E-Pay/home/create/review/customer', 'CReviewController@store');
+
+    Route::get('/E-Pay/home/list/review/customer', 'CReviewController@list')->name('customer.reviewlist');
+
+    Route::get('/E-Pay/home/edit/review/customer/{id}', 'CReviewController@edit')->name('customer.reviewedit');
     Route::post('/E-Pay/home/edit/review/customer/{id}', 'CReviewController@update');
 
-    Route::get('/E-Pay/home/list/review/customer', 'CReviewController@userlist')->name('home.Creviewuserlist');
+    Route::get('/E-Pay/home/delete/review/customer/{id}', 'CReviewController@delete')->name('customer.reviewdelete');
+    Route::post('/E-Pay/home/delete/review/customer/{id}', 'CReviewController@destroy');
 
-    Route::get('/E-Pay/home/details/review/customer/{id}', 'CReviewController@show')->name('home.Creviewshow');
+    Route::get('/E-Pay/home/details/review/customer/{id}', 'CReviewController@show')->name('customer.reviewshow');
 
     Route::group(['middleware'=>'admin'],function(){
 
-    Route::get('/E-Pay/home/delete/customer/{id}', 'CHomeController@delete')->name('home.Cdelete');
+    Route::get('/E-Pay/home/delete/customer/{id}', 'CHomeController@delete')->name('customer.delete');
     Route::post('/E-Pay/home/delete/customer/{id}', 'CHomeController@destroy');
 
     });

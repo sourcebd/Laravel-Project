@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | Customer-User List</title>
+  <title>E-Pay | Customer-Edit Review</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -48,7 +48,7 @@
   <section id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">nativetube71@gmail.com</a></i>
+        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:epay.management.21@gmail.com">EPay@gmail.com</a></i>
         <i class="bi bi-phone d-flex align-items-center ms-4"><a href="tel:+8801869510882">+880 186 510882</a></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
@@ -65,15 +65,17 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('home.Cuserlist')}}">E<span>Pay</span></a></h1>
+        <h1><a href="{{route('customer.reviewlist')}}">E<span>Pay</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-        <li><a class="nav-link scrollto" href="{{route('home.Ccreate')}}">Create User</a></li>
-        <li><a class="nav-link scrollto" href="{{route('home.customer')}}">Home</a></li>
+        <!-- <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Create Customer</a></li> -->
+        <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
+		    <li><a class="nav-link scrollto" href="{{route('customer.userlist')}}">Customer Profile</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
           <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
           </li>
@@ -88,9 +90,9 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>User List<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
+      <h2>Edit {{$review['name']}}'s Review<br><span style="color: red; text-decoration:none"></span></h2>
       <div>
-        <a href="{{route('home.Creviewuserlist')}}" class="btn-get-started scrollto">Review List</a>
+        <a href="{{route('customer.reviewlist')}}" class="btn-get-started scrollto">Review List</a>
       </div>
     </div>
 
@@ -111,7 +113,7 @@
     <!-- ======= Services Section ======= -->
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>User List</h2>
+          <h2>Modify Feedback</h2>
         </div>
 
     <section id="contact">
@@ -119,36 +121,101 @@
  
                 <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-        You can add, modify, remove Items from here
+						Modify your opinion
 					</span>
 
-          <table border="0" style="width: 100%; min-height: 35vh">
-        <tr>
-            <td>Id</td>
-            <td>Username</td>
-            <td>Password</td>
-            <td>Type</td>
-            <td>Action</td>
-        </tr>
+        <form method="POST" enctype="multipart/form-data">
+					@csrf
 
-        @for($i=0; $i < count($list); $i++)
-        <tr>
-            <td>{{ $list[$i]['userId'] }}</td>
-            <td>{{ $list[$i]['username'] }}</td>
-            <td>{{ $list[$i]['password'] }}</td>
-            <td>{{ $list[$i]['type'] }}</td>
-            <td>
-                <a href="{{ route('home.Cedit', [$list[$i]['userId']]) }}">Edit</a>
-                <a href="/E-Pay/home/delete/customer/{{ $list[$i]['userId'] }}">Delete</a>
-                <a href="/E-Pay/home/details/customer/{{ $list[$i]['userId'] }}">Details</a>
-            </td>
-        </tr>
-        </div>
-        </div>
-        </section>
-        @endfor
-    </table>
-    {{session('msg')}}
+                          <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Upload Image</label>
+                                    <input class="input--style-4" type="file" name="myfile" value="{{$review['myfile']}}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Username</label>
+                                    <input class="input--style-4" type="text" rows="5" name="username" value="{{$review['username']}}">
+                                </div>
+                            </div>
+                          </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Date of Reviewing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                    <div class="input-group-icon">
+                                        <input class="input--style-4 js-datepicker" type="date" name="dor" value="{{$review['reviewdate']}}">
+                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Review&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                    <div class="p-t-10">
+                                        <label class="radio-container m-r-45">Satisfactory
+                                            <input type="radio" name="review" value="Satisfactory">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">Its Okay
+                                            <input type="radio" name="review" value="Its Okay">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">Not Satisfactory
+                                            <input type="radio" name="review" value="Not Satisfactory">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Your Feedback</label>
+                                    <input class="input--style-4" type="text" rows="5" name="feedback" value="{{$review['feedback']}}">
+                                </div>
+                            </div>
+                            <!-- <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">CGPA</label>
+                                    <input class="input--style-4" type="text" name="cgpa" value="{{old('cgpa')}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label class="label">Type&nbsp;&nbsp;</label>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="type">
+                                    <option disabled="disabled" selected="selected">Choose option</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="User">User</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div> -->
+                        
+						<!-- <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Register</button>
+                        </div> -->
+
+					<!-- Login1.css -->	
+          
+					<div style="width:50%" class="container-login100-form-btn">
+						
+      <button class="login100-form-btn" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
+				Update
+			</button>
+					</div>
+          </form>
+		  @foreach($errors->all() as $err)
+		{{$err}} <br>
+	@endforeach
+</div>
+</div>
+
 
       </div>
     <!-- ======= Contact Section ======= -->
@@ -181,7 +248,7 @@
             <div class="contact-email">
               <i class="bi bi-envelope"></i>
               <h3>Email</h3>
-              <p><a href="https://sourcebd.github.io/nafi.com/">nafi.com</a></p>
+              <p><a href="mailto:epay.management.21@gmail.com">EPay@gmail.com</a></p>
             </div>
           </div>
 

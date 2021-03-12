@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | Customer-Review List</title>
+  <title>E-Pay | Customer-Profile</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -48,7 +48,7 @@
   <section id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">nativetube71@gmail.com</a></i>
+        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:epay.management.21@gmail.com">EPay@gmail.com</a></i>
         <i class="bi bi-phone d-flex align-items-center ms-4"><a href="tel:+8801869510882">+880 186 510882</a></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
@@ -65,15 +65,16 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('home.Creviewuserlist')}}">E<span>Pay</span></a></h1>
+        <h1><a href="{{route('customer.userlist')}}">E<span>Pay</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-        <li><a class="nav-link scrollto" href="{{route('home.Ccreate')}}">Create User</a></li>
-        <li><a class="nav-link scrollto" href="{{route('home.customer')}}">Home</a></li>
+        <!-- <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Create Customer</a></li> -->
+        <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
           <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
           </li>
@@ -88,9 +89,9 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>Review List<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
+      <h2>Customer Profile<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
       <div>
-        <a href="{{route('home.Cuserlist')}}" class="btn-get-started scrollto">User List</a>
+        <a href="{{route('customer.reviewlist')}}" class="btn-get-started scrollto">Review List</a>
       </div>
     </div>
 
@@ -111,7 +112,7 @@
     <!-- ======= Services Section ======= -->
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Feedback List</h2>
+          <h2>@for($i=0; $i < count($list); $i++){{$list[$i]['name']}}@endfor</h2>
         </div>
 
     <section id="contact">
@@ -119,33 +120,85 @@
  
                 <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-        You can add, modify, remove your opinion from here
+        Your Profile
 					</span>
 
-          <table border="0" style="width: 100%; min-height: 200vh">
+          <table border="0" style="width: 100%">
         <tr>
-            <td>Id&nbsp;&nbsp;</td>
-            <td>Username&nbsp;&nbsp;</td>
-            <td>Feedback&nbsp;&nbsp;</td>
-            <td>Action&nbsp;&nbsp;</td>
+            <td>Id</td>
+            <td>Username</td>
+            <td>Password</td>
+            <td>Type</td>
+            <td>Action</td>
         </tr>
+        <tr><td><br></td></tr>
 
         @for($i=0; $i < count($list); $i++)
         <tr>
             <td>{{ $list[$i]['userId'] }}</td>
             <td>{{ $list[$i]['username'] }}</td>
-            <td>{{ $list[$i]['feedback'] }}</td>
+            <td>{{ $list[$i]['name'] }}</td>
+            <td>{{ $list[$i]['type'] }}</td>
             <td>
-                <a href="{{ route('home.Creviewedit', [$list[$i]['userId']]) }}">Send</a>
-                <a href="/E-Pay/home/details/review/customer/{{ $list[$i]['userId'] }}">Details</a>
+                <a href="{{ route('customer.edit', [$list[$i]['userId']]) }}">Edit</a>
+                <a href="/E-Pay/home/delete/customer/{{ $list[$i]['userId'] }}">Delete</a>
+                <a href="/E-Pay/home/details/customer/{{ $list[$i]['userId'] }}">Details</a>
             </td>
         </tr>
+        <tr><td><br></td></tr>
+
+        @endfor
+
         </div>
         </div>
         </section>
-        @endfor
     </table>
+    <br>
     {{session('msg')}}
+
+      </div>
+
+<!-- ------------------------------------------------ -->
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Explore</h2>
+        </div>
+
+    <section id="contact">
+      <div class="container">
+ 
+                <div class="card-body">
+				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
+        Others Profile
+					</span>
+
+        <table border="0" style="width: 100%">
+        <tr>
+            <td>Id</td>
+            <td>Username</td>
+            <td>Name</td>
+            <td>Type</td>
+            <td>Action</td>
+        </tr>
+        <tr><td><br></td></tr>
+
+        @for($i=0; $i < count($name); $i++)
+        <tr>
+            <td>{{ $name[$i]['userId'] }}</td>
+            <td>{{ $name[$i]['username'] }}</td>
+            <td>{{ $name[$i]['name'] }}</td>
+            <td>{{ $name[$i]['type'] }}</td>
+            <td><a href="/E-Pay/home/details/customer/{{ $name[$i]['userId'] }}">Details</a></td>
+        </tr>
+        <tr><td><br></td></tr>
+
+        @endfor
+        </div>
+        </div>
+        </section>
+    </table>
+    <!-- {{session('msg')}} -->
 
       </div>
     <!-- ======= Contact Section ======= -->
@@ -178,7 +231,7 @@
             <div class="contact-email">
               <i class="bi bi-envelope"></i>
               <h3>Email</h3>
-              <p><a href="https://sourcebd.github.io/nafi.com/">nafi.com</a></p>
+              <p><a href="mailto:epay.management.21@gmail.com">EPay@gmail.com</a></p>
             </div>
           </div>
 

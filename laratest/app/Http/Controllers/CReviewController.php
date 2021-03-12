@@ -3,65 +3,159 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\Review;
 use Validator;
 use App\Http\Requests\ReviewRequest;
+use App\Http\Requests\ReviewUpdateRequest;
 
 class CReviewController extends Controller
 {
-    public function index( Request $req){
+    public function index( ReviewRequest $req){
 
         $name = "Nafi";
         $id = "123";
 
-        //return view('home.index', ['name'=> 'xyz', 'id'=>12]);
-        // return view('home.index')
+        //return view('customer.index', ['name'=> 'xyz', 'id'=>12]);
+        // return view('customer.index')
         //         ->with('name', 'Nafi')
         //         ->with('id', '12');
 
-        // return view('home.index')
+        // return view('customer.index')
         //         ->withName($name)
         //         ->withId($id);
 
-        return view('home.customer', compact('id', 'name'));
+        return view('customer.customer', compact('id', 'name'));
 
     }
 
     public function show($id){
 
-        $user = User::find($id);
-        //print_r($user);
-        return view('home.Creviewdetails')->with('user', $user);
+        $review = Review::find($id);
+        //print_r($review);
+        return view('customer.reviewdetails')->with('review', $review);
     }
 
+    
+    public function create(){
+        return view('customer.reviewcreate');
+    }
+
+    public function store(ReviewRequest $req){
+
+/*
+        $this->validate($req, [
+            'username' => 'required|max:5',
+            'password' => 'required|min:6'
+        ])->validate();*/
+
+        /*$req->validate([
+            'username' => 'required|max:5',
+            'password' => 'required|min:6'
+        ])->validate();*/
+
+        //$validation->validate();
+
+        /*$validation = Validator::make($req->all(), [
+            'username' => 'required|max:5',
+            'password' => 'required|min:6'
+        ]);
+
+        if($validation->fails()){
+         //   return redirect()->route('customer.create')->with('errors', $validation->errors());
+
+            return Back()->with('errors', $validation->errors())->withInput();            
+        }*/
+
+        if($req->hasFile('myfile')){
+            $file = $req->file('myfile');  
+            /*echo $file->getClientOriginalName()."<br>";  
+            echo $file->getClientOriginalExtension()."<br>";  
+            echo $file->getSize()."<br>";*/
+            //$file->move('upload', $file->getClientOriginalName());
+            
+            $filename = time().".".$file->getClientOriginalExtension();
+            
+            $file->move('upload', $filename);
+
+            $review = new Review();
+
+            $review->profile_img = $filename;
+            $review->username   = $req->username;
+            $review->reviewdate = $req->dor;
+            $review->review     = $req->review;
+            $review->feedback   = $req->feedback;
+            $review->save();
+
+        return redirect()->route('customer.reviewlist');
+
+        }  
+
+    }
 
     public function edit($id){
         
-        $user = User::find($id);
-        return view('home.Creviewedit')->with('user', $user);
+        $review = Review::find($id);
+        return view('customer.reviewedit')->with('review', $review);
     }
 
 
-    public function update($id, Request $req){
+    public function update($id, ReviewUpdateRequest $req){
 
-        $user = User::find($id);
+        if($req->hasFile('myfile')){
+            $file = $req->file('myfile');  
+            /*echo $file->getClientOriginalName()."<br>";  
+            echo $file->getClientOriginalExtension()."<br>";  
+            echo $file->getSize()."<br>";*/
+            //$file->move('upload', $file->getClientOriginalName());
+            
+            $filename = time().".".$file->getClientOriginalExtension();
+            
+            $file->move('upload', $filename);
+
+        $review = Review::find($id);
+
+        $review->profile_img = $filename;
+        $review->username   = $req->username;
+        $review->reviewdate = $req->dor;
+        $review->review     = $req->review;
+        $review->feedback   = $req->feedback;
+        $review->save();
+
+        return redirect()->route('customer.reviewlist');
+    }
+    }
+    
+
+    public function list(Request $req){
+
+        $name = Review::all();
+
+        $value = $req->session()->get('username');
+        $reviewlist = Review::where('username','=',$value)->get();   
+        return view('customer.reviewlist')->with('list', $reviewlist)->with('name',$name);
         
-        $user->reviewdate = $req->dor;
-        $user->review     = $req->review;
-        $user->feedback   = $req->feedback;
-        $user->save();
-
-        return redirect()->route('home.Creviewuserlist');
+        /* $reviewlist = Review::all();
+        return view('customer.reviewlist')->with('list', $reviewlist); */
     }
 
-    public function userlist(){
-        
-        $userlist = User::all();
-        //$userlist = $this->getUserlist();
-        return view('home.Creviewlist')->with('list', $userlist);
+    public function delete($id){
+
+        $review = Review::find($id);
+        return view('customer.reviewdelete')->with('review', $review);
     }
 
-    /*public function getUserlist (){
+    public function destroy($id){
+
+        if(Review::destroy($id)){
+            return redirect()->route('customer.reviewlist');
+        }else{
+            return redirect('/E-Pay/home/delete/review/customer/'.$id);
+        }
+
+    }
+
+
+    /*public function getreviewlist (){
 
         return [
                 ['id'=>1, 'name'=>'alamin', 'email'=> 'alamin@aiub.edu', 'password'=>'123'],

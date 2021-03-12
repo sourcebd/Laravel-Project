@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | Customer-User Details</title>
+  <title>E-Pay | Customer-Delete</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -48,7 +48,7 @@
   <section id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">nativetube71@gmail.com</a></i>
+        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:epay.management.21@gmail.com">EPay@gmail.com</a></i>
         <i class="bi bi-phone d-flex align-items-center ms-4"><a href="tel:+8801869510882">+880 186 510882</a></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
@@ -65,16 +65,17 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('home.Cuserlist')}}">E<span>Pay</span></a></h1>
+        <h1><a href="{{route('customer.userlist')}}">E<span>Pay</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-        <li><a class="nav-link scrollto" href="{{route('home.Ccreate')}}">Create User</a></li>
-        <li><a class="nav-link scrollto" href="{{route('home.Creviewuserlist')}}">Review List</a></li>
-        <li><a class="nav-link scrollto" href="{{route('home.customer')}}">Home</a></li>
+        <!-- <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Create Customer</a></li> -->
+        <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.reviewlist')}}">Review List</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
           <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
           </li>
@@ -89,9 +90,9 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>{{$user['name']}}'s Details<br><span style="color: red; text-decoration:none"></span></h2>
+      <h2>Delete {{$user['name']}}'s details<br><span style="color: red; text-decoration:none"></span></h2>
       <div>
-        <a href="{{route('home.Cuserlist')}}" class="btn-get-started scrollto">User List</a>
+        <a href="{{route('customer.userlist')}}" class="btn-get-started scrollto">Customer Profile</a>
       </div>
     </div>
 
@@ -112,7 +113,7 @@
     <!-- ======= Services Section ======= -->
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>User Details</h2>
+          <h2>Remove Customer</h2>
         </div>
 
     <section id="contact">
@@ -120,11 +121,11 @@
  
                 <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-        Here are the details of Item
+        Remove unwanted customers
 					</span>
 
-        <table border="0" style="width: 100%; min-height: 70vh">
-        <tr>
+        <table border="0" style="width: 100%; min-height: 120vh">
+         <tr>
 					<td colspan="2">
 						<img src="{{asset('/upload')}}/{{$user['profile_img']}}" width="100px" height="100px"> </td>
 				</tr>
@@ -140,18 +141,63 @@
 					<td>Password</td>
 					<td>{{ $user['password']}}</td>
 				</tr>
-                <tr>
-					<td>CGPA</td>
-					<td>{{ $user['cgpa'] }}</td>
-				</tr>
-				<tr>
-					<td>Department</td>
-					<td>{{ $user['dept'] }}</td>
+        <tr>
+					<td>Email</td>
+					<td>{{ $user['email'] }}</td>
 				</tr>
         <tr>
-					<td>Type</td>
+					<td>Address</td>
+					<td>{{ $user['address'] }}</td>
+				</tr>
+				<tr>
+					<td>Date of Birth</td>
+					<td>{{ $user['dob'] }}</td>
+				</tr>
+        <tr>
+					<td>Father/Spouse Name</td>
+					<td>{{ $user['father_name'] }}</td>
+				</tr>
+        <tr>
+					<td>Mother Name</td>
+					<td>{{ $user['mother_name'] }}</td>
+				</tr>
+        <tr>
+					<td>Gender</td>
+					<td>{{ $user['gender'] }}</td>
+				</tr>
+        <tr>
+					<td>Blood Group</td>
+					<td>{{ $user['blood_group'] }}</td>
+				</tr>
+        <tr>
+					<td>Phone Number</td>
+					<td>{{ $user['phone'] }}</td>
+				</tr>
+        <tr>
+					<td>NID Number</td>
+					<td>{{ $user['nid_no'] }}</td>
+				</tr>
+        <tr>
+					<td>User Type</td>
 					<td>{{ $user['type'] }}</td>
 				</tr>
+				<tr>
+					<td>
+						<h3>Are you sure?</h3>
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>
+						<form method="post">
+							@csrf
+							<input type="submit" name="submit" style="width:80px; background-color:darkblue; color:white; border-radius:50px; padding:10px" value="Confirm">
+						</form>
+					</td>
+					<td></td>
+				</tr>
+        <tr><td><br></td></tr>
+
 			</table>
     <!-- ======= Contact Section ======= -->
     
@@ -183,7 +229,7 @@
             <div class="contact-email">
               <i class="bi bi-envelope"></i>
               <h3>Email</h3>
-              <p><a href="https://sourcebd.github.io/nafi.com/">nafi.com</a></p>
+              <p><a href="mailto:epay.management.21@gmail.com">EPay@gmail.com</a></p>
             </div>
           </div>
 

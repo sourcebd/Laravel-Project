@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\User;
+use App\Customer;
 use Illuminate\Support\Facades\DB;
 
 class CLoginController extends Controller
@@ -14,12 +14,12 @@ class CLoginController extends Controller
 
     public function verify(Request $req){
 
-        /* $user = User::where('password', $req->password) //Select Query using existing database
+        /* $user = Customer::where('password', $req->password) //Select Query using existing database
         ->where('username', $req->username)
         ->get();
         */
         
-        $user = DB::table('user_table')
+        $user = DB::table('customer_table')
         ->where('password', $req->password) //Select Query using DB database
         ->where('username', $req->username)
         ->get();
@@ -27,13 +27,6 @@ class CLoginController extends Controller
         if($req->username == "" || $req->password == ""){
            $req->session()->flash('msg', 'Null username or password...');
            return redirect()->route('login.customer');
-        }
-
-        elseif($req->username == "Nafi" && $req->password == "99"){
-
-            $req->session()->put('username', $req->username);
-            $req->session()->put('type', 'Admin');
-            return redirect()->route('home.customer');
         }
 
         elseif($req->username !='' && $req->password != '' && count($user)>0){
@@ -52,9 +45,9 @@ class CLoginController extends Controller
             //$req->session()->pull('name');
 
             $req->session()->put('username', $req->username);
-            $req->session()->put('type','User');
+            $req->session()->put('type','Customer');
             
-            return redirect()->route('home.customer');
+            return redirect()->route('customer.customer');
         }
         
         else{
