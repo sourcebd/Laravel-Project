@@ -133,14 +133,15 @@
 				</tr>
         <tr><td><br></td></tr>
 
-            <td>Id&nbsp;&nbsp;</td>
-            <td>Username&nbsp;&nbsp;</td>
-            <td>Email&nbsp;&nbsp;</td>
-            <td>Card Number&nbsp;&nbsp;</td>
-            <td>Bank Name&nbsp;&nbsp;</td>
-            <td>Added Amount&nbsp;&nbsp;</td>
-            <td>Deducted Amount&nbsp;&nbsp;</td>
-            <td>Balance&nbsp;&nbsp;</td>
+        <tr>
+          <td>Id&nbsp;&nbsp;</td>
+          <td>Username&nbsp;&nbsp;</td>
+          <td>Email&nbsp;&nbsp;</td>
+          <td>Card Number&nbsp;&nbsp;</td>
+          <td>Bank Name&nbsp;&nbsp;</td>
+          <td>Added Amount&nbsp;&nbsp;</td>
+          <td>Deducted Amount&nbsp;&nbsp;</td>
+          <td>Balance&nbsp;&nbsp;</td>
         </tr>
         <tr><td><br></td></tr>
 
@@ -153,9 +154,28 @@
 					<td>৳{{ $user['added']}}</td>
           <td>৳{{ $user['transferred']}}</td>
 					<td>৳{{ $user['balance'] }}</td>
+        </tr>
         <tr><td><br><br></td></tr>
 
 			</table>
+
+      <table style="width:28%; color:red; text-align:center; margin-left:38%">
+
+        <tr>
+          <td>Loan&nbsp;&nbsp;</td>
+          <td>Mobile Recharge&nbsp;&nbsp;</td>
+        </tr>
+        <tr><td><br></td></tr>
+
+        <tr>
+					<td>৳{{ $user['loan']}}</td>
+          <td>৳{{ $user['mobile_recharge']}}</td>
+        </tr>
+        <tr><td><br><br></td></tr>
+
+      </table>
+
+
     <!-- ======= Contact Section ======= -->
     
       <div class="container" data-aos="fade-up">

@@ -65,7 +65,7 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('customer.reviewlist')}}">E<span>Pay</span></a></h1>
+        <h1><a href="{{route('customer.balancelist')}}">E<span>Pay</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>

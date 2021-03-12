@@ -78,6 +78,12 @@ Route::group(['middleware'=>'sess'],function(){
     Route::get('/E-Pay/home/cash-out/balance/customer/{id}', 'CBalanceController@cashOutedit')->name('customer.cashOut');
     Route::post('/E-Pay/home/cash-out/balance/customer/{id}', 'CBalanceController@cashOutupdate');
 
+    Route::get('/E-Pay/home/loan/balance/customer/{id}', 'CBalanceController@loanedit')->name('customer.loan');
+    Route::post('/E-Pay/home/loan/balance/customer/{id}', 'CBalanceController@loanupdate');
+
+    Route::get('/E-Pay/home/mobile-recharge/balance/customer/{id}', 'CBalanceController@rechargeedit')->name('customer.recharge');
+    Route::post('/E-Pay/home/mobile-recharge/balance/customer/{id}', 'CBalanceController@rechargeupdate');
+
     Route::get('/E-Pay/home/delete/balance/customer/{id}', 'CBalanceController@delete')->name('customer.balancedelete');
     Route::post('/E-Pay/home/delete/balance/customer/{id}', 'CBalanceController@destroy');
 
