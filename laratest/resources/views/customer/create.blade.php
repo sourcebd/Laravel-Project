@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | Customer-Customer</title>
+  <title>E-Pay | Customer-Refer</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -72,8 +72,10 @@
 
       <nav id="navbar" class="navbar">
         <ul>
+        <li><a class="nav-link scrollto" href="{{route('customer.balancecreate')}}">Create Balance</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
-        <li><a class="nav-link scrollto" href="{{route('customer.reviewlist')}}">Review List</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.balancelist')}}">Balance</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.reviewlist')}}">Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
           <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
@@ -89,9 +91,9 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>Create New Customer<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
+      <h2>Refer New Customer<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
       <div>
-        <a href="{{route('customer.userlist')}}" class="btn-get-started scrollto">Customer Profile</a>
+        <a href="{{route('customer.userlist')}}" class="btn-get-started scrollto">Profile</a>
       </div>
     </div>
 
@@ -146,7 +148,7 @@
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Date of Birth</label>
+                                    <label class="label">Date of Birth&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                     <div class="input-group-icon">
                                         <input class="input--style-4 js-datepicker" type="date" name="dob" value="{{old('dob')}}">
                                         <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
@@ -260,13 +262,13 @@
                                 <div class="select-dropdown"></div>
                             </div>
                         </div>
-                        <div class="col-2">
+                        <div class="row row-space">
+                            <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">NID Number</label>
                                     <input class="input--style-4" type="text" name="nid" value="{{old('nid')}}">
                                 </div>
-                        </div>
-                        <div class="row row-space">
+                            </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Upload Image</label>
@@ -280,11 +282,10 @@
 
 					<!-- Login1.css -->	
           
-					<div style="width:50%" class="container-login100-form-btn">
-						
-            <button class="login100-form-btn" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-							Assign
-						</button>
+        <div style="width:50%" class="container-login100-form-btn">
+        <button class="login100-form-btn" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
+            Assign
+        </button>
 					</div>
           </form>
           @foreach($errors->all() as $err)
@@ -295,6 +296,9 @@
 
 
       </div>
+
+<tr><td><br></td></tr>
+
     <!-- ======= Contact Section ======= -->
     
       <div class="container" data-aos="fade-up">

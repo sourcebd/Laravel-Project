@@ -29,7 +29,11 @@ Route::get('/E-Pay/logout/customer', 'CLogoutController@index')->name('logout.in
 
 
 Route::group(['middleware'=>'sess'],function(){
+
+    Route::group(['middleware'=>'customer'],function(){
+
 /* Customer */
+
     Route::get('/E-Pay/home/customer', 'CHomeController@index')->name('customer.customer');  /* ->middleware('sess'); */
     //Route::get('/home', ['uses'=>'HomeController@index']);
 
@@ -40,6 +44,9 @@ Route::group(['middleware'=>'sess'],function(){
 
     Route::get('/E-Pay/home/edit/customer/{id}', 'CHomeController@edit')->name('customer.edit');
     Route::post('/E-Pay/home/edit/customer/{id}', 'CHomeController@update');
+
+    Route::get('/E-Pay/home/delete/customer/{id}', 'CHomeController@delete')->name('customer.delete');
+    Route::post('/E-Pay/home/delete/customer/{id}', 'CHomeController@destroy');
 
     Route::get('/E-Pay/home/details/customer/{id}', 'CHomeController@show')->name('customer.show');
 
@@ -58,12 +65,24 @@ Route::group(['middleware'=>'sess'],function(){
 
     Route::get('/E-Pay/home/details/review/customer/{id}', 'CReviewController@show')->name('customer.reviewshow');
 
-    Route::group(['middleware'=>'admin'],function(){
+    /* Customer Balance */
 
-    Route::get('/E-Pay/home/delete/customer/{id}', 'CHomeController@delete')->name('customer.delete');
-    Route::post('/E-Pay/home/delete/customer/{id}', 'CHomeController@destroy');
+    Route::get('/E-Pay/home/create/balance/customer', 'CBalanceController@create')->name('customer.balancecreate');
+    Route::post('/E-Pay/home/create/balance/customer', 'CBalanceController@store');
+
+    Route::get('/E-Pay/home/list/balance/customer', 'CBalanceController@list')->name('customer.balancelist');
+
+    Route::get('/E-Pay/home/cash-in/balance/customer/{id}', 'CBalanceController@cashInedit')->name('customer.cashIn');
+    Route::post('/E-Pay/home/cash-in/balance/customer/{id}', 'CBalanceController@cashInupdate');
+
+    Route::get('/E-Pay/home/cash-out/balance/customer/{id}', 'CBalanceController@cashOutedit')->name('customer.cashOut');
+    Route::post('/E-Pay/home/cash-out/balance/customer/{id}', 'CBalanceController@cashOutupdate');
+
+    Route::get('/E-Pay/home/delete/balance/customer/{id}', 'CBalanceController@delete')->name('customer.balancedelete');
+    Route::post('/E-Pay/home/delete/balance/customer/{id}', 'CBalanceController@destroy');
+
+    Route::get('/E-Pay/home/details/balance/customer/{id}', 'CBalanceController@show')->name('customer.balanceshow');
 
     });
-
 
 });

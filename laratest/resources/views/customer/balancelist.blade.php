@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | Customer-Delete Review</title>
+  <title>E-Pay | Customer-Balance List</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -65,7 +65,7 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('customer.userlist')}}">E<span>Pay</span></a></h1>
+        <h1><a href="{{route('customer.balancelist')}}">E<span>Pay</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>
@@ -75,8 +75,6 @@
         <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Refer Customer</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.balancecreate')}}">Create Balance</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
-        <li><a class="nav-link scrollto" href="{{route('customer.userlist')}}">Profile</a></li>
-        <li><a class="nav-link scrollto" href="{{route('customer.balancelist')}}">Balance</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
           <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
@@ -92,8 +90,9 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>Delete {{$review['username']}}'s Review<br><span style="color: red; text-decoration:none"></span></h2>
+      <h2>Balance, ৳@foreach($list as $i){{$i['balance']}}@endforeach<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
       <div>
+        <a href="{{route('customer.userlist')}}" class="btn-get-started scrollto">Profile</a>
         <a href="{{route('customer.reviewlist')}}" class="btn-get-started scrollto">Review</a>
       </div>
     </div>
@@ -115,7 +114,7 @@
     <!-- ======= Services Section ======= -->
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Remove Feedback</h2>
+          <h2>Modify Balance</h2>
         </div>
 
     <section id="contact">
@@ -123,42 +122,42 @@
  
                 <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-        Here you can remove your opinion
+        You can add or deduct money from your account
 					</span>
 
-        <table border="0" style="width: 100%; min-height: 70vh">
+          <table border="0" style="width: 100%">
         <tr>
-					<td colspan="2">
-						<img src="{{asset('/upload')}}/{{$review['profile_img']}}" width="100px" height="100px"> </td>
-				</tr>
-				<tr>
-					<td>{{ $review['username']}}</td>
-				</tr>
-				<tr>
-					<td>{{ $review['reviewdate']}}</td>
-				</tr>
-         <tr>
-					<td>{{ $review['review'] }}</td>
-				</tr>
-				<tr>
-					<td>{{ $review['feedback'] }}</td>
-				</tr>
-				<tr>
-					<td>
-						<h3>Are you sure?</h3>
-					</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>
-						<form method="post">
-							@csrf
-							<input type="submit" name="submit" style="width:80px; background-color:darkblue; color:white; border-radius:50px; padding:10px" value="Confirm">
-						</form>
-					</td>
-					<td></td>
-				</tr>
-			</table>
+            <td>Id&nbsp;&nbsp;</td>
+            <td>Username&nbsp;&nbsp;</td>
+            <td>Balance&nbsp;&nbsp;</td>
+            <td>Action&nbsp;&nbsp;</td>
+        </tr>
+        <tr><td><br></td></tr>
+
+        @for($i=0; $i < count($list); $i++)
+        <tr>
+            <td>{{ $list[$i]['id'] }}</td>
+            <td>{{ $list[$i]['username'] }}</td>
+            <td>৳{{ $list[$i]['balance'] }}</td>
+            <td>
+                <a href="{{ route('customer.cashIn', [$list[$i]['id']]) }}">Cash In</a><br>
+                <a href="{{ route('customer.cashOut', [$list[$i]['id']]) }}">Cash Out</a><br>
+                <a href="{{ route('customer.balancedelete', [$list[$i]['id']]) }}">Delete</a><br>
+                <a href="/E-Pay/home/details/balance/customer/{{ $list[$i]['id'] }}">Details</a>
+            </td>
+        </tr>
+        <tr><td><br></td></tr>
+        
+        </div>
+        </div>
+        </section>
+        @endfor
+    </table>
+    <br>
+    {{session('msg')}}
+
+      </div>
+
     <!-- ======= Contact Section ======= -->
     
       <div class="container" data-aos="fade-up">

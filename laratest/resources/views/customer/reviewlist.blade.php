@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | Customer-Review List</title>
+  <title>E-Pay | Customer-Review</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -72,7 +72,8 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-        <!-- <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Create Customer</a></li> -->
+        <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Refer Customer</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.balancecreate')}}">Create Balance</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
@@ -89,9 +90,10 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>Review List<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
+      <h2>Review<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
       <div>
-        <a href="{{route('customer.userlist')}}" class="btn-get-started scrollto">Customer Profile</a>
+        <a href="{{route('customer.userlist')}}" class="btn-get-started scrollto">Profile</a>
+        <a href="{{route('customer.balancelist')}}" class="btn-get-started scrollto">Balance</a>
       </div>
     </div>
 

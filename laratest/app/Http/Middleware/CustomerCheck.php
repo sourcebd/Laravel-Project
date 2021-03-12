@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class AdminCheck
+class CustomerCheck
 {
     /**
      * Handle an incoming request.
@@ -15,14 +15,14 @@ class AdminCheck
      */
     public function handle($request, Closure $next)
     {
-        if($request->session()->get('username') == "Nafi")
+        if($request->session()->get('type') == "Customer" )
         {
             return $next($request);
         }
         else
         {
-            $request->session()->flash('msg','Invalid request...you do not have privilege to be an Admin!');
-            return redirect()->route('customer.userlist');
+            $request->session()->flash('msg','Invalid req ... You do not have privilege to be a customer!');
+            return redirect('/home');
         }
     }
 }

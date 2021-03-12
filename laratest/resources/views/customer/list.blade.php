@@ -72,7 +72,8 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-        <!-- <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Create Customer</a></li> -->
+        <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Refer Customer</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.balancecreate')}}">Create Balance</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
@@ -89,9 +90,10 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>Customer Profile<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
+      <h2>Profile<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
       <div>
-        <a href="{{route('customer.reviewlist')}}" class="btn-get-started scrollto">Review List</a>
+        <a href="{{route('customer.balancelist')}}" class="btn-get-started scrollto">Balance</a>
+        <a href="{{route('customer.reviewlist')}}" class="btn-get-started scrollto">Review</a>
       </div>
     </div>
 

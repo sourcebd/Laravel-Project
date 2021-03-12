@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | Customer-Delete Review</title>
+  <title>E-Pay | Customer-Cash Out</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -65,7 +65,7 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('customer.userlist')}}">E<span>Pay</span></a></h1>
+        <h1><a href="{{route('customer.reviewlist')}}">E<span>Pay</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>
@@ -76,7 +76,7 @@
         <li><a class="nav-link scrollto" href="{{route('customer.balancecreate')}}">Create Balance</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.userlist')}}">Profile</a></li>
-        <li><a class="nav-link scrollto" href="{{route('customer.balancelist')}}">Balance</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.reviewlist')}}">Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
           <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
@@ -92,9 +92,9 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>Delete {{$review['username']}}'s Review<br><span style="color: red; text-decoration:none"></span></h2>
+      <h2>Cash Out for {{$user['username']}}'s Account<br><span style="color: red; text-decoration:none"></span></h2>
       <div>
-        <a href="{{route('customer.reviewlist')}}" class="btn-get-started scrollto">Review</a>
+        <a href="{{route('customer.balancelist')}}" class="btn-get-started scrollto">Balance</a>
       </div>
     </div>
 
@@ -115,7 +115,7 @@
     <!-- ======= Services Section ======= -->
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Remove Feedback</h2>
+          <h2>Deduct Amount</h2>
         </div>
 
     <section id="contact">
@@ -123,42 +123,98 @@
  
                 <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-        Here you can remove your opinion
+						Deduct money from your Balance
 					</span>
 
-        <table border="0" style="width: 100%; min-height: 70vh">
-        <tr>
-					<td colspan="2">
-						<img src="{{asset('/upload')}}/{{$review['profile_img']}}" width="100px" height="100px"> </td>
-				</tr>
-				<tr>
-					<td>{{ $review['username']}}</td>
-				</tr>
-				<tr>
-					<td>{{ $review['reviewdate']}}</td>
-				</tr>
-         <tr>
-					<td>{{ $review['review'] }}</td>
-				</tr>
-				<tr>
-					<td>{{ $review['feedback'] }}</td>
-				</tr>
-				<tr>
-					<td>
-						<h3>Are you sure?</h3>
-					</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>
-						<form method="post">
-							@csrf
-							<input type="submit" name="submit" style="width:80px; background-color:darkblue; color:white; border-radius:50px; padding:10px" value="Confirm">
-						</form>
-					</td>
-					<td></td>
-				</tr>
-			</table>
+          <form method="POST" enctype="multipart/form-data">
+					@csrf
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Upload Profile Picture</label>
+                                    <input class="input--style-4" type="file" name="myfile" value="{{$user['myfile']}}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Username</label>
+                                    <input class="input--style-4" type="text" name="username" value="{{$user['username']}}">
+                                </div>
+                            </div>
+                          </div>
+                                <div class="input-group">
+                                    <label class="label">Email</label>
+                                    <input class="input--style-4" type="text" name="email" value="{{$user['email']}}">
+                                </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Card Number</label>
+                                    <input class="input--style-4" type="text" name="card_no" value="{{$user['card_no']}}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Bank Name</label>
+                                    <input class="input--style-4" type="text" name="bank_name" value="{{$user['bank_name']}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Deduct Amount</label>
+                                    <input class="input--style-4" type="text" rows="5" name="trans" value="{{$user['trans']}}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Phone Number</label>
+                                    <input class="input--style-4" type="text" name="phone" value="{{$user['phone']}}">
+                                </div>
+                            </div>  
+                            <!-- <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">CGPA</label>
+                                    <input class="input--style-4" type="text" name="cgpa" value="{{old('cgpa')}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label class="label">Type&nbsp;&nbsp;</label>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="type">
+                                    <option disabled="disabled" selected="selected">Choose option</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="User">User</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div> -->
+                        
+						<!-- <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Register</button>
+                        </div> -->
+
+					<!-- Login1.css -->	
+          
+			<div style="width:50%" class="container-login100-form-btn">		
+      <button class="login100-form-btn" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
+				Update Balance
+			</button>
+					</div>
+          </form>
+		  @foreach($errors->all() as $err)
+		{{$err}} <br>
+	@endforeach
+</div>
+</div>
+
+
+      </div>
+
+<tr><td><br></td></tr>
+
     <!-- ======= Contact Section ======= -->
     
       <div class="container" data-aos="fade-up">

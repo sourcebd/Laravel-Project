@@ -72,7 +72,8 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-        <!-- <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Create Customer</a></li> -->
+        <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Refer Customer</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.balancecreate')}}">Create Balance</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
           <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
@@ -90,8 +91,9 @@
     <div class="hero-content" data-aos="fade-up">
       <h2>Welcome Home!<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
       <div>
-        <a href="{{route('customer.userlist')}}" class="btn-get-started scrollto">Customer Profile</a>
-        <a href="{{route('customer.reviewlist')}}" class="btn-get-started scrollto">Review List</a>
+        <a href="{{route('customer.userlist')}}" class="btn-get-started scrollto">Profile</a>
+        <a href="{{route('customer.balancelist')}}" class="btn-get-started scrollto">Balance</a>
+        <a href="{{route('customer.reviewlist')}}" class="btn-get-started scrollto">Review</a>
       </div>
     </div>
 

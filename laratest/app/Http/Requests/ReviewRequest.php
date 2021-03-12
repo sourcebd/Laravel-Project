@@ -25,7 +25,7 @@ class ReviewRequest extends FormRequest
     {
         return [
             'feedback' => 'required|min:2|bail',
-            'username' => 'required|min:3|max:30|regex:/^[a-zA-Z]+$/u',
+            'username' => 'required|min:3|max:30|regex:/[a-zA-Z0-9]/i',
             'dor'=>'required',
             'myfile' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'review'=> 'required|in:Satisfactory,Its Okay,Not Satisfactory' 
@@ -42,7 +42,7 @@ class ReviewRequest extends FormRequest
 
             'username.max' => "Username can't be more than 30 characters...",
 
-            'username.regex' => "Username must be in letter...",
+            'username.regex' => "Username must be in alphanumeric...",
 
             'feedback.required' => "Feedback can't be empty...",
 

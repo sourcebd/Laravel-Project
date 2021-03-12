@@ -72,8 +72,10 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-        <!-- <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Create Customer</a></li> -->
-        <li><a class="nav-link scrollto" href="{{route('customer.userlist')}}">Customer Profile</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Refer Customer</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.balancecreate')}}">Create Balance</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.userlist')}}">Profile</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.balancelist')}}">Balance</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
           <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
@@ -91,7 +93,7 @@
     <div class="hero-content" data-aos="fade-up">
       <h2>Send Review<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
       <div>
-        <a href="{{route('customer.reviewlist')}}" class="btn-get-started scrollto">Review List</a>
+        <a href="{{route('customer.reviewlist')}}" class="btn-get-started scrollto">Review</a>
       </div>
     </div>
 
@@ -174,7 +176,7 @@
                                     <label class="label">Your Feedback</label>
                                     <input class="input--style-4" type="text" rows="5" name="feedback" value="{{old('feedback')}}">
                                 </div>
-                        </div>  
+                          
                             <!-- <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">CGPA</label>
@@ -214,6 +216,9 @@
 
 
       </div>
+
+<tr><td><br></td></tr>
+
     <!-- ======= Contact Section ======= -->
     
       <div class="container" data-aos="fade-up">
