@@ -37,8 +37,8 @@ Route::group(['middleware'=>'sess'],function(){
     Route::get('/E-Pay/home/customer', 'CHomeController@index')->name('customer.customer');  /* ->middleware('sess'); */
     //Route::get('/home', ['uses'=>'HomeController@index']);
 
-    Route::get('/E-Pay/home/create/customer', 'CHomeController@create')->name('customer.create');
-    Route::post('/E-Pay/home/create/customer', 'CHomeController@store');
+    Route::get('/E-Pay/home/refer/customer', 'CHomeController@create')->name('customer.create');
+    Route::post('/E-Pay/home/refer/customer', 'CHomeController@store');
 
     Route::get('/E-Pay/home/profile/customer', 'CHomeController@userlist')->name('customer.userlist');
 

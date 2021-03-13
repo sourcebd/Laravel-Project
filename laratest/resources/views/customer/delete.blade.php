@@ -92,7 +92,7 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>Delete {{$user['name']}}'s details<br><span style="color: red; text-decoration:none"></span></h2>
+      <h2>Delete {{$user['name']}}'s Account<br><span style="color: red; text-decoration:none"></span></h2>
       <div>
         <a href="{{route('customer.userlist')}}" class="btn-get-started scrollto">Profile</a>
       </div>
@@ -123,7 +123,7 @@
  
                 <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-        Remove unwanted customers
+        Remove Your Account
 					</span>
 
         <table border="0" style="width: 100%; min-height: 120vh">

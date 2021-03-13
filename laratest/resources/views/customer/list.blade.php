@@ -125,13 +125,13 @@
         Your Profile
 					</span>
 
-          <table border="0" style="width: 100%">
+          <table border="0" style="width: 50%">
         <tr>
-            <td>Id</td>
-            <td>Username</td>
-            <td>Password</td>
-            <td>Type</td>
-            <td>Action</td>
+            <td>Id&nbsp;&nbsp;</td>
+            <td>Username&nbsp;&nbsp;</td>
+            <td>Password&nbsp;&nbsp;</td>
+            <td>Type&nbsp;&nbsp;</td>
+            <td>Action&nbsp;&nbsp;</td>
         </tr>
         <tr><td><br></td></tr>
 
@@ -142,8 +142,8 @@
             <td>{{ $list[$i]['name'] }}</td>
             <td>{{ $list[$i]['type'] }}</td>
             <td>
-                <a href="{{ route('customer.edit', [$list[$i]['userId']]) }}">Edit</a>
-                <a href="/E-Pay/home/delete/customer/{{ $list[$i]['userId'] }}">Delete</a>
+                <a href="{{ route('customer.edit', [$list[$i]['userId']]) }}">Edit</a><br>
+                <a href="/E-Pay/home/delete/customer/{{ $list[$i]['userId'] }}">Delete</a><br>
                 <a href="/E-Pay/home/details/customer/{{ $list[$i]['userId'] }}">Details</a>
             </td>
         </tr>
@@ -177,11 +177,15 @@
 
         <table border="0" style="width: 100%">
         <tr>
-            <td>Id</td>
-            <td>Username</td>
-            <td>Name</td>
-            <td>Type</td>
-            <td>Action</td>
+            <td>Id&nbsp;&nbsp;</td>
+            <td>Username&nbsp;&nbsp;</td>
+            <td>Name&nbsp;&nbsp;</td>
+            <td>Father/Spouse Name&nbsp;&nbsp;</td>
+            <td>Mother Name&nbsp;&nbsp;</td>
+            <td>Date of Birth&nbsp;&nbsp;</td>
+            <td>Gender&nbsp;&nbsp;</td>
+            <td>Blood Group&nbsp;&nbsp;</td>
+            <td>Type&nbsp;&nbsp;</td>
         </tr>
         <tr><td><br></td></tr>
 
@@ -190,8 +194,13 @@
             <td>{{ $name[$i]['userId'] }}</td>
             <td>{{ $name[$i]['username'] }}</td>
             <td>{{ $name[$i]['name'] }}</td>
+            <td>{{ $name[$i]['father_name'] }}</td>
+            <td>{{ $name[$i]['mother_name'] }}</td>
+            <td>{{ $name[$i]['dob'] }}</td>
+            <td>{{ $name[$i]['gender'] }}</td>
+            <td>{{ $name[$i]['blood_group'] }}</td>
             <td>{{ $name[$i]['type'] }}</td>
-            <td><a href="/E-Pay/home/details/customer/{{ $name[$i]['userId'] }}">Details</a></td>
+            
         </tr>
         <tr><td><br></td></tr>
 
