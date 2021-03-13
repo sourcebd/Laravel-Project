@@ -89,6 +89,9 @@ Route::group(['middleware'=>'sess'],function(){
 
     Route::get('/E-Pay/home/details/balance/customer/{id}', 'CBalanceController@show')->name('customer.balanceshow');
 
+    Route::get('/E-Pay/home/search/customer', 'SearchController@index');
+    Route::get('/E-Pay/home/search/action/customer', 'SearchController@action')->name('customer.search');
+    
     });
 
 });
