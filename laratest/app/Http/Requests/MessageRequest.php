@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ReviewUpdateRequest extends FormRequest
+class MessageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,11 @@ class ReviewUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'feedback' => 'required|min:2|bail',
-            'username' => 'required|min:3|max:30|regex:/[a-zA-Z0-9]/i',
-            'dor'=>'required',
+            'message' => 'required|min:2|bail',
+            'username' => 'required|min:3|max:30|regex:/[a-zA-Z]/i',
+            'dom'=>'required',
             'myfile' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'review'=> 'required|in:Satisfactory,Its Okay,Not Satisfactory' 
+            'subject'=> 'required' 
         ];
     }
 
@@ -42,21 +42,22 @@ class ReviewUpdateRequest extends FormRequest
 
             'username.max' => "Username can't be more than 30 characters...",
 
-            'username.regex' => "Username must be in alphanumeric...",
+            'username.regex' => "Username must be in letter...",
 
-            'feedback.required' => "Feedback can't be empty...",
+            'message.required' => "Message can't be empty...",
 
-            'feedback.min' => "Feedback must be minimum 2 characters...",
+            'message.min' => "Message must be minimum 2 characters...",
 
-            'dor.required' => "Date of Reviewing must be selected...",
+            'dom.required' => "Date of Messaging must be selected...",
 
             'myfile.required' => "Profile Picture must be uploaded...",
 
             'myfile.mimes' => "Profile Picture should be in jpeg, png, jpg, gif, svg format...",
 
             'myfile.max' => "The size of Profile Picture must be lower than 2048 kb...",
-            
-            'review.required' => "Review option must be selected...",
+
+            'subject.required' => "Subject required...",
+
 
         ];
     }

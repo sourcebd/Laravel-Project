@@ -8,8 +8,9 @@ class Customer_balance extends Model
 {
     protected $table = 'customer_balance';
     public $timestamps = false;
-    protected $primaryKey = 'id';
 
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
+
+    protected $primaryKey = 'id';
 }

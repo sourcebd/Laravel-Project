@@ -77,7 +77,7 @@
         <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
-          <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
+        <li class="dropdown"><a class="nav-link scrollto" href="#contact"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
           </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -95,6 +95,7 @@
         <a href="{{route('customer.userlist')}}" class="btn-get-started scrollto">Profile</a>
         <a href="{{route('customer.balancelist')}}" class="btn-get-started scrollto">Balance</a>
         <a href="{{route('customer.reviewlist')}}" class="btn-get-started scrollto">Review</a>
+        <a href="{{route('customer.messagelist')}}" class="btn-get-started scrollto">Message</a>
       </div>
     </div>
 

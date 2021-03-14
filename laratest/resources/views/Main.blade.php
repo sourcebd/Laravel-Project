@@ -26,6 +26,8 @@
 
   <!-- Template Main CSS File -->
   <link href="css/MainPage.css" rel="stylesheet">
+  <link href="{{asset('css/Create.css')}}" rel="stylesheet">
+  <link href="{{asset('css/CreateButton.css')}}" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Reveal - v4.0.1
@@ -480,7 +482,14 @@
       </div>
     </section><!-- End Team Section -->
 
-    <!-- ======= Contact Section ======= -->
+        <!-- ======= Services Section ======= -->
+
+      <br><br>
+
+    <div class="container mb-4">
+        <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Mirpur,%20Dhaka,%20Bangladesh+(My%20Business%20Name)&amp;t=k&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+
     <section id="contact">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
@@ -517,40 +526,71 @@
         </div>
       </div>
 
-      <div class="container mb-4">
-        <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Mirpur,%20Dhaka,%20Bangladesh+(My%20Business%20Name)&amp;t=k&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>
+<div style="background-color: rgb(52, 235, 180); text-align: center; font-family:font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 30px; color: white; text-transform: uppercase">
 
-      <div class="container">
-        <div class="form">
-          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-            <div class="row">
-              <div class="form-group col-md-6">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-              </div>
-              <div class="form-group col-md-6 mt-3 mt-md-0">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-              </div>
-            </div>
-            <div class="form-group mt-3">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-            </div>
-            <div class="form-group mt-3">
-              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-            </div>
+      <div class="card-body">
+				<span  style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
+						Send message to Admin!
+					</span>
+          <br><br>
 
-            <div class="my-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-            </div>
+          <form method="POST" enctype="multipart/form-data">
+					@csrf
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Upload Profile Picture</label>
+                                    <input class="input--style-4" type="file" name="myfile" value="{{old('myfile')}}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Username</label>
+                                    <input class="input--style-4" type="text" name="username" value="{{old('username')}}">
+                                </div>
+                            </div>
+                          </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Date of Messaging&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                    <div class="input-group-icon">
+                                        <input class="input--style-4 js-datepicker" type="date" name="dom" value="{{old('dom')}}">
+                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Subject</label>
+                                    <input class="input--style-4" type="text" name="subject" value="{{old('subject')}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                                <div class="input-group">
+                                    <label class="label">Your Message</label>
+                                    <input class="input--style-4" type="text" rows="5" name="message" value="{{old('message')}}">
+                                </div>
+          
+			<div style="width:50%; margin-left:25%;" class="container-login100-form-btn">		
+      <button class="login100-form-btn" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
+				Send Message
+			</button>
+					</div>
 
-            <div class="text-center"><button type="submit">Send Message</button></div>
           </form>
+<br><br>
+        <div style="width:50%; margin-left:25%; font-size:20px ; text-transform: none; text-align: center">
+          @foreach($errors->all() as $err)
+		      {{$err}} <br>
+	        @endforeach
+         
+          <div class="sent-message">{{session('msg')}}</div>
         </div>
 
-      </div>
-    </section><!-- End Contact Section -->
+</section> 
+    <!-- End Contact Section -->
 
   </main><!-- End #main -->
 

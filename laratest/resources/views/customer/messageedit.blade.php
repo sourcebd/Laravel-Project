@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | Customer-Profile</title>
+  <title>E-Pay | Customer-Edit Message</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -65,7 +65,7 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('customer.userlist')}}">E<span>Pay</span></a></h1>
+        <h1><a href="{{route('customer.messagelist')}}">E<span>Pay</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>
@@ -75,6 +75,10 @@
         <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Refer Customer</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.balancecreate')}}">Create Balance</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.userlist')}}">Profile</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.balancelist')}}">Balance</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.purchaselist')}}">Purchase</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.reviewlist')}}">Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
         <li class="dropdown"><a class="nav-link scrollto" href="#contact"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
@@ -90,11 +94,8 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>Profile<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
+      <h2>Edit {{$message['username']}}'s Message<br><span style="color: red; text-decoration:none"></span></h2>
       <div>
-        <a href="{{route('customer.balancelist')}}" class="btn-get-started scrollto">Balance</a>
-        <a href="{{route('customer.purchaselist')}}" class="btn-get-started scrollto">Purchase</a>
-        <a href="{{route('customer.reviewlist')}}" class="btn-get-started scrollto">Review</a>
         <a href="{{route('customer.messagelist')}}" class="btn-get-started scrollto">Message</a>
       </div>
     </div>
@@ -116,7 +117,7 @@
     <!-- ======= Services Section ======= -->
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>@for($i=0; $i < count($list); $i++){{$list[$i]['name']}}@endfor</h2>
+          <h2>Modify Message</h2>
         </div>
 
     <section id="contact">
@@ -124,96 +125,68 @@
  
                 <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-        Your Profile
+						Modify your message
 					</span>
 
-          <table border="0" style="width: 50%">
-        <tr>
-            <td>Id&nbsp;&nbsp;</td>
-            <td>Username&nbsp;&nbsp;</td>
-            <td>Password&nbsp;&nbsp;</td>
-            <td>Type&nbsp;&nbsp;</td>
-            <td>Action&nbsp;&nbsp;</td>
-        </tr>
-        <tr><td><br></td></tr>
+        <form method="POST" enctype="multipart/form-data">
+					@csrf
 
-        @for($i=0; $i < count($list); $i++)
-        <tr>
-            <td>{{ $list[$i]['userId'] }}</td>
-            <td>{{ $list[$i]['username'] }}</td>
-            <td>{{ $list[$i]['name'] }}</td>
-            <td>{{ $list[$i]['type'] }}</td>
-            <td>
-                <a href="{{ route('customer.edit', [$list[$i]['userId']]) }}">Edit</a><br>
-                <a href="/E-Pay/home/delete/customer/{{ $list[$i]['userId'] }}">Delete</a><br>
-                <a href="/E-Pay/home/details/customer/{{ $list[$i]['userId'] }}">Details</a>
-            </td>
-        </tr>
-        <tr><td><br></td></tr>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Upload Profile Picture</label>
+                                    <input class="input--style-4" type="file" name="myfile" value="{{$message['myfile']}}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Username</label>
+                                    <input class="input--style-4" type="text" name="username" value="{{$message['username']}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Date of Messaging&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                    <div class="input-group-icon">
+                                        <input class="input--style-4 js-datepicker" type="date" name="dom" value="{{$message['messagedate']}}">
+                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Subject</label>
+                                    <input class="input--style-4" type="text" name="subject" value="{{$message['subject']}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                                <div class="input-group">
+                                    <label class="label">Your Message</label>
+                                    <input class="input--style-4" type="text" rows="5" name="message" value="{{$message['message']}}">
+                                </div>
 
-        @endfor
+          
+					<div style="width:50%" class="container-login100-form-btn">
+						
+      <button class="login100-form-btn" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
+				Update
+			</button>
+					</div>
+          </form>
+		  @foreach($errors->all() as $err)
+		{{$err}} <br>
+	@endforeach
+</div>
+</div>
 
-        </div>
-        </div>
-        </section>
-    </table>
-    <br>
-    {{session('msg')}}
 
       </div>
 
-<!-- ------------------------------------------------ -->
+<tr><td><br></td></tr>
 
-      <div class="container" data-aos="fade-up">
-        <div class="section-header">
-          <h2>Explore</h2>
-        </div>
-
-    <section id="contact">
-      <div class="container">
- 
-                <div class="card-body">
-				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-        Others Profile
-					</span>
-
-        <table border="0" style="width: 100%">
-        <tr>
-            <td>Id&nbsp;&nbsp;</td>
-            <td>Username&nbsp;&nbsp;</td>
-            <td>Name&nbsp;&nbsp;</td>
-            <td>Father/Spouse Name&nbsp;&nbsp;</td>
-            <td>Mother Name&nbsp;&nbsp;</td>
-            <td>Date of Birth&nbsp;&nbsp;</td>
-            <td>Gender&nbsp;&nbsp;</td>
-            <td>Blood Group&nbsp;&nbsp;</td>
-            <td>Type&nbsp;&nbsp;</td>
-        </tr>
-        <tr><td><br></td></tr>
-
-        @for($i=0; $i < count($name); $i++)
-        <tr>
-            <td>{{ $name[$i]['userId'] }}</td>
-            <td>{{ $name[$i]['username'] }}</td>
-            <td>{{ $name[$i]['name'] }}</td>
-            <td>{{ $name[$i]['father_name'] }}</td>
-            <td>{{ $name[$i]['mother_name'] }}</td>
-            <td>{{ $name[$i]['dob'] }}</td>
-            <td>{{ $name[$i]['gender'] }}</td>
-            <td>{{ $name[$i]['blood_group'] }}</td>
-            <td>{{ $name[$i]['type'] }}</td>
-            
-        </tr>
-        <tr><td><br></td></tr>
-
-        @endfor
-        </div>
-        </div>
-        </section>
-    </table>
-    <!-- {{session('msg')}} -->
-
-      </div>
     <!-- ======= Contact Section ======= -->
     
       <div class="container" data-aos="fade-up">
