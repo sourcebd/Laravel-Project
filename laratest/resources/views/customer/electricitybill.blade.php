@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | Customer-Details</title>
+  <title>E-Pay | Customer-Electricity Bill</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -65,7 +65,7 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('customer.userlist')}}">E<span>Pay</span></a></h1>
+        <h1><a href="{{route('customer.balancelist')}}">E<span>Pay</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>
@@ -75,8 +75,8 @@
         <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Refer Customer</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.balancecreate')}}">Create Balance</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.userlist')}}">Profile</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.balancelist')}}">Balance</a></li>
-        <li><a class="nav-link scrollto" href="{{route('customer.purchaselist')}}">Purchase</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewlist')}}">Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
@@ -93,9 +93,9 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>{{$user['name']}}'s Details<br><span style="color: red; text-decoration:none"></span></h2>
+      <h2>Pay Electricity Bill from {{$user['username']}}'s Account<br><span style="color: red; text-decoration:none"></span></h2>
       <div>
-        <a href="{{route('customer.userlist')}}" class="btn-get-started scrollto">Profile</a>
+        <a href="{{route('customer.purchaselist')}}" class="btn-get-started scrollto">Purchase</a>
       </div>
     </div>
 
@@ -116,7 +116,7 @@
     <!-- ======= Services Section ======= -->
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Customer Details</h2>
+          <h2>Pay Electricity Bill</h2>
         </div>
 
     <section id="contact">
@@ -124,69 +124,98 @@
  
                 <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-        Here are the details of customer
+						Pay electricity bill from your Balance
 					</span>
 
-        <table border="0" style="width: 100%; min-height: 100vh">
-        <tr>
-					<td colspan="2">
-						<img src="{{asset('/upload')}}/{{$user['profile_img']}}" width="100px" height="100px"> </td>
-				</tr>
-        <tr>
-					<td>Name</td>
-					<td>{{$user['name']}}</td>
-				</tr>
-				<tr>
-					<td>Username</td>
-					<td>{{ $user['username']}}</td>
-				</tr>
-				<tr>
-					<td>Password</td>
-					<td>{{ $user['password']}}</td>
-				</tr>
-        <tr>
-					<td>Email</td>
-					<td>{{ $user['email'] }}</td>
-				</tr>
-        <tr>
-					<td>Address</td>
-					<td>{{ $user['address'] }}</td>
-				</tr>
-				<tr>
-					<td>Date of Birth</td>
-					<td>{{ $user['dob'] }}</td>
-				</tr>
-        <tr>
-					<td>Father/Spouse Name</td>
-					<td>{{ $user['father_name'] }}</td>
-				</tr>
-        <tr>
-					<td>Mother Name</td>
-					<td>{{ $user['mother_name'] }}</td>
-				</tr>
-        <tr>
-					<td>Gender</td>
-					<td>{{ $user['gender'] }}</td>
-				</tr>
-        <tr>
-					<td>Blood Group</td>
-					<td>{{ $user['blood_group'] }}</td>
-				</tr>
-        <tr>
-					<td>Phone Number</td>
-					<td>{{ $user['phone'] }}</td>
-				</tr>
-        <tr>
-					<td>NID Number</td>
-					<td>{{ $user['nid_no'] }}</td>
-				</tr>
-        <tr>
-					<td>User Type</td>
-					<td>{{ $user['type'] }}</td>
-				</tr>
-        <tr><td><br></td></tr>
+          <form method="POST" enctype="multipart/form-data">
+					@csrf
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Upload Profile Picture</label>
+                                    <input class="input--style-4" type="file" name="myfile" value="{{$user['myfile']}}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Username</label>
+                                    <input class="input--style-4" type="text" name="username" value="{{$user['username']}}">
+                                </div>
+                            </div>
+                          </div>
+                                <div class="input-group">
+                                    <label class="label">Email</label>
+                                    <input class="input--style-4" type="text" name="email" value="{{$user['email']}}">
+                                </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Card Number</label>
+                                    <input class="input--style-4" type="text" name="card_no" value="{{$user['card_no']}}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Bank Name</label>
+                                    <input class="input--style-4" type="text" name="bank_name" value="{{$user['bank_name']}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Enter Billing Amount</label>
+                                    <input class="input--style-4" type="text" rows="5" name="eb" value="{{$user['electricity_bill']}}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Phone Number</label>
+                                    <input class="input--style-4" type="text" name="phone" value="{{$user['phone']}}">
+                                </div>
+                            </div>  
+                            <!-- <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">CGPA</label>
+                                    <input class="input--style-4" type="text" name="cgpa" value="{{old('cgpa')}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label class="label">Type&nbsp;&nbsp;</label>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="type">
+                                    <option disabled="disabled" selected="selected">Choose option</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="User">User</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div> -->
+                        
+						<!-- <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Register</button>
+                        </div> -->
 
-			</table>
+					<!-- Login1.css -->	
+          
+			<div style="width:50%" class="container-login100-form-btn">		
+      <button class="login100-form-btn" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
+				Update Balance
+			</button>
+					</div>
+          </form>
+		  @foreach($errors->all() as $err)
+		{{$err}} <br>
+	@endforeach
+</div>
+</div>
+
+
+      </div>
+
+<tr><td><br></td></tr>
+
     <!-- ======= Contact Section ======= -->
     
       <div class="container" data-aos="fade-up">

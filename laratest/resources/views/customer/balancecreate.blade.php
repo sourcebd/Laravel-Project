@@ -75,6 +75,7 @@
         <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Refer Customer</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.userlist')}}">Profile</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.purchaselist')}}">Purchase</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewlist')}}">Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>

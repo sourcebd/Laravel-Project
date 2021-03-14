@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | Customer-Details</title>
+  <title>E-Pay | Customer-Purchase Details</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -65,7 +65,7 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('customer.userlist')}}">E<span>Pay</span></a></h1>
+        <h1><a href="{{route('customer.purchaselist')}}">E<span>Pay</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>
@@ -75,7 +75,7 @@
         <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Refer Customer</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.balancecreate')}}">Create Balance</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
-        <li><a class="nav-link scrollto" href="{{route('customer.balancelist')}}">Balance</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.userlist')}}">Profile</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.purchaselist')}}">Purchase</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewlist')}}">Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
@@ -93,9 +93,9 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>{{$user['name']}}'s Details<br><span style="color: red; text-decoration:none"></span></h2>
+      <h2>{{$user['username']}}'s Purchase Details<br><span style="color: red; text-decoration:none"></span></h2>
       <div>
-        <a href="{{route('customer.userlist')}}" class="btn-get-started scrollto">Profile</a>
+        <a href="{{route('customer.purchaselist')}}" class="btn-get-started scrollto">Purchase</a>
       </div>
     </div>
 
@@ -116,7 +116,7 @@
     <!-- ======= Services Section ======= -->
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Customer Details</h2>
+          <h2>Purchase Details</h2>
         </div>
 
     <section id="contact">
@@ -124,69 +124,44 @@
  
                 <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-        Here are the details of customer
+        Here are the details of your balance
 					</span>
 
-        <table border="0" style="width: 100%; min-height: 100vh">
+        <table border="0" style="width: 100%; text-align: center">
         <tr>
 					<td colspan="2">
 						<img src="{{asset('/upload')}}/{{$user['profile_img']}}" width="100px" height="100px"> </td>
 				</tr>
-        <tr>
-					<td>Name</td>
-					<td>{{$user['name']}}</td>
-				</tr>
-				<tr>
-					<td>Username</td>
-					<td>{{ $user['username']}}</td>
-				</tr>
-				<tr>
-					<td>Password</td>
-					<td>{{ $user['password']}}</td>
-				</tr>
-        <tr>
-					<td>Email</td>
-					<td>{{ $user['email'] }}</td>
-				</tr>
-        <tr>
-					<td>Address</td>
-					<td>{{ $user['address'] }}</td>
-				</tr>
-				<tr>
-					<td>Date of Birth</td>
-					<td>{{ $user['dob'] }}</td>
-				</tr>
-        <tr>
-					<td>Father/Spouse Name</td>
-					<td>{{ $user['father_name'] }}</td>
-				</tr>
-        <tr>
-					<td>Mother Name</td>
-					<td>{{ $user['mother_name'] }}</td>
-				</tr>
-        <tr>
-					<td>Gender</td>
-					<td>{{ $user['gender'] }}</td>
-				</tr>
-        <tr>
-					<td>Blood Group</td>
-					<td>{{ $user['blood_group'] }}</td>
-				</tr>
-        <tr>
-					<td>Phone Number</td>
-					<td>{{ $user['phone'] }}</td>
-				</tr>
-        <tr>
-					<td>NID Number</td>
-					<td>{{ $user['nid_no'] }}</td>
-				</tr>
-        <tr>
-					<td>User Type</td>
-					<td>{{ $user['type'] }}</td>
-				</tr>
         <tr><td><br></td></tr>
 
+        <tr>
+          <td>Id&nbsp;&nbsp;</td>
+          <td>Username&nbsp;&nbsp;</td>
+          <td>Email&nbsp;&nbsp;</td>
+          <td>Card Number&nbsp;&nbsp;</td>
+          <td>Bank Name&nbsp;&nbsp;</td>
+          <td>Loan&nbsp;&nbsp;</td>
+          <td>Mobile Recharge&nbsp;&nbsp;</td>
+          <td>Electricity Bill&nbsp;&nbsp;</td>
+          <td>Balance&nbsp;&nbsp;</td>
+        </tr>
+        <tr><td><br></td></tr>
+
+        <tr>
+					<td>{{ $user['id']}}</td>
+					<td>{{ $user['username']}}</td>
+					<td>{{ $user['email']}}</td>
+					<td>{{ $user['card_no']}}</td>
+					<td>{{ $user['bank_name']}}</td>
+					<td>৳{{ $user['loan']}}</td>
+          <td>৳{{ $user['mobile_recharge']}}</td>
+          <td>৳{{ $user['electricity_bill']}}</td>
+					<td>৳{{ $user['total_purchased'] }}</td>
+        </tr>
+        <tr><td><br><br></td></tr>
+
 			</table>
+
     <!-- ======= Contact Section ======= -->
     
       <div class="container" data-aos="fade-up">

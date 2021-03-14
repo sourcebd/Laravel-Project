@@ -93,6 +93,7 @@
       <h2>Balance, ৳@foreach($list as $i){{$i['balance']}}@endforeach<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
       <div>
         <a href="{{route('customer.userlist')}}" class="btn-get-started scrollto">Profile</a>
+        <a href="{{route('customer.purchaselist')}}" class="btn-get-started scrollto">Purchase</a>
         <a href="{{route('customer.reviewlist')}}" class="btn-get-started scrollto">Review</a>
       </div>
     </div>
@@ -142,8 +143,6 @@
             <td>
                 <a href="{{ route('customer.cashIn', [$list[$i]['id']]) }}">Cash In</a><br>
                 <a href="{{ route('customer.cashOut', [$list[$i]['id']]) }}">Cash Out</a><br>
-                <a href="{{ route('customer.loan', [$list[$i]['id']]) }}">Get Loan</a><br>
-                <a href="{{ route('customer.recharge', [$list[$i]['id']]) }}">Mobile Recharge</a><br>
                 <a href="{{ route('customer.balancedelete', [$list[$i]['id']]) }}">Delete</a><br>
                 <a href="/E-Pay/home/details/balance/customer/{{ $list[$i]['id'] }}">Details</a>
             </td>

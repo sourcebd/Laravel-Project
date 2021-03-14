@@ -76,6 +76,7 @@
         <li><a class="nav-link scrollto" href="{{route('customer.balancecreate')}}">Create Balance</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.userlist')}}">Profile</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.purchaselist')}}">Purchase</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewlist')}}">Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
@@ -158,23 +159,6 @@
         <tr><td><br><br></td></tr>
 
 			</table>
-
-      <table style="width:28%; color:red; text-align:center; margin-left:38%">
-
-        <tr>
-          <td>Loan&nbsp;&nbsp;</td>
-          <td>Mobile Recharge&nbsp;&nbsp;</td>
-        </tr>
-        <tr><td><br></td></tr>
-
-        <tr>
-					<td>৳{{ $user['loan']}}</td>
-          <td>৳{{ $user['mobile_recharge']}}</td>
-        </tr>
-        <tr><td><br><br></td></tr>
-
-      </table>
-
 
     <!-- ======= Contact Section ======= -->
     

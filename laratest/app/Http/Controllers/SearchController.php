@@ -27,9 +27,11 @@ class SearchController extends Controller
          ->orWhere('email', 'like', '%'.$query.'%')
          ->orWhere('card_no', 'like', '%'.$query.'%')
          ->orWhere('bank_name', 'like', '%'.$query.'%')
-         ->orWhere('balance', 'like', '%'.$query.'%')
          ->orWhere('phone', 'like', '%'.$query.'%')
          ->orWhere('mobile_recharge', 'like', '%'.$query.'%')
+         ->orWhere('electricity_bill', 'like', '%'.$query.'%')
+         ->orWhere('balance', 'like', '%'.$query.'%')
+         ->orWhere('total_purchased', 'like', '%'.$query.'%')
          ->orWhere('created_at', 'like', '%'.$query.'%')
          ->orWhere('updated_at', 'like', '%'.$query.'%')
          ->orderBy('id', 'desc')
@@ -51,24 +53,30 @@ class SearchController extends Controller
         $output .= '
         
         <tr>
+        <th>Username</th>
         <th>Card Number</th>
         <th>Bank Name</th>
         <th>Cashed-In</th>
         <th>Cashed-Out</th>
         <th>Loan</th>
-        <th>Mobile-Recharge</th>
+        <th>Mobile Recharge</th>
+        <th>Electricity Bill</th>
         <th>Balance</th>
+        <th>Total Purchased</th>
         <th>Account Creation Time</th>
         <th>Account Updated Time</th>
         </tr>
         <tr>
+         <td>'.$row->username.'</td>
          <td>'.$row->card_no.'</td>
          <td>'.$row->bank_name.'</td>
          <td>'.$row->added.'</td>
          <td>'.$row->transferred.'</td>
          <td>'.$row->loan.'</td>
          <td>'.$row->mobile_recharge.'</td>
+         <td>'.$row->electricity_bill.'</td>
          <td>'.$row->balance.'</td>
+         <td>'.$row->total_purchased.'</td>
          <td>'.$row->created_at.'</td>
          <td>'.$row->updated_at.'</td>
         </tr>

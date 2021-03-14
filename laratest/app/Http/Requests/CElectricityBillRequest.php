@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CRechargeRequest extends FormRequest
+class CElectricityBillRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,7 +28,7 @@ class CRechargeRequest extends FormRequest
             'card_no' => 'required|digits:5',
             'email' => 'required|email:rfc|max:50|min:10',
             'bank_name' =>'required|min:5|max:30|regex:/[a-zA-Z]/i' ,
-            'mr' => 'required|min:2|max:4|regex:/^\d+(\.\d{1,2})?$/',
+            'eb' => 'required|min:3|max:10|regex:/^\d+(\.\d{1,2})?$/',
             'phone' => 'required|regex:/(01)[0-9]{9}/',
             'myfile' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
@@ -55,10 +55,10 @@ class CRechargeRequest extends FormRequest
             'bank_name.max' => "Bank Name can't exceed 30 characters...",
             'bank_name.regex' => "Bank Name must be in letter...",
 
-            'mr.required' => "Amount  for Mobile Recharge can't be empty...",
-            'mr.min' => "Amount  for Mobile Recharge must be minimum 2 digits...",
-            'mr.max' => "Amount  for Mobile Recharge can't exceed 4 digits...",
-            'mr.regex' => "Amount  for Mobile Recharge must be decimal value...",
+            'eb.required' => "Electricity Bill can't be empty...",
+            'eb.min' => "Electricity Bill must be minimum 3 digits...",
+            'eb.max' => "Electricity Bill can't exceed 10 digits...",
+            'eb.regex' => "Electricity Bill must be decimal value...",
 
             'phone.required' => "Phone Number can't be empty...",
             'phone.regex' => "Phone Number is invalid...",

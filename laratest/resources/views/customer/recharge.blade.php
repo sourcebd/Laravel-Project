@@ -76,6 +76,7 @@
         <li><a class="nav-link scrollto" href="{{route('customer.balancecreate')}}">Create Balance</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.userlist')}}">Profile</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.balancelist')}}">Balance</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewlist')}}">Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
@@ -94,7 +95,7 @@
     <div class="hero-content" data-aos="fade-up">
       <h2>Get Amount for {{$user['username']}}'s Mobile Recharge<br><span style="color: red; text-decoration:none"></span></h2>
       <div>
-        <a href="{{route('customer.balancelist')}}" class="btn-get-started scrollto">Balance</a>
+        <a href="{{route('customer.purchaselist')}}" class="btn-get-started scrollto">Purchase</a>
       </div>
     </div>
 
@@ -164,7 +165,7 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Enter Amount to Recharge</label>
-                                    <input class="input--style-4" type="text" rows="5" name="mr" value="{{$user['mr']}}">
+                                    <input class="input--style-4" type="text" rows="5" name="mr" value="{{$user['mobile_recharge']}}">
                                 </div>
                             </div>
                             <div class="col-2">

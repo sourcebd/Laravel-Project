@@ -32,7 +32,7 @@ Route::group(['middleware'=>'sess'],function(){
 
     Route::group(['middleware'=>'customer'],function(){
 
-/* Customer */
+    /* Customer */
 
     Route::get('/E-Pay/home/customer', 'CHomeController@index')->name('customer.customer');  /* ->middleware('sess'); */
     //Route::get('/home', ['uses'=>'HomeController@index']);
@@ -50,7 +50,7 @@ Route::group(['middleware'=>'sess'],function(){
 
     Route::get('/E-Pay/home/details/customer/{id}', 'CHomeController@show')->name('customer.show');
 
-/* Customer Review */
+    /* Customer Review */
 
     Route::get('/E-Pay/home/create/review/customer', 'CReviewController@create')->name('customer.reviewcreate');
     Route::post('/E-Pay/home/create/review/customer', 'CReviewController@store');
@@ -78,16 +78,25 @@ Route::group(['middleware'=>'sess'],function(){
     Route::get('/E-Pay/home/cash-out/balance/customer/{id}', 'CBalanceController@cashOutedit')->name('customer.cashOut');
     Route::post('/E-Pay/home/cash-out/balance/customer/{id}', 'CBalanceController@cashOutupdate');
 
-    Route::get('/E-Pay/home/loan/balance/customer/{id}', 'CBalanceController@loanedit')->name('customer.loan');
-    Route::post('/E-Pay/home/loan/balance/customer/{id}', 'CBalanceController@loanupdate');
-
-    Route::get('/E-Pay/home/mobile-recharge/balance/customer/{id}', 'CBalanceController@rechargeedit')->name('customer.recharge');
-    Route::post('/E-Pay/home/mobile-recharge/balance/customer/{id}', 'CBalanceController@rechargeupdate');
-
     Route::get('/E-Pay/home/delete/balance/customer/{id}', 'CBalanceController@delete')->name('customer.balancedelete');
     Route::post('/E-Pay/home/delete/balance/customer/{id}', 'CBalanceController@destroy');
 
     Route::get('/E-Pay/home/details/balance/customer/{id}', 'CBalanceController@show')->name('customer.balanceshow');
+
+    /* Customer Purchase */
+
+    Route::get('/E-Pay/home/list/purchase/customer', 'CPurchaseController@list')->name('customer.purchaselist');
+
+    Route::get('/E-Pay/home/loan/purchase/customer/{id}', 'CPurchaseController@loanedit')->name('customer.loan');
+    Route::post('/E-Pay/home/loan/purchase/customer/{id}', 'CPurchaseController@loanupdate');
+
+    Route::get('/E-Pay/home/mobile-recharge/purchase/customer/{id}', 'CPurchaseController@rechargeedit')->name('customer.recharge');
+    Route::post('/E-Pay/home/mobile-recharge/purchase/customer/{id}', 'CPurchaseController@rechargeupdate');
+
+    Route::get('/E-Pay/home/electricity-bill/purchase/customer/{id}', 'CPurchaseController@electricitybilledit')->name('customer.electricitybill');
+    Route::post('/E-Pay/home/electricity-bill/purchase/customer/{id}', 'CPurchaseController@electricitybillupdate');
+
+    Route::get('/E-Pay/home/details/purchase/customer/{id}', 'CPurchaseController@show')->name('customer.purchaseshow');
 
     Route::get('/E-Pay/home/search/customer', 'SearchController@index');
     Route::get('/E-Pay/home/search/action/customer', 'SearchController@action')->name('customer.search');
