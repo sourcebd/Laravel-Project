@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | Customer-Loan</title>
+  <title>E-Pay | Customer-Loan Request</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -65,7 +65,7 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('customer.balancelist')}}">E<span>Pay</span></a></h1>
+        <h1><a href="{{route('customer.purchaselist')}}">E<span>Pay</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>
@@ -94,7 +94,7 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>Add Loan into {{$user['username']}}'s Account<br><span style="color: red; text-decoration:none"></span></h2>
+      <h2>Request Loan into {{$user['username']}}'s Account<br><span style="color: red; text-decoration:none"></span></h2>
       <div>
         <a href="{{route('customer.purchaselist')}}" class="btn-get-started scrollto">Purchase</a>
       </div>
@@ -125,7 +125,7 @@
  
                 <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-						Add loan to your Balance
+						Request for loan to add in your Balance
 					</span>
 
           <form method="POST" enctype="multipart/form-data">
@@ -166,7 +166,7 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Add Loan</label>
-                                    <input class="input--style-4" type="text" rows="5" name="loan" value="{{$user['loan']}}">
+                                    <input class="input--style-4" type="text" rows="5" name="loanreq" value="{{$user['loanreq']}}">
                                 </div>
                             </div>
                             <div class="col-2">
@@ -202,7 +202,7 @@
           
 			<div style="width:50%" class="container-login100-form-btn">		
       <button class="login100-form-btn" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-				Update Balance
+				Apply Request
 			</button>
 					</div>
           </form>

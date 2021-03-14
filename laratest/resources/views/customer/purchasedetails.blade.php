@@ -141,10 +141,10 @@
           <td>Email&nbsp;&nbsp;</td>
           <td>Card Number&nbsp;&nbsp;</td>
           <td>Bank Name&nbsp;&nbsp;</td>
-          <td>Loan&nbsp;&nbsp;</td>
+          <td>Requested Loan&nbsp;&nbsp;</td>
           <td>Mobile Recharge&nbsp;&nbsp;</td>
           <td>Electricity Bill&nbsp;&nbsp;</td>
-          <td>Balance&nbsp;&nbsp;</td>
+          <td>Total Purchased Amount&nbsp;&nbsp;</td>
         </tr>
         <tr><td><br></td></tr>
 
@@ -154,7 +154,7 @@
 					<td>{{ $user['email']}}</td>
 					<td>{{ $user['card_no']}}</td>
 					<td>{{ $user['bank_name']}}</td>
-					<td>৳{{ $user['loan']}}</td>
+					<td>৳{{ $user['loanreq']}}</td>
           <td>৳{{ $user['mobile_recharge']}}</td>
           <td>৳{{ $user['electricity_bill']}}</td>
 					<td>৳{{ $user['total_purchased'] }}</td>

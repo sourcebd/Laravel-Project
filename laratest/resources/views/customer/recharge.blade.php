@@ -65,7 +65,7 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('customer.balancelist')}}">E<span>Pay</span></a></h1>
+        <h1><a href="{{route('customer.purchaselist')}}">E<span>Pay</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>
@@ -202,7 +202,7 @@
           
 			<div style="width:50%" class="container-login100-form-btn">		
       <button class="login100-form-btn" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-				Update Balance
+				Recharge
 			</button>
 					</div>
           </form>

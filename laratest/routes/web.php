@@ -119,4 +119,11 @@ Route::group(['middleware'=>'sess'],function(){
 
     Route::get('/E-Pay/home/details/message/customer/{id}', 'CMessageController@show')->name('customer.messageshow');
 
+    /* Customer Excel Download/Upload */
+
+    Route::get('/E-Pay/home/customer/download-balance-data', 'CExcelController@downloadExcel')->name('downloadExcel');
+    Route::get('/E-Pay/home/customer/upload-balance-data', 'CExcelController@uploadExcelview');
+    Route::post('/E-Pay/home/customer/upload-balance-data', 'CExcelController@upload')->name('uploadExcel');
+
+
 });

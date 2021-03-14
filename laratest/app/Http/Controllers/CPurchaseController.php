@@ -59,16 +59,21 @@ class CPurchaseController extends Controller
 
             $user = Customer_balance::find($id);
 
-            $user->balance = $user->balance +  $req->loan;
-            $user->total_purchased = $user->total_purchased - $req->loan;
+            $user->loanreq = $user->loanreq + $req->loanreq;
+
+           /*  $user->loanreq = $user->loanreq +  $req->loanreq; */ //This is customer portion, my work.
+
+            /* $user->balance = $user->balance +  $req->loan;
+            $user->total_purchased = $user->total_purchased - $req->loan; */ //This is for admin portion, not my work.
 
             $user->username         = $req->username;
             $user->card_no          = $req->card_no;
             $user->bank_name        = $req->bank_name;       
-            $user->loan             = $req->loan;
+            $user->loanreq          = $req->loanreq;
             $user->email            = $req->email;
             $user->phone            = $req->phone;
             $user->profile_img      = $filename;
+
             $user->save();
 
             $req->session()->flash('msg', 'Customer amount for Loan is issued successfully...');

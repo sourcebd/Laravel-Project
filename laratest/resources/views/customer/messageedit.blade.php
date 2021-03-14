@@ -172,7 +172,7 @@
 					<div style="width:50%" class="container-login100-form-btn">
 						
       <button class="login100-form-btn" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-				Update
+				Send
 			</button>
 					</div>
           </form>

@@ -131,7 +131,7 @@
         <tr>
             <td>Id&nbsp;&nbsp;</td>
             <td>Username&nbsp;&nbsp;</td>
-            <td>Total Purchased&nbsp;&nbsp;</td>
+            <td>Total Purchased Amount&nbsp;&nbsp;</td>
             <td>Action&nbsp;&nbsp;</td>
         </tr>
         <tr><td><br></td></tr>

@@ -142,8 +142,8 @@
             <td>{{ $list[$i]['username'] }}</td>
             <td>{{ $list[$i]['message'] }}</td>
             <td>
-                <a href="{{ route('customer.messageedit', [$list[$i]['messageId']]) }}">Edit</a><br>
-                <a href="{{ route('customer.messagedelete', [$list[$i]['messageId']]) }}">Delete</a><br>
+                <a href="{{ route('customer.messageedit', [$list[$i]['messageId']]) }}">Reply</a><br>
+                <a href="{{ route('customer.messagedelete', [$list[$i]['messageId']]) }}">Remove</a><br>
                 <a href="/E-Pay/home/details/message/customer/{{ $list[$i]['messageId'] }}">Details</a>
             </td>
         </tr>

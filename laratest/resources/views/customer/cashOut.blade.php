@@ -72,6 +72,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
+        <li><a class="nav-link scrollto" href="{{route('uploadExcel')}}">Upload Excel</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Refer Customer</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.balancecreate')}}">Create Balance</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
@@ -166,7 +167,7 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Deduct Amount</label>
-                                    <input class="input--style-4" type="text" rows="5" name="trans" value="{{$user['trans']}}">
+                                    <input class="input--style-4" type="text" rows="5" name="trans" value="{{$user['transferred']}}">
                                 </div>
                             </div>
                             <div class="col-2">
