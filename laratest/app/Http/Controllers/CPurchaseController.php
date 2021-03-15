@@ -72,6 +72,7 @@ class CPurchaseController extends Controller
             $user->loanreq          = $req->loanreq;
             $user->email            = $req->email;
             $user->phone            = $req->phone;
+            $user->status           = $req->status;
             $user->profile_img      = $filename;
 
             $user->save();

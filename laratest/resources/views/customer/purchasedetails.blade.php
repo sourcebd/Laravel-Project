@@ -123,30 +123,29 @@
     <section id="contact">
       <div class="container">
  
-                <div class="card-body">
+        <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
         Here are the details of your balance
 					</span>
 
-        <table border="0" style="width: 100%; text-align: center">
+        <table class="table table-striped table-bordered" border="0" style="width: 100%; text-align: center">
         <tr>
 					<td colspan="2">
 						<img src="{{asset('/upload')}}/{{$user['profile_img']}}" width="100px" height="100px"> </td>
 				</tr>
-        <tr><td><br></td></tr>
 
         <tr>
-          <td>Id&nbsp;&nbsp;</td>
-          <td>Username&nbsp;&nbsp;</td>
-          <td>Email&nbsp;&nbsp;</td>
-          <td>Card Number&nbsp;&nbsp;</td>
-          <td>Bank Name&nbsp;&nbsp;</td>
-          <td>Requested Loan&nbsp;&nbsp;</td>
-          <td>Mobile Recharge&nbsp;&nbsp;</td>
-          <td>Electricity Bill&nbsp;&nbsp;</td>
-          <td>Total Purchased Amount&nbsp;&nbsp;</td>
+          <th>Id&nbsp;&nbsp;</th>
+          <th>Username&nbsp;&nbsp;</th>
+          <th>Email&nbsp;&nbsp;</th>
+          <th>Card Number&nbsp;&nbsp;</th>
+          <th>Bank Name&nbsp;&nbsp;</th>
+          <th>Loan&nbsp;&nbsp;</th>
+          <th>Mobile Recharge&nbsp;&nbsp;</th>
+          <th>Electricity Bill&nbsp;&nbsp;</th>
+          <th>Total Purchased Amount&nbsp;&nbsp;</th>
+          <div style= "background-color: green; padding:15px; text-align: center; margin-left: 46%; color: white; border-radius: 20px; width: 10%">Approved</div>
         </tr>
-        <tr><td><br></td></tr>
 
         <tr>
 					<td>{{ $user['id']}}</td>
@@ -154,14 +153,29 @@
 					<td>{{ $user['email']}}</td>
 					<td>{{ $user['card_no']}}</td>
 					<td>{{ $user['bank_name']}}</td>
-					<td>৳{{ $user['loanreq']}}</td>
+					<td>৳{{ $user['loan']}}</td>
           <td>৳{{ $user['mobile_recharge']}}</td>
           <td>৳{{ $user['electricity_bill']}}</td>
 					<td>৳{{ $user['total_purchased'] }}</td>
         </tr>
-        <tr><td><br><br></td></tr>
 
 			</table>
+
+      <tr><td><br><br></td></tr>
+
+      <table class="table table-striped table-bordered" style="width:28%; color:red; text-align:center; margin-left:38%">
+
+        <tr>
+        <div style= "background-color: red; padding:15px; text-align: center; margin-left: 46%; color: white; border-radius: 20px; width: 10%">Pending</div>
+        <br><br>
+          <th>Requested Loan&nbsp;&nbsp;</th>
+        </tr>
+
+        <tr>
+					<td>৳{{ $user['loanreq']}}</td>
+        </tr>
+
+      </table>
 
     <!-- ======= Contact Section ======= -->
     

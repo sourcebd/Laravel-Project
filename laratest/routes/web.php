@@ -84,11 +84,6 @@ Route::group(['middleware'=>'sess'],function(){
 
     Route::get('/E-Pay/home/details/purchase/customer/{id}', 'CPurchaseController@show')->name('customer.purchaseshow');
 
-    Route::get('/E-Pay/home/search/customer', 'SearchController@index');
-    Route::get('/E-Pay/home/search/action/customer', 'SearchController@action')->name('customer.search');
-    
-    });
-
     /* Customer Review */
 
     Route::get('/E-Pay/home/create/review/customer', 'CReviewController@create')->name('customer.reviewcreate');
@@ -119,11 +114,27 @@ Route::group(['middleware'=>'sess'],function(){
 
     Route::get('/E-Pay/home/details/message/customer/{id}', 'CMessageController@show')->name('customer.messageshow');
 
+    /* Customer Search */
+
+    Route::get('/E-Pay/home/search/customer', 'SearchController@index');
+    Route::get('/E-Pay/home/search/action/customer', 'SearchController@action')->name('customer.search');
+
     /* Customer Excel Download/Upload */
 
     Route::get('/E-Pay/home/customer/download-balance-data', 'CExcelController@downloadExcel')->name('downloadExcel');
     Route::get('/E-Pay/home/customer/upload-balance-data', 'CExcelController@uploadExcelview');
     Route::post('/E-Pay/home/customer/upload-balance-data', 'CExcelController@upload')->name('uploadExcel');
 
+    /* Customer PDF Download */
+
+    Route::get('/E-Pay/home/customer/download-balance-data_PDF', 'CPDFController@balancePDF')->name('balancePDF');
+    Route::get('/E-Pay/home/customer/download-approved-data_PDF', 'CPDFController@approvedPDF')->name('approvedPDF');
+    Route::get('/E-Pay/home/customer/download-pending-data_PDF', 'CPDFController@pendingPDF')->name('pendingPDF');
+
+    /* Customer Balance Log */
+
+    //Upcoming..
+
+    });
 
 });

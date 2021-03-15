@@ -72,7 +72,6 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-        <li><a class="nav-link scrollto" href="{{route('uploadExcel')}}">Upload Excel</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Refer Customer</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.userlist')}}">Profile</a></li>

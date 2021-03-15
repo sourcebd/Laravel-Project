@@ -31,6 +31,7 @@ class CLoanRequest extends FormRequest
             'loanreq' => 'required|min:3|max:10|regex:/^\d+(\.\d{1,2})?$/',
             'phone' => 'required|regex:/(01)[0-9]{9}/',
             'myfile' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'status' => 'required',
         ];
     }
 
@@ -66,6 +67,8 @@ class CLoanRequest extends FormRequest
             'myfile.required' => "Profile Picture must be uploaded...",
             'myfile.mimes' => "Profile Picture should be in jpeg, png, jpg, gif, svg format...",
             'myfile.max' => "The size of Profile Picture must be lower than 2048 kb...",
+
+            'status.required' => "Loan Status must be required if it's pending or approved...",
         ];
     }
 }

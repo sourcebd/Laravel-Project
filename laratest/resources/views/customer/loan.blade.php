@@ -28,6 +28,7 @@
   <link href="{{asset('css/MainPage.css')}}" rel="stylesheet">
   <link href="{{asset('css/Create.css')}}" rel="stylesheet">
   <link href="{{asset('css/CreateButton.css')}}" rel="stylesheet">
+  
 
   <!-- =======================================================
   * Template Name: Reveal - v4.0.1
@@ -165,7 +166,7 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Add Loan</label>
+                                    <label class="label">Request Loan</label>
                                     <input class="input--style-4" type="text" rows="5" name="loanreq" value="{{$user['loanreq']}}">
                                 </div>
                             </div>
@@ -175,24 +176,16 @@
                                     <input class="input--style-4" type="text" name="phone" value="{{$user['phone']}}">
                                 </div>
                             </div>  
-                            <!-- <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">CGPA</label>
-                                    <input class="input--style-4" type="text" name="cgpa" value="{{old('cgpa')}}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <label class="label">Type&nbsp;&nbsp;</label>
-                            <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="type">
-                                    <option disabled="disabled" selected="selected">Choose option</option>
-                                    <option value="Admin">Admin</option>
-                                    <option value="User">User</option>
-                                </select>
+                     <div class="input-group">
+                            <label class="label">Loan Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                          <div class="rs-select2 js-select-simple select--no-search">
+                            <select name='status'>
+                                <option value="Pending" @if($user['type'] == 'Pending') selected @endif > Pending </option>
+                                <option value="Approved"  @if($user['type'] == 'Approved') selected @endif > Approved </option>
+	                          </select>
                                 <div class="select-dropdown"></div>
-                            </div>
-                        </div> -->
+                          </div>
+                    </div>
                         
 						<!-- <div class="p-t-15">
                             <button class="btn btn--radius-2 btn--blue" type="submit">Register</button>

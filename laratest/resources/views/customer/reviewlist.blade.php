@@ -127,14 +127,13 @@
         You can add, modify, remove your opinion from here
 					</span>
 
-          <table border="0" style="width: 100%">
+          <table class="table table-striped table-bordered" border="0" style="width: 100%; text-align:justify">
         <tr>
-            <td>Id&nbsp;&nbsp;</td>
-            <td>Username&nbsp;&nbsp;</td>
-            <td>Feedback&nbsp;&nbsp;</td>
-            <td>Action&nbsp;&nbsp;</td>
+            <th>Id&nbsp;&nbsp;</th>
+            <th>Username&nbsp;&nbsp;</th>
+            <th>Feedback&nbsp;&nbsp;</th>
+            <th>Action&nbsp;&nbsp;</th>
         </tr>
-        <tr><td><br></td></tr>
 
         @for($i=0; $i < count($list); $i++)
         <tr>
@@ -147,7 +146,6 @@
                 <a href="/E-Pay/home/details/review/customer/{{ $list[$i]['reviewId'] }}">Details</a>
             </td>
         </tr>
-        <tr><td><br></td></tr>
         
         </div>
         </div>
@@ -174,14 +172,13 @@
         Others opinion
 					</span>
 
-          <table border="0" style="width: 100%">
+          <table class="table table-striped table-bordered" border="0" style="width: 100%; text-align:justify">
         <tr>
-            <td>Id&nbsp;&nbsp;</td>
-            <td>Username&nbsp;&nbsp;</td>
-            <td>Feedback&nbsp;&nbsp;</td>
-            <td>Action&nbsp;&nbsp;</td>
+            <th>Id&nbsp;&nbsp;</th>
+            <th>Username&nbsp;&nbsp;</th>
+            <th>Feedback&nbsp;&nbsp;</th>
+            <th>Action&nbsp;&nbsp;</th>
         </tr>
-        <tr><td><br></td></tr>
 
         @for($i=0; $i < count($name); $i++)
         <tr>
@@ -192,7 +189,6 @@
                 <a href="/E-Pay/home/details/review/customer/{{ $name[$i]['reviewId'] }}">Details</a>
             </td>
         </tr>
-        <tr><td><br></td></tr>
 
         </div>
         </div>

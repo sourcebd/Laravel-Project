@@ -128,19 +128,30 @@
         Here are the details of your opinion
 					</span>
 
-        <table border="0" style="width: 100%; min-height: 70vh">
+        <table border="0" style="width: 100%; min-height: 70vh; text-align: justify">
         <tr>
 					<td colspan="2">
 						<img src="{{asset('/upload')}}/{{$review['profile_img']}}" width="100px" height="100px"> </td>
 				</tr>
+
 				<tr>
-					<td>{{ $review['username']}}</td>
+					<th>
+          <div style="font-size: 25px; color: red">
+          {{ $review['username']}}
+          </div>
+          </th>
 				</tr>
+
 				<tr>
-					<td>{{ $review['reviewdate']}}</td>
+					<th>
+          <div style="color: darkblue">
+          {{ $review['reviewdate']}}
+          </div>
+          </th>
 				</tr>
+
         <tr>
-					<td>{{ $review['review'] }}</td>
+					<th>{{ $review['review'] }}</th>
 				</tr>
 				<tr>
 					<td>{{ $review['feedback'] }}</td>

@@ -150,7 +150,6 @@
           <div style="background-color: rgb(3, 115, 252); display:block; font-size:90%; width: 15%; padding: 20px; margin:auto; border-radius: 40px; border: 2px solid rgb(3, 115, 252); color: white">
             <tr>
               <td>Me:&nbsp;</td>
-              <td>{{ $message['username'] }}</td>
               <td>{{ $message->message }}</td>
             </tr>
           </div>

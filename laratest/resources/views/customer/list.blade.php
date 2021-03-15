@@ -127,15 +127,15 @@
         Your Profile
 					</span>
 
-          <table border="0" style="width: 50%">
+<center>
+          <table class="table table-striped table-bordered" border="0" style="width: 50%; text-align:center">
         <tr>
-            <td>Id&nbsp;&nbsp;</td>
-            <td>Username&nbsp;&nbsp;</td>
-            <td>Password&nbsp;&nbsp;</td>
-            <td>Type&nbsp;&nbsp;</td>
-            <td>Action&nbsp;&nbsp;</td>
+            <th>Id&nbsp;&nbsp;</th>
+            <th>Username&nbsp;&nbsp;</th>
+            <th>Password&nbsp;&nbsp;</th>
+            <th>Type&nbsp;&nbsp;</th>
+            <th>Action&nbsp;&nbsp;</th>
         </tr>
-        <tr><td><br></td></tr>
 
         @for($i=0; $i < count($list); $i++)
         <tr>
@@ -149,7 +149,6 @@
                 <a href="/E-Pay/home/details/customer/{{ $list[$i]['userId'] }}">Details</a>
             </td>
         </tr>
-        <tr><td><br></td></tr>
 
         @endfor
 
@@ -157,6 +156,8 @@
         </div>
         </section>
     </table>
+    </center>
+
     <br>
     {{session('msg')}}
 
@@ -177,19 +178,19 @@
         Others Profile
 					</span>
 
-        <table border="0" style="width: 100%">
+<center>
+        <table class="table table-striped table-bordered" border="0" style="width: 100%; text-align:center">
         <tr>
-            <td>Id&nbsp;&nbsp;</td>
-            <td>Username&nbsp;&nbsp;</td>
-            <td>Name&nbsp;&nbsp;</td>
-            <td>Father/Spouse Name&nbsp;&nbsp;</td>
-            <td>Mother Name&nbsp;&nbsp;</td>
-            <td>Date of Birth&nbsp;&nbsp;</td>
-            <td>Gender&nbsp;&nbsp;</td>
-            <td>Blood Group&nbsp;&nbsp;</td>
-            <td>Type&nbsp;&nbsp;</td>
+            <th>Id&nbsp;&nbsp;</th>
+            <th>Username&nbsp;&nbsp;</th>
+            <th>Name&nbsp;&nbsp;</th>
+            <th>Father/Spouse Name&nbsp;&nbsp;</th>
+            <th>Mother Name&nbsp;&nbsp;</th>
+            <th>Date of Birth&nbsp;&nbsp;</th>
+            <th>Gender&nbsp;&nbsp;</th>
+            <th>Blood Group&nbsp;&nbsp;</th>
+            <th>Type&nbsp;&nbsp;</th>
         </tr>
-        <tr><td><br></td></tr>
 
         @for($i=0; $i < count($name); $i++)
         <tr>
@@ -204,13 +205,14 @@
             <td>{{ $name[$i]['type'] }}</td>
             
         </tr>
-        <tr><td><br></td></tr>
 
         @endfor
         </div>
         </div>
         </section>
     </table>
+  </center>
+  
     <!-- {{session('msg')}} -->
 
       </div>

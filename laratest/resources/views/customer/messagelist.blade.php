@@ -127,14 +127,13 @@
         You can modify, remove your message from here
 					</span>
 
-          <table border="0" style="width: 100%">
+          <table class="table table-striped table-bordered" border="0" style="width: 100%; text-align:justify">
         <tr>
             <td>Id&nbsp;&nbsp;</td>
             <td>Username&nbsp;&nbsp;</td>
             <td>Message&nbsp;&nbsp;</td>
             <td>Action&nbsp;&nbsp;</td>
         </tr>
-        <tr><td><br></td></tr>
 
         @for($i=0; $i < count($list); $i++)
         <tr>
@@ -147,7 +146,6 @@
                 <a href="/E-Pay/home/details/message/customer/{{ $list[$i]['messageId'] }}">Details</a>
             </td>
         </tr>
-        <tr><td><br></td></tr>
         
         </div>
         </div>

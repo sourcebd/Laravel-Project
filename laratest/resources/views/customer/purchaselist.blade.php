@@ -127,14 +127,13 @@
         You can pay from your account
 					</span>
 
-          <table border="0" style="width: 100%">
+          <table class="table table-striped table-bordered" border="0" style="width: 100%; text-align:center">
         <tr>
-            <td>Id&nbsp;&nbsp;</td>
-            <td>Username&nbsp;&nbsp;</td>
-            <td>Total Purchased Amount&nbsp;&nbsp;</td>
-            <td>Action&nbsp;&nbsp;</td>
+            <th>Id&nbsp;&nbsp;</th>
+            <th>Username&nbsp;&nbsp;</th>
+            <th>Total Purchased Amount&nbsp;&nbsp;</th>
+            <th>Action&nbsp;&nbsp;</th>
         </tr>
-        <tr><td><br></td></tr>
 
         @for($i=0; $i < count($list); $i++)
         <tr>
@@ -149,7 +148,6 @@
                 <a href="/E-Pay/home/details/purchase/customer/{{ $list[$i]['id'] }}">Details</a>
             </td>
         </tr>
-        <tr><td><br></td></tr>
         
         </div>
         </div>

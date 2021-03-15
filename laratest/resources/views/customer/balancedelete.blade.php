@@ -129,24 +129,22 @@
         Remove your balance
 					</span>
 
-        <table border="0" style="width: 100%; text-align: center">
+        <table class="table table-striped table-bordered" border="0" style="width: 100%; text-align: center">
         <tr>
 					<td colspan="2">
 						<img src="{{asset('/upload')}}/{{$user['profile_img']}}" width="100px" height="100px"> </td>
 				</tr>
-        <tr><td><br></td></tr>
 
         <tr>
-            <td>Id&nbsp;&nbsp;</td>
-            <td>Username&nbsp;&nbsp;</td>
-            <td>Email&nbsp;&nbsp;</td>
-            <td>Card Number&nbsp;&nbsp;</td>
-            <td>Bank Name&nbsp;&nbsp;</td>
-            <td>Added Amount&nbsp;&nbsp;</td>
-            <td>Deducted Amount&nbsp;&nbsp;</td>
-            <td>Balance&nbsp;&nbsp;</td>
+            <th>Id&nbsp;&nbsp;</th>
+            <th>Username&nbsp;&nbsp;</th>
+            <th>Email&nbsp;&nbsp;</th>
+            <th>Card Number&nbsp;&nbsp;</th>
+            <th>Bank Name&nbsp;&nbsp;</th>
+            <th>Added Amount&nbsp;&nbsp;</th>
+            <th>Deducted Amount&nbsp;&nbsp;</th>
+            <th>Balance&nbsp;&nbsp;</th>
         </tr>
-        <tr><td><br></td></tr>
 
         <tr>
 					<td>{{ $user['id']}}</td>
@@ -158,23 +156,22 @@
           <td>৳{{ $user['transferred']}}</td>
 					<td>৳{{ $user['balance'] }}</td>
         </tr>
-        <tr><td><br><br></td></tr>
 
       </table>
 
-      <table style="width:28%; color:red; text-align:center; margin-left:38%">
+      <table class="table table-striped table-bordered" style="width:28%; color:red; text-align:center; margin-left:38%">
 
         <tr>
-          <td>Loan&nbsp;&nbsp;</td>
-          <td>Mobile Recharge&nbsp;&nbsp;</td>
+          <th>Requested Loan&nbsp;&nbsp;</th>
+          <th>Loan&nbsp;&nbsp;</th>
+          <th>Mobile Recharge&nbsp;&nbsp;</th>
         </tr>
-        <tr><td><br></td></tr>
 
         <tr>
-					<td>৳{{ $user['loan']}}</td>
+					<td>৳{{ $user['loanreq']}}</td>
+          <td>৳{{ $user['loan']}}</td>
           <td>৳{{ $user['mobile_recharge']}}</td>
         </tr>
-        <tr><td><br><br></td></tr>
 
       </table>
 

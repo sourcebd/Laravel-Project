@@ -72,6 +72,13 @@
 
       <nav id="navbar" class="navbar">
         <ul>
+        <li class="dropdown"><a href="#"><span>Download PDF</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                  <li><a href="{{route('balancePDF')}}">All Status</a></li>
+                  <li><a href="{{route('approvedPDF')}}">Approved Status</a></li>
+                  <li><a href="{{route('pendingPDF')}}">Pending Status</a></li>
+                </ul>
+          </li>
         <li><a class="nav-link scrollto" href="{{route('uploadExcel')}}">Upload Excel</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Refer Customer</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.balancecreate')}}">Create Balance</a></li>
@@ -127,15 +134,14 @@
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
         You can add or deduct money from your account
 					</span>
-
-          <table border="0" style="width: 100%">
+<center>
+          <table class="table table-striped table-bordered" border="0" style="width: 100%; text-align:center">
         <tr>
-            <td>Id&nbsp;&nbsp;</td>
-            <td>Username&nbsp;&nbsp;</td>
-            <td>Balance&nbsp;&nbsp;</td>
-            <td>Action&nbsp;&nbsp;</td>
+            <th>Id&nbsp;&nbsp;</th>
+            <th>Username&nbsp;&nbsp;</th>
+            <th>Balance&nbsp;&nbsp;</th>
+            <th>Action&nbsp;&nbsp;</th>
         </tr>
-        <tr><td><br></td></tr>
 
         @for($i=0; $i < count($list); $i++)
         <tr>
@@ -149,13 +155,13 @@
                 <a href="/E-Pay/home/details/balance/customer/{{ $list[$i]['id'] }}">Details</a>
             </td>
         </tr>
-        <tr><td><br></td></tr>
         
         </div>
         </div>
         </section>
         @endfor
     </table>
+    </center>
     <br>
     {{session('msg')}}
 
