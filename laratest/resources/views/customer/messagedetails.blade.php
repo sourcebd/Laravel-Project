@@ -125,56 +125,60 @@
  
                 <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-        Here are the details of your message
+        Here is the screenshot of your message
 					</span>
 
 
-    <div style="background-color: black; display:block; min-height:100vh; width: 100%; padding: 15px; margin:auto; border-radius: 40px; border: 2px solid black; color: white">
+          <div style="background-color: black; display:block; min-height:100vh; width: 100%; padding: 15px; margin:auto; border-radius: 40px; border: 2px solid black; color: white">
 
-    <div style="text-align: center">
+<div style="text-align: center">
+    <tr>
+      <td colspan="2">
+        <img src="{{asset('/upload')}}/{{$message->profile_img}}" style="border-radius:40%; margin-right:60%" width="50px" height="50px"> </td>
+    </tr>
+    <td>{{ $message->messagedate }}</td> |&nbsp;&nbsp;
+    <tr>
+      <td>Subject:&nbsp;&nbsp;</td>
+      <td>{{ $message->subject }}</td>
+    </tr>
+  </div>
+
+    <tr><td><br><br><br></td></tr>
+
+
+<div style="margin-right: -50%">
+      <div style="background-color: rgb(3, 115, 252); display:block; font-size:90%; width: 15%; padding: 20px; margin:auto; border-radius: 40px; border: 2px solid rgb(3, 115, 252); color: white">
         <tr>
-					<td colspan="2">
-						<img src="{{asset('/upload')}}/{{$message->profile_img}}" width="30px" height="30px"> </td>
-				</tr>
-        <td>{{ $message->messagedate }}</td> |&nbsp;&nbsp;
-        <tr>
-          <td>Subject:&nbsp;&nbsp;</td>
-          <td>{{ $message->subject }}</td>
+          <td>Me:&nbsp;</td>
+          <td>{{ $message->message }}</td>
         </tr>
       </div>
 
-        <tr><td><br><br><br></td></tr>
+  <div style="color: rgb(110, 125, 143); margin-left: 43%">
+    Seen at {{$message->updated_at}}
+  </div>
 
+</div>
 
-    <div style="margin-right: -50%">
-          <div style="background-color: rgb(3, 115, 252); display:block; font-size:90%; width: 15%; padding: 20px; margin:auto; border-radius: 40px; border: 2px solid rgb(3, 115, 252); color: white">
-            <tr>
-              <td>Me:&nbsp;</td>
-              <td>{{ $message->message }}</td>
-            </tr>
-          </div>
+                              <div style="color: rgb(110, 125, 143); margin-left: 45%">
+                                   AT {{$message->messagedate}}
+                                </div>
 
-      <div style="color: rgb(110, 125, 143); margin-left: 43%">
-        Seen at {{$message->updated_at}}
-      </div>
+    <tr><td><br><br><br></td></tr>
 
-    </div>
-
-        <tr><td><br><br><br></td></tr>
-
-      <div style="margin-left: -50%">
-            <div style="background-color: rgb(110, 125, 143); display:block; font-size:90%; width: 15%; padding: 20px; margin:auto; border-radius: 40px; border: 2px solid rgb(110, 125, 143); color: white">
+  <div style="margin-left: -50%">
+        <div style="background-color: rgb(110, 125, 143); display:block; font-size:90%; width: 15%; padding: 20px; margin:auto; border-radius: 40px; border: 2px solid rgb(110, 125, 143); color: white">
+          <tr>
               <tr>
-                  <tr>
-                    <td>{{ $message['admin_name'] }}:&nbsp;</td>
-                  </tr>
-                  <tr><td><br></td></tr>
-                  <tr>
-                    <td>{{ $message['admin_message'] }}</td>
-                </tr>
-            </div>
+                <td>{{ $message['admin_name'] }}:&nbsp;</td>
+              </tr>
+              <tr><td><br></td></tr>
+              <tr>
+                <td>{{ $message['admin_message'] }}</td>
+            </tr>
         </div>
-        <tr><td><br></td></tr>
+    </div>
+    <tr><td><br></td></tr>
 
     </div>
 

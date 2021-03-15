@@ -69,6 +69,10 @@ Route::group(['middleware'=>'sess'],function(){
 
     Route::get('/E-Pay/home/details/balance/customer/{id}', 'CBalanceController@show')->name('customer.balanceshow');
 
+    /* Customer Balance Log */
+
+    Route::get('/E-Pay/home/log/balance/customer', 'CPDFController@balanceLOG')->name('customer.balanceLog');
+
     /* Customer Purchase */
 
     Route::get('/E-Pay/home/list/purchase/customer', 'CPurchaseController@list')->name('customer.purchaselist');
@@ -130,10 +134,6 @@ Route::group(['middleware'=>'sess'],function(){
     Route::get('/E-Pay/home/customer/download-balance-data_PDF', 'CPDFController@balancePDF')->name('balancePDF');
     Route::get('/E-Pay/home/customer/download-approved-data_PDF', 'CPDFController@approvedPDF')->name('approvedPDF');
     Route::get('/E-Pay/home/customer/download-pending-data_PDF', 'CPDFController@pendingPDF')->name('pendingPDF');
-
-    /* Customer Balance Log */
-
-    //Upcoming..
 
     });
 

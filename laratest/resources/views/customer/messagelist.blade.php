@@ -94,6 +94,7 @@
       <div>
         <a href="{{route('customer.userlist')}}" class="btn-get-started scrollto">Profile</a>
         <a href="{{route('customer.balancelist')}}" class="btn-get-started scrollto">Balance</a>
+        <a href="{{route('customer.balanceLog')}}" class="btn-get-started scrollto">Log</a>
         <a href="{{route('customer.purchaselist')}}" class="btn-get-started scrollto">Purchase</a>
         <a href="{{route('customer.reviewlist')}}" class="btn-get-started scrollto">Review</a>
       </div>
@@ -127,23 +128,28 @@
         You can modify, remove your message from here
 					</span>
 
-          <table class="table table-striped table-bordered" border="0" style="width: 100%; text-align:justify">
-        <tr>
+          <table border="0" style="width: 100%; background-color: black; color:white; margin: auto; text-align:center; border-radius:40px">
+        <!-- <tr>
             <td>Id&nbsp;&nbsp;</td>
             <td>Username&nbsp;&nbsp;</td>
             <td>Message&nbsp;&nbsp;</td>
             <td>Action&nbsp;&nbsp;</td>
-        </tr>
+        </tr> -->
 
         @for($i=0; $i < count($list); $i++)
         <tr>
-            <td>{{ $list[$i]['messageId'] }}</td>
+
+           <!--  <td>{{ $list[$i]['messageId'] }}</td>
             <td>{{ $list[$i]['username'] }}</td>
-            <td>{{ $list[$i]['message'] }}</td>
+            <td>{{ $list[$i]['message'] }}</td> -->
+
             <td>
-                <a href="{{ route('customer.messageedit', [$list[$i]['messageId']]) }}">Reply</a><br>
+            <div style=" padding:15px">{{ $list[$i]['admin_name'] }}</div></td>
+            </div>
+            <td><a href="{{ route('customer.messageedit', [$list[$i]['messageId']]) }}">{{ $list[$i]['admin_message'] }}</td>
+            <td>
                 <a href="{{ route('customer.messagedelete', [$list[$i]['messageId']]) }}">Remove</a><br>
-                <a href="/E-Pay/home/details/message/customer/{{ $list[$i]['messageId'] }}">Details</a>
+                <a href="/E-Pay/home/details/message/customer/{{ $list[$i]['messageId'] }}">Screenshot<br><br>
             </td>
         </tr>
         

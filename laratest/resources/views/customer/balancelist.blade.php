@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | Customer-Balance List</title>
+  <title>E-Pay | Customer-Balance</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -101,6 +101,7 @@
       <h2>Balance, ৳@foreach($list as $i){{$i['balance']}}@endforeach<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
       <div>
         <a href="{{route('customer.userlist')}}" class="btn-get-started scrollto">Profile</a>
+        <a href="{{route('customer.balanceLog')}}" class="btn-get-started scrollto">Log</a>
         <a href="{{route('customer.purchaselist')}}" class="btn-get-started scrollto">Purchase</a>
         <a href="{{route('customer.reviewlist')}}" class="btn-get-started scrollto">Review</a>
         <a href="{{route('customer.messagelist')}}" class="btn-get-started scrollto">Message</a>

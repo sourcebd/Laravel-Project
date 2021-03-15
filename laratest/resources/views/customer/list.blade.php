@@ -93,6 +93,7 @@
       <h2>Profile<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
       <div>
         <a href="{{route('customer.balancelist')}}" class="btn-get-started scrollto">Balance</a>
+        <a href="{{route('customer.balanceLog')}}" class="btn-get-started scrollto">Log</a>
         <a href="{{route('customer.purchaselist')}}" class="btn-get-started scrollto">Purchase</a>
         <a href="{{route('customer.reviewlist')}}" class="btn-get-started scrollto">Review</a>
         <a href="{{route('customer.messagelist')}}" class="btn-get-started scrollto">Message</a>

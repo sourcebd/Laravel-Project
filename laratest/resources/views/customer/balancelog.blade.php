@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | Customer-Message Delete</title>
+  <title>E-Pay | Customer-Balance Log</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -65,20 +65,24 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('customer.messagelist')}}">E<span>Pay</span></a></h1>
+        <h1><a href="{{route('customer.balanceLog')}}">E<span>Pay</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
+        <li class="dropdown"><a href="#"><span>Download PDF</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                  <li><a href="{{route('balancePDF')}}">All Status</a></li>
+                  <li><a href="{{route('approvedPDF')}}">Approved Status</a></li>
+                  <li><a href="{{route('pendingPDF')}}">Pending Status</a></li>
+                </ul>
+          </li>
+        <li><a class="nav-link scrollto" href="{{route('uploadExcel')}}">Upload Excel</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Refer Customer</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.balancecreate')}}">Create Balance</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
-        <li><a class="nav-link scrollto" href="{{route('customer.userlist')}}">Profile</a></li>
-        <li><a class="nav-link scrollto" href="{{route('customer.balancelist')}}">Balance</a></li>
-        <li><a class="nav-link scrollto" href="{{route('customer.purchaselist')}}">Purchase</a></li>
-        <li><a class="nav-link scrollto" href="{{route('customer.reviewlist')}}">Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
         <li class="dropdown"><a class="nav-link scrollto" href="#contact"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
@@ -94,8 +98,12 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>Delete {{$message['username']}}'s Message<br><span style="color: red; text-decoration:none"></span></h2>
+      <h2>Balance Log<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
       <div>
+        <a href="{{route('customer.userlist')}}" class="btn-get-started scrollto">Profile</a>
+        <a href="{{route('customer.balancelist')}}" class="btn-get-started scrollto">Balance</a>
+        <a href="{{route('customer.purchaselist')}}" class="btn-get-started scrollto">Purchase</a>
+        <a href="{{route('customer.reviewlist')}}" class="btn-get-started scrollto">Review</a>
         <a href="{{route('customer.messagelist')}}" class="btn-get-started scrollto">Message</a>
       </div>
     </div>
@@ -117,7 +125,7 @@
     <!-- ======= Services Section ======= -->
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Remove Message</h2>
+          <h2>History</h2>
         </div>
 
     <section id="contact">
@@ -125,83 +133,107 @@
  
                 <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-        You can remove your message
+        You can check history of your balance log here
 					</span>
 
+<center><th><h4 style="color: green">Approved Status of Last 7 Days</h4></th></center>
 
-          <div style="background-color: black; display:block; min-height:100vh; width: 100%; padding: 15px; margin:auto; border-radius: 40px; border: 2px solid black; color: white">
-
-<div style="text-align: center">
-    <tr>
-      <td colspan="2">
-        <img src="{{asset('/upload')}}/{{$message->profile_img}}" style="border-radius:40%; margin-right:60%" width="50px" height="50px"> </td>
-    </tr>
-    <td>{{ $message->messagedate }}</td> |&nbsp;&nbsp;
-    <tr>
-      <td>Subject:&nbsp;&nbsp;</td>
-      <td>{{ $message->subject }}</td>
-    </tr>
-  </div>
-
-    <tr><td><br><br><br></td></tr>
-
-
-<div style="margin-right: -50%">
-      <div style="background-color: rgb(3, 115, 252); display:block; font-size:90%; width: 15%; padding: 20px; margin:auto; border-radius: 40px; border: 2px solid rgb(3, 115, 252); color: white">
-        <tr>
-          <td>Me:&nbsp;</td>
-          <td>{{ $message->message }}</td>
-        </tr>
-      </div>
-
-  <div style="color: rgb(110, 125, 143); margin-left: 43%">
-    Seen at {{$message->updated_at}}
-  </div>
-
+<div style="color: white; background-color: green; width: 1080px; text-align: center">
+Count:&nbsp;&nbsp;
+{{$sevenApprovedCount}} <br><br>
 </div>
 
-                              <div style="color: rgb(110, 125, 143); margin-left: 45%">
-                                   AT {{$message->messagedate}}
-                                </div>
-
-    <tr><td><br><br><br></td></tr>
-
-  <div style="margin-left: -50%">
-        <div style="background-color: rgb(110, 125, 143); display:block; font-size:90%; width: 15%; padding: 20px; margin:auto; border-radius: 40px; border: 2px solid rgb(110, 125, 143); color: white">
-          <tr>
-              <tr>
-                <td>{{ $message['admin_name'] }}:&nbsp;</td>
-              </tr>
-              <tr><td><br></td></tr>
-              <tr>
-                <td>{{ $message['admin_message'] }}</td>
-            </tr>
-        </div>
-    </div>
-    <tr><td><br></td></tr>
-
-    </div>
-
-    <tr><td><br><br></td></tr>
+<center>
+<table class="table table-striped table-bordered" border="0" style="text-align:center">
 
     <tr>
-					<td>
-						<h3>Are you sure?</h3>
-					</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>
-						<form method="post">
-							@csrf
-							<input type="submit" name="submit" style="width:80px; background-color:darkblue; color:white; border-radius:50px; padding:10px" value="Confirm">
-						</form>
-					</td>
-					<td></td>
-				</tr>
-        <tr><td><br></td></tr>
+        <th>Username</th>
+        <th>Card Number</th>
+        <th>Bank Name</th>
+        <th>Cashed-In</th>
+        <th>Cashed-Out</th>
+        <th>Loan</th>
+        <th>Mobile Recharge</th>
+        <th>Electricity Bill</th>
+        <th>Balance</th>
+        <th>Status [Loan]</th> 
+        <th>Total Purchased</th>
+        <th>Account Creation Time</th>
+        <th>Account Updated Time</th>
+      </tr>
 
-			
+        @foreach ($sevenApprovedDays as $i)
+        <tr>
+         <td>{{$i->username}}</td>
+         <td>{{$i->card_no}}</td>
+         <td>{{$i->bank_name}}</td>
+         <td>৳{{$i->added}}</td>
+         <td>৳{{$i->transferred}}</td>
+         <td>৳{{$i->loan}}</td>
+         <td>৳{{$i->mobile_recharge}}</td>
+         <td>৳{{$i->electricity_bill}}</td>
+         <td>৳{{$i->balance}}</td>
+         <td>{{$i->status}}</td>
+         <td>৳{{$i->total_purchased}}</td>
+         <td>{{$i->created_at}}</td>
+         <td>{{$i->updated_at}}</td>   
+        </tr>
+        @endforeach     
+</table>
+</center>
+
+<tr><td><br><br></td></tr>
+
+<center><th><h4 style="color: red">Pending Status of Last 7 Days</h4></th></center>
+
+<div style="color: white; background-color: red; width: 1100px; text-align: center">
+Count:&nbsp;&nbsp;
+{{$sevenPendingCount}} <br><br>
+</div>
+
+<center>
+<table class="table table-striped table-bordered" border="0" style="font-size:97%; text-align:center">
+    <tr>
+        <th>Username</th>
+        <th>Card Number</th>
+        <th>Bank Name</th>
+        <th>Cashed-In</th>
+        <th>Cashed-Out</th>
+        <th>Loan Request</th>
+        <th>Mobile Recharge</th>
+        <th>Electricity Bill</th>
+        <th>Balance</th>
+        <th>Status [Loan]</th> 
+        <th>Total Purchased</th>
+        <th>Account Creation Time</th>
+        <th>Account Updated Time</th>
+    </tr>
+    
+        @foreach ($sevenPendingDays as $i)
+     <tr>
+        <td>{{$i->username}}</td>
+         <td>{{$i->card_no}}</td>
+         <td>{{$i->bank_name}}</td>
+         <td>৳{{$i->added}}</td>
+         <td>৳{{$i->transferred}}</td>
+         <td>৳{{$i->loanreq}}</td>
+         <td>৳{{$i->mobile_recharge}}</td>
+         <td>৳{{$i->electricity_bill}}</td>
+         <td>৳{{$i->balance}}</td>
+         <td>{{$i->status}}</td>
+         <td>৳{{$i->total_purchased}}</td>
+         <td>{{$i->created_at}}</td>
+         <td>{{$i->updated_at}}</td>   
+     </tr>
+        @endforeach  
+</table>
+</center>
+
+    <br>
+    {{session('msg')}}
+
+      </div>
+
     <!-- ======= Contact Section ======= -->
     
       <div class="container" data-aos="fade-up">

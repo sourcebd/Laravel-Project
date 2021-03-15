@@ -122,7 +122,7 @@ class CMessageController extends Controller
         $message->save();
 
         $req->session()->flash('msg', 'Your Message has been edited...');
-        return redirect()->route('customer.messagelist');
+        return redirect('/E-Pay/home/edit/message/customer/'.$id);
     }
     }
     

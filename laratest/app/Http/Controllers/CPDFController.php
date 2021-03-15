@@ -64,25 +64,11 @@ class CPDFController extends Controller
 
         $sevenPendingCount = count($sevenPendingDays);
         $sevenApprovedCount = count($sevenApprovedDays);
-
-        $AvgPending = $req->session()->get('username');
-        $AvgPending = Customer_balance::where('username','=',$AvgPending)
-        ->where('loanreq')
-        ->where('status','Pending')
-        ->where('created_at', '>', Carbon::now()->subDays(7))
-        ->average('loanreq');
         
-        $AvgApproved = $req->session()->get('username');
-        $AvgPending = Customer_balance::where('username','=',$AvgPending)
-        ->where('loanreq')
-        ->where('status','Approved')
-        ->where('created_at', '>', Carbon::now()->subDays(7))
-        ->average('loanreq');
-
         return view('customer.balancelog', 
         compact('sevenPendingDays', 'sevenApprovedDays', 
-                'sevenPendingCount', 'sevenPendingCount',
-                'AvgPending', 'AvgApproved'
+                'sevenPendingCount', 'sevenApprovedCount',
+                'total_balance'
             ));
 
     }

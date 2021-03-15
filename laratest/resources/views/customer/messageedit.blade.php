@@ -125,22 +125,73 @@
  
                 <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-						Modify your message
+						Reply to your message
 					</span>
 
-        <form method="POST" enctype="multipart/form-data">
+
+<div style="background-color: black; display:block; min-height:100vh; width: 100%; padding: 15px; margin:auto; border-radius: 40px; border: 2px solid black; color: white">
+
+<div style="text-align: center">
+    <tr>
+      <td colspan="2">
+        <img src="{{asset('/upload')}}/{{$message->profile_img}}" style="border-radius:40%; margin-right:60%" width="50px" height="50px"> </td>
+    </tr>
+    <td>{{ $message->messagedate }}</td> |&nbsp;&nbsp;
+    <tr>
+      <td>Subject:&nbsp;&nbsp;</td>
+      <td>{{ $message->subject }}</td>
+    </tr>
+  </div>
+
+    <tr><td><br><br><br></td></tr>
+
+
+<div style="margin-right: -50%">
+      <div style="background-color: rgb(3, 115, 252); display:block; font-size:90%; width: 15%; padding: 20px; margin:auto; border-radius: 40px; border: 2px solid rgb(3, 115, 252); color: white">
+        <tr>
+          <td>Me:&nbsp;</td>
+          <td>{{ $message->message }}</td>
+        </tr>
+      </div>
+
+  <div style="color: rgb(110, 125, 143); margin-left: 43%">
+    Seen at {{$message->updated_at}}
+  </div>
+
+</div>
+
+                              <div style="color: rgb(110, 125, 143); margin-left: 45%">
+                                   AT {{$message->messagedate}}
+                                </div>
+
+    <tr><td><br><br><br></td></tr>
+
+  <div style="margin-left: -50%">
+        <div style="background-color: rgb(110, 125, 143); display:block; font-size:90%; width: 15%; padding: 20px; margin:auto; border-radius: 40px; border: 2px solid rgb(110, 125, 143); color: white">
+          <tr>
+              <tr>
+                <td>{{ $message['admin_name'] }}:&nbsp;</td>
+              </tr>
+              <tr><td><br></td></tr>
+              <tr>
+                <td>{{ $message['admin_message'] }}</td>
+            </tr>
+        </div>
+    </div>
+    <tr><td><br></td></tr>
+    <form method="POST" enctype="multipart/form-data">
 					@csrf
 
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Upload Profile Picture</label>
+                                    <label class="label"><div style="color: white">Upload Profile Picture</div></label>
                                     <input class="input--style-4" type="file" name="myfile" value="{{$message['myfile']}}">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Username</label>
+                                    <label class="label"><div style="color: white">Username</div></label>
                                     <input class="input--style-4" type="text" name="username" value="{{$message['username']}}">
                                 </div>
                             </div>
@@ -148,7 +199,7 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Date of Messaging&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                    <label class="label"><div style="color: white">Date of Messaging&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></label>
                                     <div class="input-group-icon">
                                         <input class="input--style-4 js-datepicker" type="date" name="dom" value="{{$message['messagedate']}}">
                                         <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
@@ -157,25 +208,30 @@
                             </div> 
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Subject</label>
+                                    <label class="label"><div style="color: white">Subject</div></label>
                                     <input class="input--style-4" type="text" name="subject" value="{{$message['subject']}}">
                                 </div>
                             </div>
                         </div>
                         <div class="row row-space">
                                 <div class="input-group">
-                                    <label class="label">Your Message</label>
+                                    <label class="label"><div style="color: white">Your Message</div></label>
                                     <input class="input--style-4" type="text" rows="5" name="message" value="{{$message['message']}}">
                                 </div>
 
-          
-					<div style="width:50%" class="container-login100-form-btn">
+          <br><br>
+					<div style="width:50%; margin-left:50%" class="container-login100-form-btn">
 						
       <button class="login100-form-btn" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
 				Send
 			</button>
 					</div>
           </form>
+</div>
+
+<tr><td><br><br></td></tr>
+
+       
 		  @foreach($errors->all() as $err)
 		{{$err}} <br>
 	@endforeach

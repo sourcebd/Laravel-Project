@@ -94,6 +94,7 @@
       <div>
         <a href="{{route('customer.userlist')}}" class="btn-get-started scrollto">Profile</a>
         <a href="{{route('customer.balancelist')}}" class="btn-get-started scrollto">Balance</a>
+        <a href="{{route('customer.balanceLog')}}" class="btn-get-started scrollto">Log</a>
         <a href="{{route('customer.purchaselist')}}" class="btn-get-started scrollto">Purchase</a>
         <a href="{{route('customer.messagelist')}}" class="btn-get-started scrollto">Message</a>
       </div>

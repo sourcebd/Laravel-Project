@@ -126,6 +126,7 @@
       <div>
         <a href="{{route('customer.userlist')}}" class="btn-get-started scrollto">Profile</a>
         <a href="{{route('customer.balancelist')}}" class="btn-get-started scrollto">Balance</a>
+        <a href="{{route('customer.balanceLog')}}" class="btn-get-started scrollto">Log</a>
         <a href="{{route('customer.purchaselist')}}" class="btn-get-started scrollto">Purchase</a>
         <a href="{{route('customer.reviewlist')}}" class="btn-get-started scrollto">Review</a>
         <a href="{{route('customer.messagelist')}}" class="btn-get-started scrollto">Message</a>
@@ -160,7 +161,11 @@
 					Search Result
 					</span>
 
-          <h6 align="center">Total Data : <span id="total_records"></span></h6>
+          <h4 align="center"> 
+          <tr>
+          <div style= "background-color: red; padding:15px; text-align: center; margin-left: 38%; color: white; border-radius: 20px; width: 25%"><th>Total Data:&nbsp;&nbsp;<span id="total_records"></span></h4></th></div>
+            <br><br>
+          </tr>
 
 
           <div class="container box">
