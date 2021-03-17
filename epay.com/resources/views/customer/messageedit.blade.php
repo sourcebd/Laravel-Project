@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="width=device-width, initial-scale=0.36" name="viewport">
 
   <title>E-Pay | Customer-Edit Message</title>
   <meta content="" name="description">
@@ -129,7 +129,7 @@
 					</span>
 
 
-<div style="background-color: black; display:block; min-height:100vh; width: 100%; padding: 15px; margin:auto; border-radius: 40px; border: 2px solid black; color: white">
+<div style="background-color: black; display:block; width: 100%; padding: 15px; margin:auto; border-radius: 40px; border: 2px solid black; color: white">
 
 <div style="text-align: center">
     <tr>

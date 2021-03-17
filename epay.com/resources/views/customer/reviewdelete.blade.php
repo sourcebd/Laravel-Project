@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="width=device-width, initial-scale=0.8" name="viewport">
 
   <title>E-Pay | Customer-Delete Review</title>
   <meta content="" name="description">
@@ -128,19 +128,30 @@
         Here you can remove your opinion
 					</span>
 
-        <table border="0" style="width: 100%; min-height: 85vh">
+          <table border="0" style="width: 100%; min-height: 85vh; text-align: justify">
         <tr>
 					<td colspan="2">
 						<img src="{{asset('/upload')}}/{{$review['profile_img']}}" width="100px" height="100px"> </td>
 				</tr>
+
 				<tr>
-					<td>{{ $review['username']}}</td>
+					<th>
+          <div style="font-size: 25px; color: red">
+          {{ $review['username']}}
+          </div>
+          </th>
 				</tr>
+
 				<tr>
-					<td>{{ $review['reviewdate']}}</td>
+					<th>
+          <div style="color: darkblue">
+          {{ $review['reviewdate']}}
+          </div>
+          </th>
 				</tr>
-         <tr>
-					<td>{{ $review['review'] }}</td>
+
+        <tr>
+					<th>{{ $review['review'] }}</th>
 				</tr>
 				<tr>
 					<td>{{ $review['feedback'] }}</td>
