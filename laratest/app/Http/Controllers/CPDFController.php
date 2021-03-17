@@ -67,8 +67,7 @@ class CPDFController extends Controller
         
         return view('customer.balancelog', 
         compact('sevenPendingDays', 'sevenApprovedDays', 
-                'sevenPendingCount', 'sevenApprovedCount',
-                'total_balance'
+                'sevenPendingCount', 'sevenApprovedCount'
             ));
 
     }
