@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=0.36" name="viewport">
+  <meta content="width=device-width, initial-scale=0.29" name="viewport">
 
   <title>E-Pay | Customer-Home</title>
   <meta content="" name="description">
@@ -163,7 +163,7 @@
 
           <h4 align="center"> 
           <tr>
-          <div style= "background-color: red; padding:15px; text-align: center; margin-left: 38%; color: white; border-radius: 20px; width:200px"><th>Total Data:&nbsp;&nbsp;<span id="total_records"></span></h4></th></div>
+          <div style= "background-color: red; padding:15px; text-align: center; margin-left: 40.4040%; color: white; border-radius: 20px; width:200px"><th>Total Data:&nbsp;&nbsp;<span id="total_records"></span></h4></th></div>
             <br><br>
           </tr>
 
