@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=0.36" name="viewport">
+  <meta content="width=device-width, initial-scale=0.29" name="viewport">
 
   <title>E-Pay | Customer-Delete Balance</title>
   <meta content="" name="description">
