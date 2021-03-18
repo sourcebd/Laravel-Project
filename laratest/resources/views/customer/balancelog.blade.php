@@ -138,13 +138,13 @@
 
 <center><th><h4 style="color: green">Approved Status of Last 7 Days</h4></th></center>
 
-<div style="color: white; background-color: green; width: 1080px; text-align: center">
+<div style="color: white; background-color: green; text-align: center">
 Count:&nbsp;&nbsp;
 {{$sevenApprovedCount}} <br><br>
 </div>
 
 <center>
-<table class="table table-striped table-bordered" border="0" style="text-align:center">
+<table class="table table-striped table-bordered" border="0" width= "1090px" style="font-size:14px; text-align:center">
 
     <tr>
         <th>Username</th>
@@ -186,13 +186,13 @@ Count:&nbsp;&nbsp;
 
 <center><th><h4 style="color: red">Pending Status of Last 7 Days</h4></th></center>
 
-<div style="color: white; background-color: red; width: 1100px; text-align: center">
+<div style="color: white; background-color: red; text-align: center">
 Count:&nbsp;&nbsp;
 {{$sevenPendingCount}} <br><br>
 </div>
 
 <center>
-<table class="table table-striped table-bordered" border="0" style="font-size:97%; text-align:center">
+<table class="table table-striped table-bordered" border="0" width= "1090px" style="font-size:14px; text-align:center">
     <tr>
         <th>Username</th>
         <th>Card Number</th>
