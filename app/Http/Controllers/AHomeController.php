@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-//use App\Customer;
+use App\Customer;
 use App\Admin;
+use App\Desk_manager;
+use App\Service_provider;
 use Validator;
 use App\Http\Requests\AdminRequest;
 use App\Http\Requests\AdminUpdateRequest;
@@ -24,8 +26,18 @@ class AHomeController extends Controller
    public function show($id){
 
         $user = Admin::find($id);
+        //$c = Customer::find($id);
         //print_r($user);
         return view('admin.details')->with('user', $user);
+       // ->with('user', $c)
+    }
+    public function show1($id){
+
+        $user = Customer::find($id);
+        //$c = Customer::find($id);
+        //print_r($user);
+        return view('admin.details')->with('user', $user);
+       // ->with('user', $c)
     }
 
     public function create(){
@@ -111,12 +123,26 @@ class AHomeController extends Controller
     public function userlist(Request $req){
 
         $name = Admin::all();
+        $c    = Customer::all();
+        $d    = Desk_manager::all();
+        $s    = Service_provider::all();
+
+        $value = $req->session()->get('username');
+        $userlist = Admin::where('username','=',$value)->get(); 
+       // $userlist = Customer::where('username','=',$value)->get();   
+        return view('admin.list')->with('list', $userlist)->with('name',$name)->with('c',$c)->with('d',$d)->with('s',$s);
+
+    }
+
+/*     public function list(Request $req){
+
+        $name = Admin::all();
 
         $value = $req->session()->get('username');
         $userlist = Admin::where('username','=',$value)->get();   
         return view('admin.list')->with('list', $userlist)->with('name',$name);
 
-    }
+    } */
 
     public function delete($id){
 

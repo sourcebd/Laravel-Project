@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | Admin-Home</title>
+  <title>E-Pay | admin-Details</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -52,10 +52,10 @@
         <i class="bi bi-phone d-flex align-items-center ms-4"><a href="tel:+880 1775463783">+880 186 510882</a></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
-        <a href="https://twitter.com/Emon71340800" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="https://www.facebook.com/Emon.king16/" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/dauntless_Emon/" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/Emon-mahmud-350141185/" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+        <a href="https://twitter.com/Nafi71340800" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.facebook.com/nafi.king16/" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/dauntless_nafi/" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/nafi-mahmud-350141185/" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
       </div>
     </div>
   </section><!-- End Top Bar-->
@@ -65,16 +65,20 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('admin.admin')}}">E<span>Pay</span></a></h1>
+        <h1><a href="{{route('admin.userlist')}}">E<span>Pay</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>
 
       <nav id="navbar" class="navbar">
-        <ul>
-        
+      <ul>
+        <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Refer Customer</a></li>
+        <li><a class="nav-link scrollto" href="{{route('admin.admin')}}">Home</a></li>
+        <li><a class="nav-link scrollto" href="{{route('admin.userlist')}}">Back</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
-          <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
+    
+
+        <li class="dropdown"><a class="nav-link scrollto" href="#contact"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
           </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -87,12 +91,9 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>Welcome Home!<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
+      <h2>{{$user['name']}}'s Details<br><span style="color: red; text-decoration:none"></span></h2>
       <div>
-      <a href="{{route('admin.userlist')}}" class="btn-get-started scrollto">Profile</a>
-      <a href="{{route('customer.userlist')}}" class="btn-get-started scrollto">Customer list</a>
-      <a href="{{route('admin.messagelist')}}" class="btn-get-started scrollto">Message</a>
-      
+        <a href="{{route('admin.userlist')}}" class="btn-get-started scrollto">Profile</a>
       </div>
     </div>
 
@@ -111,105 +112,79 @@
   <main id="main">
 <br>
     <!-- ======= Services Section ======= -->
-     <!--   <div class="container" data-aos="fade-up">
+      <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Other</h2>
+          <h2>{{$user['type']}} Details</h2>
         </div>
 
     <section id="contact">
       <div class="container">
  
-               <div class="card-body">
+                <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-						Other Forms will be here
+        Here are the details of {{$user['type']}}
 					</span>
 
-        <form method="POST" enctype="multipart/form-data">
-					@csrf
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Date&nbsp;&nbsp;</label>
-                                    <div class="input-group-icon">
-                                        <input class="input--style-4 js-datepicker" type="date" name="dor" value="{{old('reviewdate')}}">
-                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                    </div>
-                                </div>
-                            </div> 
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Other&nbsp;&nbsp;</label>
-                                    <div class="p-t-10">
-                                        <label class="radio-container m-r-45">Satisfactory
-                                            <input type="radio" checked="checked" name="review" value="Satisfactory">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        <label class="radio-container">It's Okay
-                                            <input type="radio" name="review" value="It's Okay">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        <label class="radio-container">Not Satisfactory
-                                            <input type="radio" name="review" value="Not Satisfactory">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Other</label>
-                                    <input class="input--style-4" type="text" rows="5" name="feedback" value="{{old('feedback')}}">
-                                </div>
-                            </div> -->
-                            <!-- <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">CGPA</label>
-                                    <input class="input--style-4" type="text" name="cgpa" value="{{old('cgpa')}}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <label class="label">Type&nbsp;&nbsp;</label>
-                            <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="type">
-                                    <option disabled="disabled" selected="selected">Choose option</option>
-                                    <option value="Admin">Admin</option>
-                                    <option value="User">User</option>
-                                </select>
-                                <div class="select-dropdown"></div>
-                            </div>
-                        </div> 
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Upload Image</label>
-                                    <input class="input--style-4" type="file" name="myfile">
-                                </div>
-                            </div>-->
-                        
-						<!-- <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue" type="submit">Register</button>
-                        </div> -->
+        <table border="0" style="width: 100%; min-height: 100vh">
+        <tr>
+					<td colspan="2">
+						<img src="{{asset('/upload')}}/{{$user['profile_img']}}" width="100px" height="100px"> </td>
+				</tr>
+        <tr>
+					<td>Name</td>
+					<td>{{$user['name']}}</td>
+				</tr>
+				<tr>
+					<td>Username</td>
+					<td>{{ $user['username']}}</td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td>{{ $user['password']}}</td>
+				</tr>
+        <tr>
+					<td>Email</td>
+					<td>{{ $user['email'] }}</td>
+				</tr>
+        <tr>
+					<td>Address</td>
+					<td>{{ $user['address'] }}</td>
+				</tr>
+				<tr>
+					<td>Date of Birth</td>
+					<td>{{ $user['dob'] }}</td>
+				</tr>
+        <tr>
+					<td>Father/Spouse Name</td>
+					<td>{{ $user['father_name'] }}</td>
+				</tr>
+        <tr>
+					<td>Mother Name</td>
+					<td>{{ $user['mother_name'] }}</td>
+				</tr>
+        <tr>
+					<td>Gender</td>
+					<td>{{ $user['gender'] }}</td>
+				</tr>
+        <tr>
+					<td>Blood Group</td>
+					<td>{{ $user['blood_group'] }}</td>
+				</tr>
+        <tr>
+					<td>Phone Number</td>
+					<td>{{ $user['phone'] }}</td>
+				</tr>
+        <tr>
+					<td>NID Number</td>
+					<td>{{ $user['nid_no'] }}</td>
+				</tr>
+        <tr>
+					<td>User Type</td>
+					<td>{{ $user['type'] }}</td>
+				</tr>
+        <tr><td><br></td></tr>
 
-					<!-- Login1.css -->	
-          
-					<!-- <div style="width:50%" class="container-login100-form-btn">
-						
-            <button class="login100-form-btn" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-				Other
-			</button> -->
-					</div>
-          </form>
-          @foreach($errors->all() as $err)
-		{{$err}} <br>
-	@endforeach
-</div>
-</div>
-
-
-      </div>
+			</table>
     <!-- ======= Contact Section ======= -->
     
       <div class="container" data-aos="fade-up">
@@ -232,7 +207,7 @@
             <div class="contact-phone">
               <i class="bi bi-phone"></i>
               <h3>Phone Number</h3>
-              <p><a href="tel:+8801775463783">+880 1775463783</a></p>
+              <p><a href="tel:+880 1775463783">+880 1775463783</a></p>
             </div>
           </div>
 

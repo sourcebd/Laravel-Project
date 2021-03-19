@@ -19,10 +19,10 @@ class CustomerCheck
         {
             return $next($request);
         }
-        /* elseif($request->session()->get('type') == "Customer" )
+       /*  elseif($request->session()->get('type') == "Admin" )
         {
             return $next($request); 
-        }*/
+        } */
         else
         {
             $request->session()->flash('msg','Invalid req ... You do not have privilege to be a customer!');

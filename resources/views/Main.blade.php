@@ -276,7 +276,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+         <!--  <div class="col-lg-4 col-md-6 portfolio-item filter-web">
             <img src="img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
             <div class="portfolio-info">
             <h4>Nafi Mahmud</h4>
@@ -284,7 +284,7 @@
               <a href="img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
               <a href="https://github.com/sourcebd" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
-          </div>
+          </div> -->
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <img src="img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
@@ -296,7 +296,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-web">
             <img src="img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h4>Nafi Mahmud</h4>
@@ -305,7 +305,7 @@
               <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
-      </div>
+      </div> -->
     </section><!-- End Portfolio Section -->
 
     <!-- ======= Testimonials Section ======= -->
@@ -413,7 +413,8 @@
           <h2>Our Team</h2>
         </div>
         <div class="row">
-          <div class="col-lg-3 col-md-6">
+          
+          <!-- <div class="col-lg-3 col-md-6">
             <div class="member">
               <div class="pic"><img src="img/team-1.jpg" alt=""></div>
               <div class="details">
@@ -427,7 +428,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <div class="col-lg-3 col-md-6">
             <div class="member">
@@ -461,7 +462,7 @@
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-6">
+          <!-- <div class="col-lg-3 col-md-6">
             <div class="member">
               <div class="pic"><img src="img/team-4.jpg" alt=""></div>
               <div class="details">
@@ -476,7 +477,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
       </div>
     </section><!-- End Team Section -->

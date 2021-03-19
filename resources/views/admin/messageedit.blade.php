@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | Admin-Home</title>
+  <title>E-Pay | Admin-Edit Message</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -65,16 +65,17 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('admin.admin')}}">E<span>Pay</span></a></h1>
+        <h1><a href="{{route('admin.messagelist')}}">E<span>Pay</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>
 
       <nav id="navbar" class="navbar">
-        <ul>
-        
+      <ul>
+        <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Refer Customer</a></li>
+        <li><a class="nav-link scrollto" href="{{route('admin.admin')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
-          <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
+        <li class="dropdown"><a class="nav-link scrollto" href="#contact"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
           </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -87,12 +88,9 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>Welcome Home!<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
+      <h2>Edit {{$message['admin_name']}}'s Message<br><span style="color: red; text-decoration:none"></span></h2>
       <div>
-      <a href="{{route('admin.userlist')}}" class="btn-get-started scrollto">Profile</a>
-      <a href="{{route('customer.userlist')}}" class="btn-get-started scrollto">Customer list</a>
-      <a href="{{route('admin.messagelist')}}" class="btn-get-started scrollto">Message</a>
-      
+        <a href="{{route('admin.messagelist')}}" class="btn-get-started scrollto">Message</a>
       </div>
     </div>
 
@@ -111,98 +109,46 @@
   <main id="main">
 <br>
     <!-- ======= Services Section ======= -->
-     <!--   <div class="container" data-aos="fade-up">
+      <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Other</h2>
+          <h2>Modify Message</h2>
         </div>
 
     <section id="contact">
       <div class="container">
  
-               <div class="card-body">
+                <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-						Other Forms will be here
+						Modify your message
 					</span>
 
         <form method="POST" enctype="multipart/form-data">
 					@csrf
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Date&nbsp;&nbsp;</label>
-                                    <div class="input-group-icon">
-                                        <input class="input--style-4 js-datepicker" type="date" name="dor" value="{{old('reviewdate')}}">
-                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                    </div>
-                                </div>
-                            </div> 
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Other&nbsp;&nbsp;</label>
-                                    <div class="p-t-10">
-                                        <label class="radio-container m-r-45">Satisfactory
-                                            <input type="radio" checked="checked" name="review" value="Satisfactory">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        <label class="radio-container">It's Okay
-                                            <input type="radio" name="review" value="It's Okay">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        <label class="radio-container">Not Satisfactory
-                                            <input type="radio" name="review" value="Not Satisfactory">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Other</label>
-                                    <input class="input--style-4" type="text" rows="5" name="feedback" value="{{old('feedback')}}">
-                                </div>
-                            </div> -->
-                            <!-- <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">CGPA</label>
-                                    <input class="input--style-4" type="text" name="cgpa" value="{{old('cgpa')}}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <label class="label">Type&nbsp;&nbsp;</label>
-                            <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="type">
-                                    <option disabled="disabled" selected="selected">Choose option</option>
-                                    <option value="Admin">Admin</option>
-                                    <option value="User">User</option>
-                                </select>
-                                <div class="select-dropdown"></div>
-                            </div>
-                        </div> 
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Upload Image</label>
-                                    <input class="input--style-4" type="file" name="myfile">
-                                </div>
-                            </div>-->
-                        
-						<!-- <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue" type="submit">Register</button>
-                        </div> -->
 
-					<!-- Login1.css -->	
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Admin Name</label>
+                                    <input class="input--style-4" type="text" name="admin_name" value="{{$message['admin_name']}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                                <div class="input-group">
+                                    <label class="label">Your Message</label>
+                                    <input class="input--style-4" type="text" rows="5" name="admin_message" value="{{$message['admin_message']}}">
+                                </div>
+                       
+
           
-					<!-- <div style="width:50%" class="container-login100-form-btn">
+					<div style="width:50%" class="container-login100-form-btn">
 						
-            <button class="login100-form-btn" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-				Other
-			</button> -->
+      <button class="login100-form-btn" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
+				Send
+			</button>
 					</div>
           </form>
-          @foreach($errors->all() as $err)
+		  @foreach($errors->all() as $err)
 		{{$err}} <br>
 	@endforeach
 </div>
@@ -210,6 +156,9 @@
 
 
       </div>
+
+<tr><td><br></td></tr>
+
     <!-- ======= Contact Section ======= -->
     
       <div class="container" data-aos="fade-up">
@@ -232,7 +181,7 @@
             <div class="contact-phone">
               <i class="bi bi-phone"></i>
               <h3>Phone Number</h3>
-              <p><a href="tel:+8801775463783">+880 1775463783</a></p>
+              <p><a href="tel:+880 1775463783">+880 1775463783</a></p>
             </div>
           </div>
 

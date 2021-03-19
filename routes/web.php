@@ -56,6 +56,52 @@ Route::group(['middleware'=>'admin'],function(){
 
     Route::get('/E-Pay/home/admin', 'AHomeController@index')->name('admin.admin');
 
+
+    Route::get('/E-Pay/home/create/customer', 'CHomeController@create')->name('customer.create');
+    Route::post('/E-Pay/home/create/customer', 'CHomeController@store');
+
+    //Route::get('/E-Pay/home/profile/admin', 'AHomeController@list')->name('admin.userlist');
+
+    Route::get('/E-Pay/home/profile/admin', 'AHomeController@userlist')->name('admin.userlist');
+
+    Route::get('/E-Pay/home/edit/admin/{id}', 'AHomeController@edit')->name('admin.edit');
+    Route::post('/E-Pay/home/edit/admin/{id}', 'AHomeController@update');
+
+    Route::get('/E-Pay/home/delete/admin/{id}', 'AHomeController@delete')->name('admin.delete');
+    Route::post('/E-Pay/home/delete/admin/{id}', 'AHomeController@destroy');
+
+    Route::get('/E-Pay/home/details/admin/{id}', 'AHomeController@show')->name('admin.show'); 
+
+    //Route::get('/E-Pay/home/details/admin/{id}', 'AHomeController@show1')->name('admin.show1'); 
+
+
+/*     c-list */
+Route::get('/E-Pay/home/profile/customer', 'CHomeController@userlist')->name('customer.userlist');
+
+Route::get('/E-Pay/home/edit/customer/{id}', 'CHomeController@edit')->name('customer.edit');
+Route::post('/E-Pay/home/edit/customer/{id}', 'CHomeController@update');
+
+Route::get('/E-Pay/home/delete/customer/{id}', 'CHomeController@delete')->name('customer.delete');
+Route::post('/E-Pay/home/delete/customer/{id}', 'CHomeController@destroy');
+
+Route::get('/E-Pay/home/details/customer/{id}', 'CHomeController@show')->name('customer.show');
+
+/* msg */
+
+    Route::get('/E-Pay/home/create/message/admin', 'AMessageController@create')->name('admin.messagecreate');
+    Route::post('/E-Pay/home/create/message/admin', 'AMessageController@store');
+
+    Route::get('/E-Pay/home/list/message/admin', 'AMessageController@list')->name('admin.messagelist');
+
+    Route::get('/E-Pay/home/edit/message/admin/{id}', 'AMessageController@edit')->name('admin.messageedit');
+    Route::post('/E-Pay/home/edit/message/admin/{id}', 'AMessageController@update');
+
+    Route::get('/E-Pay/home/delete/message/admin/{id}', 'AMessageController@delete')->name('admin.messagedelete');
+    Route::post('/E-Pay/home/delete/message/admin/{id}', 'AMessageController@destroy');
+
+    Route::get('/E-Pay/home/details/message/admin/{id}', 'AMessageController@show')->name('admin.messageshow');
+
+
     });
    
    
