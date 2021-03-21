@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Review;
 use Validator;
 use App\Http\Requests\ReviewRequest;
-use App\Http\Requests\ReviewUpdateRequest;
 
 class CReviewController extends Controller
 {
@@ -86,6 +85,7 @@ class CReviewController extends Controller
             $review->feedback   = $req->feedback;
             $review->save();
 
+        $req->session()->flash('msg', 'Your Review has been created...');
         return redirect()->route('customer.reviewlist');
 
         }  
@@ -99,7 +99,7 @@ class CReviewController extends Controller
     }
 
 
-    public function update($id, ReviewUpdateRequest $req){
+    public function update($id, ReviewRequest $req){
 
         if($req->hasFile('myfile')){
             $file = $req->file('myfile');  
@@ -121,6 +121,7 @@ class CReviewController extends Controller
         $review->feedback   = $req->feedback;
         $review->save();
 
+        $req->session()->flash('msg', 'Your Review has been edited...');
         return redirect()->route('customer.reviewlist');
     }
     }
@@ -144,9 +145,10 @@ class CReviewController extends Controller
         return view('customer.reviewdelete')->with('review', $review);
     }
 
-    public function destroy($id){
+    public function destroy($id, Request $req){
 
         if(Review::destroy($id)){
+            $req->session()->flash('msg', 'Your review has been deleted...');
             return redirect()->route('customer.reviewlist');
         }else{
             return redirect('/E-Pay/home/delete/review/customer/'.$id);

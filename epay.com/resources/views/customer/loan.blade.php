@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | Customer-Loan</title>
+  <title>E-Pay | Customer-Loan Request</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -28,6 +28,7 @@
   <link href="{{asset('css/MainPage.css')}}" rel="stylesheet">
   <link href="{{asset('css/Create.css')}}" rel="stylesheet">
   <link href="{{asset('css/CreateButton.css')}}" rel="stylesheet">
+  
 
   <!-- =======================================================
   * Template Name: Reveal - v4.0.1
@@ -65,7 +66,7 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('customer.balancelist')}}">E<span>Pay</span></a></h1>
+        <h1><a href="{{route('customer.purchaselist')}}">E<span>Pay</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>
@@ -76,10 +77,12 @@
         <li><a class="nav-link scrollto" href="{{route('customer.balancecreate')}}">Create Balance</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.userlist')}}">Profile</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.balancelist')}}">Balance</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewlist')}}">Review</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.messagelist')}}">Message</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
-          <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
+        <li class="dropdown"><a class="nav-link scrollto" href="#contact"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
           </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -92,9 +95,9 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>Add Loan into {{$user['username']}}'s Account<br><span style="color: red; text-decoration:none"></span></h2>
+      <h2>Request Loan into {{$user['username']}}'s Account<br><span style="color: red; text-decoration:none"></span></h2>
       <div>
-        <a href="{{route('customer.balancelist')}}" class="btn-get-started scrollto">Balance</a>
+        <a href="{{route('customer.purchaselist')}}" class="btn-get-started scrollto">Purchase</a>
       </div>
     </div>
 
@@ -123,7 +126,7 @@
  
                 <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-						Add loan to your Balance
+						Request for loan to add in your Balance
 					</span>
 
           <form method="POST" enctype="multipart/form-data">
@@ -163,8 +166,8 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Add Loan</label>
-                                    <input class="input--style-4" type="text" rows="5" name="loan" value="{{$user['loan']}}">
+                                    <label class="label">Request Loan</label>
+                                    <input class="input--style-4" type="text" rows="5" name="loanreq" value="{{$user['loanreq']}}">
                                 </div>
                             </div>
                             <div class="col-2">
@@ -173,24 +176,16 @@
                                     <input class="input--style-4" type="text" name="phone" value="{{$user['phone']}}">
                                 </div>
                             </div>  
-                            <!-- <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">CGPA</label>
-                                    <input class="input--style-4" type="text" name="cgpa" value="{{old('cgpa')}}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <label class="label">Type&nbsp;&nbsp;</label>
-                            <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="type">
-                                    <option disabled="disabled" selected="selected">Choose option</option>
-                                    <option value="Admin">Admin</option>
-                                    <option value="User">User</option>
-                                </select>
+                     <div class="input-group">
+                            <label class="label">Loan Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                          <div class="rs-select2 js-select-simple select--no-search">
+                            <select name='status'>
+                                <option value="Pending" @if($user['type'] == 'Pending') selected @endif > Pending </option>
+                                <option value="Approved"  @if($user['type'] == 'Approved') selected @endif > Approved </option>
+	                          </select>
                                 <div class="select-dropdown"></div>
-                            </div>
-                        </div> -->
+                          </div>
+                    </div>
                         
 						<!-- <div class="p-t-15">
                             <button class="btn btn--radius-2 btn--blue" type="submit">Register</button>
@@ -200,7 +195,7 @@
           
 			<div style="width:50%" class="container-login100-form-btn">		
       <button class="login100-form-btn" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-				Update Balance
+				Apply Request
 			</button>
 					</div>
           </form>

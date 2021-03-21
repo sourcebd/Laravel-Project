@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="width=device-width, initial-scale=0.29" name="viewport">
 
   <title>E-Pay | Customer-Home</title>
   <meta content="" name="description">
@@ -28,6 +28,8 @@
   <link href="{{asset('css/MainPage.css')}}" rel="stylesheet">
   <link href="{{asset('css/Create.css')}}" rel="stylesheet">
   <link href="{{asset('css/CreateButton.css')}}" rel="stylesheet">
+  <link href="{{asset('css/SearchBar.css')}}" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
   <!-- =======================================================
   * Template Name: Reveal - v4.0.1
@@ -72,11 +74,42 @@
 
       <nav id="navbar" class="navbar">
         <ul>
+          <input type="text" class="searchInput" name="search" id="search" placeholder="Search..">
+            <div id='submitsearch'
+              style="">
+              <span>Search</span>
+            </div>
+        <script>
+        $(document).ready(function(){
+
+        fetch_customer_data();
+
+        function fetch_customer_data(query = '')
+        {
+          $.ajax({
+          url:"{{ route('customer.search') }}",
+          method:'GET',
+          data:{query:query},
+          dataType:'json',
+          success:function(data)
+          {
+            $('tbody').html(data.table_data);
+            $('#total_records').text(data.total_data);
+          }
+          })
+        }
+
+        $(document).on('keyup', '#search', function(){
+          var query = $(this).val();
+          fetch_customer_data(query);
+        });
+        });
+        </script>
         <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Refer Customer</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.balancecreate')}}">Create Balance</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
-          <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
+        <li class="dropdown"><a class="nav-link scrollto" href="#contact"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
           </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -93,7 +126,10 @@
       <div>
         <a href="{{route('customer.userlist')}}" class="btn-get-started scrollto">Profile</a>
         <a href="{{route('customer.balancelist')}}" class="btn-get-started scrollto">Balance</a>
+        <a href="{{route('customer.balanceLog')}}" class="btn-get-started scrollto">Log</a>
+        <a href="{{route('customer.purchaselist')}}" class="btn-get-started scrollto">Purchase</a>
         <a href="{{route('customer.reviewlist')}}" class="btn-get-started scrollto">Review</a>
+        <a href="{{route('customer.messagelist')}}" class="btn-get-started scrollto">Message</a>
       </div>
     </div>
 
@@ -114,7 +150,7 @@
     <!-- ======= Services Section ======= -->
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Other</h2>
+          <h2>Home</h2>
         </div>
 
     <section id="contact">
@@ -122,95 +158,26 @@
  
                 <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-						Other Forms will be here
+					Search Result
 					</span>
 
-        <form method="POST" enctype="multipart/form-data">
-					@csrf
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Date&nbsp;&nbsp;</label>
-                                    <div class="input-group-icon">
-                                        <input class="input--style-4 js-datepicker" type="date" name="dor" value="{{old('reviewdate')}}">
-                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                    </div>
-                                </div>
-                            </div> 
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Other&nbsp;&nbsp;</label>
-                                    <div class="p-t-10">
-                                        <label class="radio-container m-r-45">Satisfactory
-                                            <input type="radio" checked="checked" name="review" value="Satisfactory">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        <label class="radio-container">It's Okay
-                                            <input type="radio" name="review" value="It's Okay">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        <label class="radio-container">Not Satisfactory
-                                            <input type="radio" name="review" value="Not Satisfactory">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Other</label>
-                                    <input class="input--style-4" type="text" rows="5" name="feedback" value="{{old('feedback')}}">
-                                </div>
-                            </div>
-                            <!-- <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">CGPA</label>
-                                    <input class="input--style-4" type="text" name="cgpa" value="{{old('cgpa')}}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <label class="label">Type&nbsp;&nbsp;</label>
-                            <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="type">
-                                    <option disabled="disabled" selected="selected">Choose option</option>
-                                    <option value="Admin">Admin</option>
-                                    <option value="User">User</option>
-                                </select>
-                                <div class="select-dropdown"></div>
-                            </div>
-                        </div> -->
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Upload Image</label>
-                                    <input class="input--style-4" type="file" name="myfile">
-                                </div>
-                            </div>
-                        
-						<!-- <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue" type="submit">Register</button>
-                        </div> -->
+          <h4 align="center"> 
+          <tr>
+          <div style= "background-color: red; padding:15px; text-align: center; margin-left: 40.4040%; color: white; border-radius: 20px; width:200px"><th>Total Data:&nbsp;&nbsp;<span id="total_records"></span></h4></th></div>
+            <br><br>
+          </tr>
 
-					<!-- Login1.css -->	
-          
-					<div style="width:50%" class="container-login100-form-btn">
-						
-            <button class="login100-form-btn" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-				Other
-			</button>
-					</div>
-          </form>
-          @foreach($errors->all() as $err)
-		{{$err}} <br>
-	@endforeach
+
+          <div class="container box">
+   <h5 align="center">Your Account balance data will be shown here</h5><br />
+      <table class="table table-striped table-bordered" style="width:100">
+       <tbody>
+
+       </tbody>
+      </table>
+
 </div>
 </div>
-
-
-      </div>
     <!-- ======= Contact Section ======= -->
     
       <div class="container" data-aos="fade-up">

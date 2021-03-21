@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="width=device-width, initial-scale=0.36" name="viewport">
 
   <title>E-Pay | Customer-Profile</title>
   <meta content="" name="description">
@@ -77,7 +77,7 @@
         <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
-          <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
+        <li class="dropdown"><a class="nav-link scrollto" href="#contact"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
           </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -93,7 +93,10 @@
       <h2>Profile<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
       <div>
         <a href="{{route('customer.balancelist')}}" class="btn-get-started scrollto">Balance</a>
+        <a href="{{route('customer.balanceLog')}}" class="btn-get-started scrollto">Log</a>
+        <a href="{{route('customer.purchaselist')}}" class="btn-get-started scrollto">Purchase</a>
         <a href="{{route('customer.reviewlist')}}" class="btn-get-started scrollto">Review</a>
+        <a href="{{route('customer.messagelist')}}" class="btn-get-started scrollto">Message</a>
       </div>
     </div>
 
@@ -125,15 +128,15 @@
         Your Profile
 					</span>
 
-          <table border="0" style="width: 100%">
+<center>
+          <table class="table table-striped table-bordered" border="0" style="width: 50%; text-align:center">
         <tr>
-            <td>Id</td>
-            <td>Username</td>
-            <td>Password</td>
-            <td>Type</td>
-            <td>Action</td>
+            <th>Id&nbsp;&nbsp;</th>
+            <th>Username&nbsp;&nbsp;</th>
+            <th>Password&nbsp;&nbsp;</th>
+            <th>Type&nbsp;&nbsp;</th>
+            <th>Action&nbsp;&nbsp;</th>
         </tr>
-        <tr><td><br></td></tr>
 
         @for($i=0; $i < count($list); $i++)
         <tr>
@@ -142,12 +145,11 @@
             <td>{{ $list[$i]['name'] }}</td>
             <td>{{ $list[$i]['type'] }}</td>
             <td>
-                <a href="{{ route('customer.edit', [$list[$i]['userId']]) }}">Edit</a>
-                <a href="/E-Pay/home/delete/customer/{{ $list[$i]['userId'] }}">Delete</a>
+                <a href="{{ route('customer.edit', [$list[$i]['userId']]) }}">Edit</a><br>
+                <a href="/E-Pay/home/delete/customer/{{ $list[$i]['userId'] }}">Delete</a><br>
                 <a href="/E-Pay/home/details/customer/{{ $list[$i]['userId'] }}">Details</a>
             </td>
         </tr>
-        <tr><td><br></td></tr>
 
         @endfor
 
@@ -155,6 +157,8 @@
         </div>
         </section>
     </table>
+    </center>
+
     <br>
     {{session('msg')}}
 
@@ -175,31 +179,41 @@
         Others Profile
 					</span>
 
-        <table border="0" style="width: 100%">
+<center>
+        <table class="table table-striped table-bordered" border="0" style="width: 100%; text-align:center">
         <tr>
-            <td>Id</td>
-            <td>Username</td>
-            <td>Name</td>
-            <td>Type</td>
-            <td>Action</td>
+            <th>Id&nbsp;&nbsp;</th>
+            <th>Username&nbsp;&nbsp;</th>
+            <th>Name&nbsp;&nbsp;</th>
+            <th>Father/Spouse Name&nbsp;&nbsp;</th>
+            <th>Mother Name&nbsp;&nbsp;</th>
+            <th>Date of Birth&nbsp;&nbsp;</th>
+            <th>Gender&nbsp;&nbsp;</th>
+            <th>Blood Group&nbsp;&nbsp;</th>
+            <th>Type&nbsp;&nbsp;</th>
         </tr>
-        <tr><td><br></td></tr>
 
         @for($i=0; $i < count($name); $i++)
         <tr>
             <td>{{ $name[$i]['userId'] }}</td>
             <td>{{ $name[$i]['username'] }}</td>
             <td>{{ $name[$i]['name'] }}</td>
+            <td>{{ $name[$i]['father_name'] }}</td>
+            <td>{{ $name[$i]['mother_name'] }}</td>
+            <td>{{ $name[$i]['dob'] }}</td>
+            <td>{{ $name[$i]['gender'] }}</td>
+            <td>{{ $name[$i]['blood_group'] }}</td>
             <td>{{ $name[$i]['type'] }}</td>
-            <td><a href="/E-Pay/home/details/customer/{{ $name[$i]['userId'] }}">Details</a></td>
+            
         </tr>
-        <tr><td><br></td></tr>
 
         @endfor
         </div>
         </div>
         </section>
     </table>
+  </center>
+  
     <!-- {{session('msg')}} -->
 
       </div>

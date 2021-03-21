@@ -90,6 +90,7 @@ class CBalanceController extends Controller
             $user->email            = $req->email;
             $user->phone            = $req->phone;
             $user->profile_img      = $filename;
+
             $user->save();
 
             $req->session()->flash('msg', 'Customer Balance information created successfully...');
@@ -130,6 +131,7 @@ class CBalanceController extends Controller
             $user->email            = $req->email;
             $user->phone            = $req->phone;
             $user->profile_img      = $filename;
+
             $user->save();
 
             $req->session()->flash('msg', 'Customer Cash In is successful...');

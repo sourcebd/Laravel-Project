@@ -20,6 +20,8 @@ Route::get('/', function () {
 
 Route::get('/E-Pay', 'MainController@index')->name('main.index');
 /* Customer */
+Route::post('/E-Pay', 'CMessageController@store');
+
 Route::get('/E-Pay/registration/customer', 'CRegController@index')->name('registration.customer');
 Route::post('/E-Pay/registration/customer', 'CRegController@store');
 
@@ -39,14 +41,7 @@ Route::get('/E-Pay/logout/admin', 'ALogoutController@index')->name('logout.index
 
         //Route::get('/E-Pay/home/create/admin', 'AHomeController@create')->name('admin.create');
         //Route::post('/E-Pay/home/create/admin', 'AHomeController@store');
-
-
-
-
-
-
-
-        
+    
 
 Route::group(['middleware'=>'sess'],function(){
 
@@ -178,6 +173,38 @@ Route::group(['middleware'=>'admin'],function(){
     Route::post('/E-Pay/home/delete/balance/customer/{id}', 'CBalanceController@destroy');
 
     Route::get('/E-Pay/home/details/balance/customer/{id}', 'CBalanceController@show')->name('customer.balanceshow');
+    
+    /* Customer Message */
+
+    Route::get('/E-Pay/home/create/message/customer', 'CMessageController@create')->name('customer.messagecreate');
+    Route::post('/E-Pay/home/create/message/customer', 'CMessageController@store');
+
+    Route::get('/E-Pay/home/list/message/customer', 'CMessageController@list')->name('customer.messagelist');
+
+    Route::get('/E-Pay/home/edit/message/customer/{id}', 'CMessageController@edit')->name('customer.messageedit');
+    Route::post('/E-Pay/home/edit/message/customer/{id}', 'CMessageController@update');
+
+    Route::get('/E-Pay/home/delete/message/customer/{id}', 'CMessageController@delete')->name('customer.messagedelete');
+    Route::post('/E-Pay/home/delete/message/customer/{id}', 'CMessageController@destroy');
+
+    Route::get('/E-Pay/home/details/message/customer/{id}', 'CMessageController@show')->name('customer.messageshow');
+
+    /* Customer Search */
+
+    Route::get('/E-Pay/home/search/customer', 'SearchController@index');
+    Route::get('/E-Pay/home/search/action/customer', 'SearchController@action')->name('customer.search');
+
+    /* Customer Excel Download/Upload */
+
+    Route::get('/E-Pay/home/customer/download-balance-data', 'CExcelController@downloadExcel')->name('downloadExcel');
+    Route::get('/E-Pay/home/customer/upload-balance-data', 'CExcelController@uploadExcelview');
+    Route::post('/E-Pay/home/customer/upload-balance-data', 'CExcelController@upload')->name('uploadExcel');
+
+    /* Customer PDF Download */
+
+    Route::get('/E-Pay/home/customer/download-balance-data_PDF', 'CPDFController@balancePDF')->name('balancePDF');
+    Route::get('/E-Pay/home/customer/download-approved-data_PDF', 'CPDFController@approvedPDF')->name('approvedPDF');
+    Route::get('/E-Pay/home/customer/download-pending-data_PDF', 'CPDFController@pendingPDF')->name('pendingPDF');
 
     });
 

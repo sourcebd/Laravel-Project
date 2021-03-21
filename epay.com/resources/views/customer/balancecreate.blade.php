@@ -75,10 +75,12 @@
         <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Refer Customer</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.userlist')}}">Profile</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.purchaselist')}}">Purchase</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewlist')}}">Review</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.messagelist')}}">Message</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
-          <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
+        <li class="dropdown"><a class="nav-link scrollto" href="#contact"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
           </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -173,20 +175,20 @@
                                 </div>
                             </div>
                           
-                            <!-- <div class="col-2">
+                             <!-- <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">CGPA</label>
                                     <input class="input--style-4" type="text" name="cgpa" value="{{old('cgpa')}}">
                                 </div>
                             </div>
-                        </div>
-                        <div class="input-group">
-                            <label class="label">Type&nbsp;&nbsp;</label>
+                        </div>  -->
+                        <!-- <div class="input-group">
+                            <label class="label">Status&nbsp;&nbsp;</label>
                             <div class="rs-select2 js-select-simple select--no-search">
                                 <select name="type">
                                     <option disabled="disabled" selected="selected">Choose option</option>
-                                    <option value="Admin">Admin</option>
-                                    <option value="User">User</option>
+                                    <option value="Added">Added</option>
+                                    <option value="Pending">Pending</option>
                                 </select>
                                 <div class="select-dropdown"></div>
                             </div>

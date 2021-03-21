@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="width=device-width, initial-scale=0.8" name="viewport">
 
   <title>E-Pay | Customer-Review Details</title>
   <meta content="" name="description">
@@ -65,7 +65,7 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('customer.userlist')}}">E<span>Pay</span></a></h1>
+        <h1><a href="{{route('customer.reviewlist')}}">E<span>Pay</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>
@@ -77,9 +77,11 @@
         <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.userlist')}}">Profile</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.balancelist')}}">Balance</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.purchaselist')}}">Purchase</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.messagelist')}}">Message</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
-          <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
+        <li class="dropdown"><a class="nav-link scrollto" href="#contact"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
           </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -126,19 +128,30 @@
         Here are the details of your opinion
 					</span>
 
-        <table border="0" style="width: 100%; min-height: 70vh">
+        <table border="0" style="width: 100%; min-height: 70vh; text-align: justify">
         <tr>
 					<td colspan="2">
 						<img src="{{asset('/upload')}}/{{$review['profile_img']}}" width="100px" height="100px"> </td>
 				</tr>
+
 				<tr>
-					<td>{{ $review['username']}}</td>
+					<th>
+          <div style="font-size: 25px; color: red">
+          {{ $review['username']}}
+          </div>
+          </th>
 				</tr>
+
 				<tr>
-					<td>{{ $review['reviewdate']}}</td>
+					<th>
+          <div style="color: darkblue">
+          {{ $review['reviewdate']}}
+          </div>
+          </th>
 				</tr>
+
         <tr>
-					<td>{{ $review['review'] }}</td>
+					<th>{{ $review['review'] }}</th>
 				</tr>
 				<tr>
 					<td>{{ $review['feedback'] }}</td>

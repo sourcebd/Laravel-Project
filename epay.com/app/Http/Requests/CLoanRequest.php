@@ -28,9 +28,10 @@ class CLoanRequest extends FormRequest
             'card_no' => 'required|digits:5',
             'email' => 'required|email:rfc|max:50|min:10',
             'bank_name' =>'required|min:5|max:30|regex:/[a-zA-Z]/i' ,
-            'loan' => 'required|min:3|max:10|regex:/^\d+(\.\d{1,2})?$/',
+            'loanreq' => 'required|min:3|max:10|regex:/^\d+(\.\d{1,2})?$/',
             'phone' => 'required|regex:/(01)[0-9]{9}/',
             'myfile' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'status' => 'required',
         ];
     }
 
@@ -55,10 +56,10 @@ class CLoanRequest extends FormRequest
             'bank_name.max' => "Bank Name can't exceed 30 characters...",
             'bank_name.regex' => "Bank Name must be in letter...",
 
-            'loan.required' => "Amount for Loan can't be empty...",
-            'loan.min' => "Amount for Loan must be minimum 3 digits...",
-            'loan.max' => "Amount for Loan can't exceed 10 digits...",
-            'loan.regex' => "Amount for Loan must be decimal value...",
+            'loanreq.required' => "Amount for Loan can't be empty...",
+            'loanreq.min' => "Amount for Loan must be minimum 3 digits...",
+            'loanreq.max' => "Amount for Loan can't exceed 10 digits...",
+            'loanreq.regex' => "Amount for Loan must be decimal value...",
 
             'phone.required' => "Phone Number can't be empty...",
             'phone.regex' => "Phone Number is invalid...",
@@ -66,6 +67,8 @@ class CLoanRequest extends FormRequest
             'myfile.required' => "Profile Picture must be uploaded...",
             'myfile.mimes' => "Profile Picture should be in jpeg, png, jpg, gif, svg format...",
             'myfile.max' => "The size of Profile Picture must be lower than 2048 kb...",
+
+            'status.required' => "Loan Status must be required if it's pending or approved...",
         ];
     }
 }

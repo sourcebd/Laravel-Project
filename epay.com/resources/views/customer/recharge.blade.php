@@ -65,7 +65,7 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('customer.balancelist')}}">E<span>Pay</span></a></h1>
+        <h1><a href="{{route('customer.purchaselist')}}">E<span>Pay</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>
@@ -76,10 +76,12 @@
         <li><a class="nav-link scrollto" href="{{route('customer.balancecreate')}}">Create Balance</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewcreate')}}">Create Review</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.userlist')}}">Profile</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.balancelist')}}">Balance</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.reviewlist')}}">Review</a></li>
+        <li><a class="nav-link scrollto" href="{{route('customer.messagelist')}}">Message</a></li>
         <li><a class="nav-link scrollto" href="{{route('customer.customer')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
-          <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
+        <li class="dropdown"><a class="nav-link scrollto" href="#contact"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
           </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -94,7 +96,7 @@
     <div class="hero-content" data-aos="fade-up">
       <h2>Get Amount for {{$user['username']}}'s Mobile Recharge<br><span style="color: red; text-decoration:none"></span></h2>
       <div>
-        <a href="{{route('customer.balancelist')}}" class="btn-get-started scrollto">Balance</a>
+        <a href="{{route('customer.purchaselist')}}" class="btn-get-started scrollto">Purchase</a>
       </div>
     </div>
 
@@ -164,7 +166,7 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Enter Amount to Recharge</label>
-                                    <input class="input--style-4" type="text" rows="5" name="mr" value="{{$user['mr']}}">
+                                    <input class="input--style-4" type="text" rows="5" name="mr" value="{{$user['mobile_recharge']}}">
                                 </div>
                             </div>
                             <div class="col-2">
@@ -200,7 +202,7 @@
           
 			<div style="width:50%" class="container-login100-form-btn">		
       <button class="login100-form-btn" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-				Update Balance
+				Recharge
 			</button>
 					</div>
           </form>
