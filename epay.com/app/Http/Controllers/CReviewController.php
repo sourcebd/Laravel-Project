@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Review;
 use Validator;
 use App\Http\Requests\ReviewRequest;
-use App\Http\Requests\ReviewUpdateRequest;
 
 class CReviewController extends Controller
 {
