@@ -28,6 +28,19 @@
   <link href="{{asset('css/MainPage.css')}}" rel="stylesheet">
   <link href="{{asset('css/Create.css')}}" rel="stylesheet">
   <link href="{{asset('css/CreateButton.css')}}" rel="stylesheet">
+  <link href="{{asset('css/SearchBar.css')}}" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#search").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myDIV *").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>  
 
   <!-- =======================================================
   * Template Name: Reveal - v4.0.1
@@ -128,6 +141,12 @@
         You can add, modify, remove your opinion from here
 					</span>
 
+                    <h2>Filter</h2>
+                    
+<input type="text" class="searchInput" name="search" id="search" placeholder="Search..">
+            <br><br>
+
+<div id="myDIV">
           <table class="table table-striped table-bordered" border="0" style="width: 100%; text-align:justify">
         <tr>
             <th>Id&nbsp;&nbsp;</th>
@@ -148,15 +167,14 @@
             </td>
         </tr>
         
-        </div>
-        </div>
+        
         </section>
         @endfor
     </table>
+    </div>
     <br>
     {{session('msg')}}
-
-      </div>
+    
 
 <!-- ----------------------------------------------------------->
 
@@ -173,6 +191,7 @@
         Others opinion
 					</span>
 
+<div id="myDIV">
           <table class="table table-striped table-bordered" border="0" style="width: 100%; text-align:justify">
         <tr>
             <th>Id&nbsp;&nbsp;</th>
@@ -191,14 +210,15 @@
             </td>
         </tr>
 
-        </div>
-        </div>
+        
         </section>
         @endfor
     </table>
-    <!-- {{session('msg')}} -->
+    </div>   
 
-      </div>
+    <!-- {{session('msg')}} -->
+<tr><td><br></td></tr>
+</div>
 
     <!-- ======= Contact Section ======= -->
     
