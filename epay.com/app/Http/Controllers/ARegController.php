@@ -16,20 +16,14 @@ class ARegController extends Controller
         
     }
 
-    // All 3 ways of Validation-> public function store(Request $req){
-    public function store(AdminRequest $req){ // This Validation used by Requests folder
+    
+    public function store(AdminRequest $req){ 
     
     
-        
-        //insert into DB or model...
 
         if($req->hasFile('myfile')){
             $file = $req->file('myfile');  
-            /*echo $file->getClientOriginalName()."<br>";  
-            echo $file->getClientOriginalExtension()."<br>";  
-            echo $file->getSize()."<br>";*/
-            //$file->move('upload', $file->getClientOriginalName());
-
+            
             $filename = time().".".$file->getClientOriginalExtension();
 
             $file->move('upload', $filename);

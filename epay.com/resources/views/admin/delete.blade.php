@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | admin-Delete</title>
+  <title>E-Pay | {{$user['type']}}-Delete</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -72,7 +72,7 @@
 
       <nav id="navbar" class="navbar">
       <ul>
-        <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Refer Customer</a></li>
+       <li><a class="nav-link scrollto" href="{{route('admin.create')}}">Add Customer</a></li>
         <li><a class="nav-link scrollto" href="{{route('admin.admin')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
         <li class="dropdown"><a class="nav-link scrollto" href="#contact"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
@@ -111,7 +111,7 @@
     <!-- ======= Services Section ======= -->
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Remove admin</h2>
+          <h2>Remove {{$user['type']}}</h2>
         </div>
 
     <section id="contact">
@@ -119,7 +119,7 @@
  
                 <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-        Remove unwanted admins
+        Remove unwanted {{$user['type']}}
 					</span>
 
         <table border="0" style="width: 100%; min-height: 120vh">

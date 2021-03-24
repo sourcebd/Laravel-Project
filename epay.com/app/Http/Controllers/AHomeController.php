@@ -7,8 +7,10 @@ use App\Customer;
 use App\Admin;
 use App\Desk_manager;
 use App\Service_provider;
+use App\Customer_balance;
 use Validator;
 use App\Http\Requests\AdminRequest;
+use App\Http\Requests\LoanApRequest;
 use App\Http\Requests\AdminUpdateRequest;
 
 class AHomeController extends Controller
@@ -251,11 +253,12 @@ class AHomeController extends Controller
         $c    = Customer::all();
         $d    = Desk_manager::all();
         $s    = Service_provider::all();
+        $l    = Customer_balance::all();
 
         $value = $req->session()->get('username');
         $userlist = Admin::where('username','=',$value)->get(); 
        // $userlist = Customer::where('username','=',$value)->get();   
-        return view('admin.list')->with('list', $userlist)->with('name',$name)->with('c',$c)->with('d',$d)->with('s',$s);
+        return view('admin.list')->with('list', $userlist)->with('name',$name)->with('c',$c)->with('d',$d)->with('s',$s)->with('l',$l);
 
     }
 
@@ -304,20 +307,25 @@ class AHomeController extends Controller
 
     public function destroyC($cid, Request $req){
 
-        if(Customer::destroyC($cid)){
+
+       // return $cid;
+      /*  $c =Customer::find($cid)->get();
+       $c->delete();
+       return 'Customer account removed successfully...'; */
+          if(Customer::destroy($cid)){
             $req->session()->flash('msg', 'Customer account removed successfully...');
-            return redirect()->route('logout.index');
+            return redirect()->route('admin.userlist');
         }else{
             return redirect('/E-Pay/home/delete/customer/'.$cid);
-        }
+        }  
 
     } 
 
     public function destroyD($did, Request $req){
 
-        if(Desk_manager::destroyD($did)){
+        if(Desk_manager::destroy($did)){
             $req->session()->flash('msg', 'Desk Manager account removed successfully...');
-            return redirect()->route('logout.index');
+            return redirect()->route('admin.userlist');
         }else{
             return redirect('/E-Pay/home/delete/deskManager/'.$did);
         }
@@ -326,13 +334,49 @@ class AHomeController extends Controller
 
     public function destroyS($sid, Request $req){
 
-        if(Service_provider::destroyS($sid)){
+        if(Service_provider::destroy($sid)){
             $req->session()->flash('msg', 'Service Provider account removed successfully...');
-            return redirect()->route('logout.index');
+            return redirect()->route('admin.userlist');
         }else{
             return redirect('/E-Pay/home/delete/serviceProvider/'.$sid);
         }
 
-    } 
+    }
+
+    public function loanedit($lid){
+        
+        $user = Customer_balance::find($lid);
+        return view('admin.loan')->with('user', $user);
+    }
+    
+    public function loanupdate($lid, LoanApRequest $req){
+
+     
+
+        $user = Customer_balance::find($lid);
+
+        //$user->loanreq = $user->loanreq + $req->loanreq;
+
+        $user->loan = $req->loanreq + $user->loan;  //This is customer portion, my work.
+        $user->balance = $user->balance +  $req->loanreq;
+        $user->total_purchased = $user->total_purchased - $req->loanreq;  //This is for admin portion, not my work.
+
+        //$user->username         = $req->username;     
+        $user->loanreq          = 0;
+        //$user->loan             = $req->loan;
+        $user->status           = $req->status;
+        $user->save();
+
+        $req->session()->flash('msg', 'Customer amount for Loan is Approve successfully...');
+        return redirect()->route('admin.userlist');
+}
+
+public function showl($lid){
+    $l= Customer_balance::all();
+    $user = Customer_balance::find($lid);
+    //print_r($user);
+    
+    return view('admin.loandetails')->with('user', $user)->with('l',$l);
+}
 
 }

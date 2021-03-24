@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | Admin-Message Details</title>
+  <title>E-Pay | Customer-Loan Request</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -28,6 +28,7 @@
   <link href="{{asset('css/MainPage.css')}}" rel="stylesheet">
   <link href="{{asset('css/Create.css')}}" rel="stylesheet">
   <link href="{{asset('css/CreateButton.css')}}" rel="stylesheet">
+  
 
   <!-- =======================================================
   * Template Name: Reveal - v4.0.1
@@ -44,8 +45,8 @@
     <source src="{{asset('music/RunicPower.mp3')}}" type="audio/mp3">
 </audio> -->
 
-  <!-- ======= Top Bar ======= -->
-  <section id="topbar" class="d-flex align-items-center">
+   <!-- ======= Top Bar ======= -->
+   <section id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
         <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:epay.management.21@gmail.com">EPay@gmail.com</a></i>
@@ -65,14 +66,14 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('admin.messagelist')}}">E<span>Pay</span></a></h1>
+       
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-       <li><a class="nav-link scrollto" href="{{route('admin.create')}}">Add Customer</a></li>
+        <li><a class="nav-link scrollto" href="{{route('admin.create')}}">Add Customer</a></li>
         <li><a class="nav-link scrollto" href="{{route('admin.admin')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
         <li class="dropdown"><a class="nav-link scrollto" href="#contact"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
@@ -88,9 +89,8 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>{{$message['admin_name']}}'s Message Details<br><span style="color: red; text-decoration:none"></span></h2>
+      <h2>Approve Loan into {{$user['username']}}'s Account<br><span style="color: red; text-decoration:none"></span></h2>
       <div>
-        <a href="{{route('admin.messagelist')}}" class="btn-get-started scrollto">Message</a>
         
       </div>
     </div>
@@ -112,72 +112,74 @@
     <!-- ======= Services Section ======= -->
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Message Details</h2>
+          <h2>Issue Loan</h2>
         </div>
 
     <section id="contact">
       <div class="container">
  
                 <div class="card-body">
-				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-        Here are the details of your message
+				<span class="login100-form-title" style="color: green;font-family: Helvetica Neue, Helvetica, Arial, sans-serif,color">
+						Customer {{$user['username']}} Request for loan to add {{$user['loanreq']}}tk in Her Account
 					</span>
 
+          <form method="POST" enctype="multipart/form-data">
+					@csrf
+                        <div class="row row-space">
+                            
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Username</label>
+                                    <input class="input--style-4" type="text" name="username" value="{{$user['username']}}">
+                                </div>
+                            </div>
+                          </div>
+                               
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Request Loan</label>
+                                    <input class="input--style-4" type="text" rows="5" name="loanreq" value="{{$user['loanreq']}}">
+                                </div>
+                            </div>
+                           
+                     <div class="input-group">
+                            <label class="label">Loan Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                          <div class="rs-select2 js-select-simple select--no-search">
+                            <select name='status'>
+                                <option value="Pending" @if($user['type'] == 'Pending') selected @endif > Pending </option>
+                                <option value="Approved"  @if($user['type'] == 'Approved') selected @endif > Approved </option>
+	                          </select>
+                                <div class="select-dropdown"></div>
+                          </div>
+                    </div>
+                        
+						<!-- <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Register</button>
+                        </div> -->
 
-    <div style="background-color: black; display:block; min-height:100vh; width: 100%; padding: 15px; margin:auto; border-radius: 40px; border: 2px solid black; color: white">
+					<!-- Login1.css -->	
+          
+			<div style="width:50%" class="container-login100-form-btn">		
+      <button class="login100-form-btn" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
+				Approve
+			</button>
+					</div>
+          </form>
+		  @foreach($errors->all() as $err)
+		{{$err}} <br>
+	@endforeach
+</div>
+</div>
 
-    <div style="text-align: center">
-    
-        <td>{{ $message->messagedate }}</td> |&nbsp;&nbsp;
-        <tr>
-          <td>Subject:&nbsp;&nbsp;</td>
-          <td>{{ $message->subject }}</td>
-        </tr>
+
       </div>
 
-        <tr><td><br><br><br></td></tr>
+<tr><td><br></td></tr>
 
-
-    <div style="margin-left: -50%">
-          <div style="background-color: rgb(110, 125, 143); display:block; font-size:90%; width: 15%; padding: 20px; margin:auto; border-radius: 40px; border: 2px solid rgb(3, 115, 252); color: white">
-            <tr>
-              <td>Me:&nbsp;</td>
-              <td>{{ $message['username'] }}</td>
-              <td>{{ $message->message }}</td>
-            </tr>
-          </div>
-
-      
-
-    </div>
-
-        <tr><td><br><br><br></td></tr>
-
-      <div style="margin-right: -50%">
-            <div style="background-color: rgb(3, 115, 252); display:block; font-size:90%; width: 15%; padding: 20px; margin:auto; border-radius: 40px; border: 2px solid rgb(110, 125, 143); color: white">
-              <tr>
-                  <tr>
-                    <td>{{ $message['admin_name'] }}:&nbsp;</td>
-                  </tr>
-                  <tr><td><br></td></tr>
-                  <tr>
-                    <td>{{ $message['admin_message'] }}</td>
-                </tr>
-            </div>
-            <div style="color: rgb(110, 125, 143); margin-left: 43%">
-        Seen at {{$message->updated_at}}
-      </div>
-        </div>
-        <tr><td><br></td></tr>
-
-    </div>
-
-    <tr><td><br><br></td></tr>
-
-			
     <!-- ======= Contact Section ======= -->
     
-      <div class="container" data-aos="fade-up">
+    <div class="container" data-aos="fade-up">
         <div class="section-header">
           <h2>Contact to Admin</h2>
           <p><strong><span style="color:darkblue">E</span><span style="color:green">-Pay</span></strong> responses as soon as possible when when we are active. Feel free to discuss with us.</p>
@@ -197,7 +199,7 @@
             <div class="contact-phone">
               <i class="bi bi-phone"></i>
               <h3>Phone Number</h3>
-              <p><a href="tel:+880 1775463783">+880 1775463783</a></p>
+              <p><a href="tel:+8801775463783">+880 1775463783</a></p>
             </div>
           </div>
 

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | admin-Details</title>
+  <title>E-Pay | {{$user['type']}}-Details</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -72,7 +72,7 @@
 
       <nav id="navbar" class="navbar">
       <ul>
-        <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Refer Customer</a></li>
+      <li><a class="nav-link scrollto" href="{{route('admin.create')}}">Add Customer</a></li>
         <li><a class="nav-link scrollto" href="{{route('admin.admin')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('admin.userlist')}}">Back</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>

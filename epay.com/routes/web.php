@@ -35,17 +35,6 @@ Route::get('/E-Pay/login/admin', 'ALoginController@index')->name('login.admin');
 Route::post('/E-Pay/login/admin', 'ALoginController@verify');
 Route::get('/E-Pay/logout/admin', 'ALogoutController@index')->name('logout.index');
 
-
-
-        //Route::get('/E-Pay/home/create/admin', 'AHomeController@create')->name('admin.create');
-        //Route::post('/E-Pay/home/create/admin', 'AHomeController@store');
-
-
-
-
-
-
-
         
 
 Route::group(['middleware'=>'sess'],function(){
@@ -72,7 +61,18 @@ Route::group(['middleware'=>'admin'],function(){
 
     Route::get('/E-Pay/home/details/admin/{id}', 'AHomeController@show')->name('admin.show'); 
 
+/*     loan */
+   
+    Route::get('/E-Pay/home/loan/customer/{lid}', 'AHomeController@showl')->name('loanap');
     
+    Route::get('/E-Pay/home/loan/details/customer/{lid}', 'AHomeController@loanedit')->name('ap.loan');
+    Route::post('/E-Pay/home/loan/details/customer/{lid}', 'AHomeController@loanupdate');
+   
+/*     c-list search */
+
+    Route::get('/E-Pay/home/search/user','ASearchController@index');
+    Route::get('/E-Pay/home/search/action/user','ASearchController@search')->name('csearch');
+
 /*     c-list */
 
     Route::get('/E-Pay/home/edit/customer/{cid}', 'AHomeController@editC')->name('customerEdit');
@@ -115,6 +115,11 @@ Route::group(['middleware'=>'admin'],function(){
     Route::post('/E-Pay/home/delete/message/admin/{id}', 'AMessageController@destroy');
 
     Route::get('/E-Pay/home/details/message/admin/{id}', 'AMessageController@show')->name('admin.messageshow');
+
+ /* customer add */
+
+    Route::get('/E-Pay/home/add/customer', 'AcRefController@index')->name('admin.create');
+    Route::post('/E-Pay/home/add/customer', 'AcRefController@store');
 
 
     });

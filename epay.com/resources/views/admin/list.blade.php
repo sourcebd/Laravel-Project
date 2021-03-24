@@ -28,6 +28,7 @@
   <link href="{{asset('css/MainPage.css')}}" rel="stylesheet">
   <link href="{{asset('css/Create.css')}}" rel="stylesheet">
   <link href="{{asset('css/CreateButton.css')}}" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
   <!-- =======================================================
   * Template Name: Reveal - v4.0.1
@@ -72,7 +73,11 @@
 
       <nav id="navbar" class="navbar">
       <ul>
-        <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Refer Customer</a></li>
+
+      
+
+
+        <li><a class="nav-link scrollto" href="{{route('admin.create')}}">Add Customer</a></li>
         <li><a class="nav-link scrollto" href="{{route('admin.admin')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
         <li class="dropdown"><a class="nav-link scrollto" href="#contact"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
@@ -122,6 +127,10 @@
         Your Profile
 					</span>
 
+
+
+
+
           <table border="0" style="width: 100%">
         <tr>
             <td>Id</td>
@@ -156,6 +165,10 @@
     {{session('msg')}}
 
       </div>
+
+
+
+ 
 
 <!-- ------------------------------------------------ -->
 
@@ -194,6 +207,7 @@
                 <a href="{{ route('admin.edit', [$name[$i]['userId']]) }}">Edit</a>
                 <a href="/E-Pay/home/delete/admin/{{ $name[$i]['userId'] }}">Delete</a>
                 <a href="/E-Pay/home/details/admin/{{ $name[$i]['userId'] }}">Details</a>
+                
             </td>
         </tr>
         <tr><td><br></td></tr>
@@ -242,11 +256,45 @@
                 <a href="{{ route('customerEdit', [$c[$i]['userId']]) }}">Edit</a>
                 <a href="/E-Pay/home/delete/customer/{{ $c[$i]['userId'] }}">Delete</a>
             <a href=" {{ route('customerShow', $c[$i]['userId'] ) }}">Details</a></td>
+            
         </tr>
+
         <tr><td><br></td></tr>
 
         @endfor
+        </table>
 
+        <div class="card-body">
+				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
+        Customer Loan Details
+					</span>
+        <table border="0" style="width: 80%">
+        <tr>
+            <td>Id</td>
+            <td>Username</td>
+            <td>status</td>
+            <td>LoanRequest</td>
+            <td>Action</td>
+        </tr>
+        <tr><td><br></td></tr>
+        @for($i=0; $i < count($l); $i++)
+        <tr>
+            <td>{{ $l[$i]['id'] }}</td>
+            <td>{{ $l[$i]['username'] }}</td>
+            <td>{{ $l[$i]['status'] }}</td>
+            <td>{{ $l[$i]['loanreq'] }}</td>
+            
+            
+            <td> <a href=" {{ route('loanap', $l[$i]['id'] ) }}">Loan Request</a></td>
+            <td> <a href=" {{ route('ap.loan', $l[$i]['id'] ) }}">Approve</a></td>
+            
+            
+        </tr>
+
+        <tr><td><br></td></tr>
+
+        @endfor
+       
 
         </div>
         </div>
