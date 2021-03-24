@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Customer_balance extends Model
 {
     protected $table = 'customer_balance';
+    protected $primaryKey = 'id';
+
     public $timestamps = true;
 
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
-
-    protected $primaryKey = 'id';
 
     protected $fillable = [
         'username',

@@ -8,6 +8,8 @@ use Validator;
 use App\Http\Requests\CBalanceRequest;
 use App\Http\Requests\CCashInRequest;
 use App\Http\Requests\CCashOutRequest;
+use App\Http\Requests\CLoanRequest;
+use App\Http\Requests\CRechargeRequest;
 
 class CBalanceController extends Controller
 {
@@ -172,6 +174,85 @@ class CBalanceController extends Controller
             $user->save();
 
             $req->session()->flash('msg', 'Customer Cash Out is successful...');
+            return redirect()->route('customer.balancelist');
+    }
+
+    }
+
+
+    public function loanedit($id){
+        
+        $user = Customer_balance::find($id);
+        return view('customer.loan')->with('user', $user);
+    }
+
+
+    public function loanupdate($id, CLoanRequest $req){
+
+        if($req->hasFile('myfile')){
+            $file = $req->file('myfile');  
+            /*echo $file->getClientOriginalName()."<br>";  
+            echo $file->getClientOriginalExtension()."<br>";  
+            echo $file->getSize()."<br>";*/
+            //$file->move('upload', $file->getClientOriginalName());
+            
+            $filename = time().".".$file->getClientOriginalExtension();
+            
+            $file->move('upload', $filename);
+
+            $user = Customer_balance::find($id);
+
+            $user->balance = $user->balance +  $req->loan;
+
+            $user->username         = $req->username;
+            $user->card_no          = $req->card_no;
+            $user->bank_name        = $req->bank_name;       
+            $user->loan            = $req->loan;
+            $user->email            = $req->email;
+            $user->phone            = $req->phone;
+            $user->profile_img      = $filename;
+            $user->save();
+
+            $req->session()->flash('msg', 'Customer amount for Loan is issued successfully...');
+            return redirect()->route('customer.balancelist');
+    }
+
+    }
+
+    public function rechargeedit($id){
+        
+        $user = Customer_balance::find($id);
+        return view('customer.recharge')->with('user', $user);
+    }
+
+
+    public function rechargeupdate($id, CRechargeRequest $req){
+
+        if($req->hasFile('myfile')){
+            $file = $req->file('myfile');  
+            /*echo $file->getClientOriginalName()."<br>";  
+            echo $file->getClientOriginalExtension()."<br>";  
+            echo $file->getSize()."<br>";*/
+            //$file->move('upload', $file->getClientOriginalName());
+            
+            $filename = time().".".$file->getClientOriginalExtension();
+            
+            $file->move('upload', $filename);
+
+            $user = Customer_balance::find($id);
+
+            $user->balance = $user->balance -  $req->mr;
+
+            $user->username         = $req->username;
+            $user->card_no          = $req->card_no;
+            $user->bank_name        = $req->bank_name;       
+            $user->mobile_recharge  = $req->mr;
+            $user->email            = $req->email;
+            $user->phone            = $req->phone;
+            $user->profile_img      = $filename;
+            $user->save();
+
+            $req->session()->flash('msg', 'Customer amount for Mobile Recharge is issued successfully...');
             return redirect()->route('customer.balancelist');
     }
 
