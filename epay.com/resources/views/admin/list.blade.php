@@ -79,7 +79,7 @@
 
         <li><a class="nav-link scrollto" href="{{route('admin.create')}}">Add Customer</a></li>
         <li><a class="nav-link scrollto" href="{{route('admin.admin')}}">Home</a></li>
-        <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
+        <li><a class="nav-link scrollto" href="{{route('logoutnm')}}">Logout</a></li>
         <li class="dropdown"><a class="nav-link scrollto" href="#contact"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
           </li>
         </ul>

@@ -33,7 +33,7 @@ Route::post('/E-Pay/registration/admin', 'ARegController@store');
 
 Route::get('/E-Pay/login/admin', 'ALoginController@index')->name('login.admin');
 Route::post('/E-Pay/login/admin', 'ALoginController@verify');
-Route::get('/E-Pay/logout/admin', 'ALogoutController@index')->name('logout.index');
+Route::get('/E-Pay/logout/admin', 'ALogoutController@index')->name('logoutnm');
 
         
 
@@ -116,6 +116,12 @@ Route::group(['middleware'=>'admin'],function(){
 
     Route::get('/E-Pay/home/details/message/admin/{id}', 'AMessageController@show')->name('admin.messageshow');
 
+/* All C Review */
+
+    Route::get('/E-Pay/home/list/creview/customer', 'AMessageController@clist')->name('creviewlist');
+
+    Route::get('/E-Pay/home/details/creview/customer/{id}', 'AMessageController@cshow')->name('creview');
+
  /* customer add */
 
     Route::get('/E-Pay/home/add/customer', 'AcRefController@index')->name('admin.create');
@@ -124,7 +130,7 @@ Route::group(['middleware'=>'admin'],function(){
 
     });
    
-   
+   /* *********************************************************************************************** */
     Route::group(['middleware'=>'customer'],function(){
 
 /* Customer */

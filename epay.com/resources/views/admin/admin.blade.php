@@ -104,7 +104,7 @@
         </script>
 
         <li><a class="nav-link scrollto" href="{{route('admin.create')}}">Add Customer</a></li>
-        <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
+        <li><a class="nav-link scrollto" href="{{route('logoutnm')}}">Logout</a></li>
           <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
           
           </li>
@@ -134,6 +134,7 @@
       <div>
       <a href="{{route('admin.userlist')}}" class="btn-get-started scrollto">Admin and other's Profile</a>
       <a href="{{route('admin.messagelist')}}" class="btn-get-started scrollto">Message</a>
+      <a href="{{route('creviewlist')}}" class="btn-get-started scrollto">All Reviews</a>
       
       </div>
     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Message;
+use App\Review;
 use Validator;
 use App\Http\Requests\AMessageRequest;
 use App\Http\Requests\AMessageUpdateRequest;
@@ -78,15 +79,24 @@ class AMessageController extends Controller
         }
 
     }
+    
+    /* customer review */
 
+    public function cshow($id){
 
-    /*public function getmessagelist (){
+        $review = Review::find($id);
+        return view('admin.rdetails')->with('review', $review);
+    }
 
-        return [
-                ['id'=>1, 'name'=>'alamin', 'email'=> 'alamin@aiub.edu', 'password'=>'123'],
-                ['id'=>2, 'name'=>'abc', 'email'=> 'abc@aiub.edu', 'password'=>'456'],
-                ['id'=>3, 'name'=>'xyz', 'email'=> 'xyz@aiub.edu', 'password'=>'789']
-            ];
-    }*/
+    public function clist(Request $req){
+
+        $name = Review::all();
+
+        $value = $req->session()->get('username');
+        $reviewlist = Review::where('username','=',$value)->get();   
+        return view('admin.reviewlist')->with('list', $reviewlist)->with('name',$name);
+    }
+
+    
 
 }
