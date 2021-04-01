@@ -1,4 +1,8 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+Author: [Nafi Mahmud][author1], [Emon Chowdhury][author2]
+
+[author1]: https://sourcebd.github.io/nafi.com/
+
+[author2]: https://www.facebook.com/emon.chowdhury017
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
