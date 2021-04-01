@@ -1,4 +1,5 @@
-Author: [Nafi Mahmud][author1], [Emon Chowdhury][author2]
+## Author 
+[Nafi Mahmud][author1], [Emon Chowdhury][author2]
 
 [author1]: https://sourcebd.github.io/nafi.com/
 
