@@ -75,8 +75,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <input type="text" class="searchInput" name="search" id="search" placeholder="Search..">
-            <div id='submitsearch'
-              style="">
+            <div id='submitsearch'>
               <span>Search</span>
             </div>
         <script>
