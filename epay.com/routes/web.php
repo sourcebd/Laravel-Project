@@ -81,7 +81,11 @@ Route::group(['middleware'=>'admin'],function(){
     Route::get('/E-Pay/home/delete/customer/{cid}', 'AHomeController@deleteC')->name('customerDelete');
     Route::post('/E-Pay/home/delete/customer/{cid}', 'AHomeController@destroyC');
 
-    Route::get('/E-Pay/home/details/customer/{cid}', 'AHomeController@showcus')->name('customerShow'); 
+    Route::get('/E-Pay/home/details/customer/{cid}', 'AHomeController@showcus')->name('customerShow');
+    
+    Route::get('/E-Pay/home/details/download/customer', 'AHomeController@generatePDF')->name('downloadpdf');
+
+    Route::get('/E-Pay/home/download/customers', 'AHomeController@export')->name('download'); 
 
 /*     d-list */
     Route::get('/E-Pay/home/edit/deskManager/{did}', 'AHomeController@editD')->name('deskEdit');

@@ -135,6 +135,7 @@
       <a href="{{route('admin.userlist')}}" class="btn-get-started scrollto">Admin and other's Profile</a>
       <a href="{{route('admin.messagelist')}}" class="btn-get-started scrollto">Message</a>
       <a href="{{route('creviewlist')}}" class="btn-get-started scrollto">All Reviews</a>
+      <a href="{{route('download')}}" class="btn-get-started scrollto">Download All Customer List</a>
       
       </div>
     </div>

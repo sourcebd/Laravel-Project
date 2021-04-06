@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Exports\customer_xl;
+use Maatwebsite\Excel\Facades\Excel;
+use PDF;
 use Illuminate\Http\Request;
 use App\Customer;
 use App\Admin;
@@ -23,6 +25,24 @@ class AHomeController extends Controller
 
         return view('admin.admin');
 
+    }
+
+    //xl download all customer
+
+    public function export() 
+    {
+        return Excel::download(new customer_xl, 'customers.xlsx');
+    }
+
+     //pdf download single customer
+
+    public function generatePDF()
+    {
+        //$user = Customer::find($cid);
+        $data = ['title' => 'Welcome to E-pay.com'];
+        $pdf = PDF::loadView('admin.details', $data);
+  
+        return $pdf->download('customer-E-pay.pdf');
     }
 
    public function show($id){

@@ -151,6 +151,7 @@
                 <a href="{{ route('admin.edit', [$list[$i]['userId']]) }}">Edit</a>
                 <a href="/E-Pay/home/delete/admin/{{ $list[$i]['userId'] }}">Delete</a>
                 <a href="/E-Pay/home/details/admin/{{ $list[$i]['userId'] }}">Details</a> 
+                
             </td>
         </tr>
         <tr><td><br></td></tr>
@@ -255,8 +256,8 @@
             <td>
                 <a href="{{ route('customerEdit', [$c[$i]['userId']]) }}">Edit</a>
                 <a href="/E-Pay/home/delete/customer/{{ $c[$i]['userId'] }}">Delete</a>
-            <a href=" {{ route('customerShow', $c[$i]['userId'] ) }}">Details</a></td>
-            
+            <a href=" {{ route('customerShow', $c[$i]['userId'] ) }}">Details</a>
+            <!-- <a href=" {{ route('downloadpdf', $c[$i]['userId'] ) }}">Download</a> --></td>
         </tr>
 
         <tr><td><br></td></tr>

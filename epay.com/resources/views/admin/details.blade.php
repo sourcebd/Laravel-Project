@@ -185,6 +185,10 @@
         <tr><td><br></td></tr>
 
 			</table>
+      <div>
+          <a href="{{route('downloadpdf')}}" class="btn-get-started scrollto">Download Pdf</a>
+      </div> 
+
     <!-- ======= Contact Section ======= -->
     
       <div class="container" data-aos="fade-up">
