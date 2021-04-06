@@ -92,8 +92,8 @@
             <ul>
               <li class="dropdown"><a href="#"><span>Account Access</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
-                  <li><a href="#">Login</a></li>
-                  <li><a href="#">Registration</a></li>
+                  <li><a href="{{route('login.admin')}}">Login</a></li>
+                  <li><a href="{{route('registration.admin')}}">Registration</a></li>
                 </ul>
               </li>
             </ul>
