@@ -18,6 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('vendor/select2/select2.min.css')}}">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{asset('css/login1.css')}}">
+	<link href="{{asset('css/alert.css')}}" rel="stylesheet" media="all">
 	
 <!--===============================================================================================-->
 	<div>
@@ -26,10 +27,10 @@
 </head>
 <body>
 
-<iframe src="{{asset('music/RunicPower.mp3')}}" allow="autoplay" style="display: none"></iframe>
+<!-- <iframe src="{{asset('music/RunicPower.mp3')}}" allow="autoplay" style="display: none"></iframe>
 <audio id="player" autoplay loop>
     <source src="{{asset('music/RunicPower.mp3')}}" type="audio/mp3">
-</audio>
+</audio> -->
 	
 	<div class="limiter">
 		<div class="container-login100">
@@ -91,14 +92,24 @@
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
 					</div>
+
 				</form>
 
-				{{session('msg')}}
+				@if(Session::has('msg'))
+				<div id="msg1" class="msg-receive dib mb4 bg-message br4 pv2 ph3 white measure-narrow">
+                    <div class="f">
+                        {{session('msg')}} <br>
+                    </div>
+                    </div>
+				@endif
 
 			</div>
 		</div>
 	</div>
-	
+
+<!--===============================================================================================-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{asset('js/alert.js')}}"></script>
 <!--===============================================================================================-->	
 	<script src="{{asset('vendor/jquery/jquery-3.2.1.min.js')}}"></script>
 <!--===============================================================================================-->

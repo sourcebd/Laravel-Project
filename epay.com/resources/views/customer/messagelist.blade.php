@@ -28,6 +28,8 @@
   <link href="{{asset('css/MainPage.css')}}" rel="stylesheet">
   <link href="{{asset('css/Create.css')}}" rel="stylesheet">
   <link href="{{asset('css/CreateButton.css')}}" rel="stylesheet">
+  <link href="{{asset('css/alert.css')}}" rel="stylesheet" media="all">
+  
 
   <!-- =======================================================
   * Template Name: Reveal - v4.0.1
@@ -159,7 +161,14 @@
         @endfor
     </table>
     <br>
-    {{session('msg')}}
+    @if(Session::has('msg'))
+<div id="msg1" class="msg-receive dib mb4 bg-message br4 pv2 ph3 white measure-narrow">
+                    <div class="s">
+                        {{session('msg')}} <br>
+                    </div>
+                    </div>
+@endif
+
 
       </div>
 
@@ -224,6 +233,9 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="{{asset('js/alert.js')}}"></script>
+
   <script src="{{asset('vendor/aos/aos.js')}}"></script>
   <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{asset('vendor/glightbox/js/glightbox.min.js')}}"></script>
