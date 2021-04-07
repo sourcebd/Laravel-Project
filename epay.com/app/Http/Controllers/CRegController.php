@@ -76,7 +76,7 @@ class CRegController extends Controller
             $user->profile_img  = $filename;
             $user->save();
         
-        $req->session()->flash('msg', 'Registration is successful! Please login...');
+        $req->session()->flash('regsuccess', 'Registration is successful! Please login...');
         return redirect()->route('login.customer');
     }
         
