@@ -584,7 +584,7 @@
 
           </form>
 <br><br>
-        <div style="width:50%; margin-left:25%; font-size:13px ; text-transform: none; text-align: center">
+        <div style="width:50%; margin-left:25%; font-size:11px ; text-transform: none; text-align: center">
 
         @if(!empty($errors->all()))
                     <div id="msg1" class="msg-receive dib mb4 bg-message br4 pv2 ph3 white measure-narrow">
