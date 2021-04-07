@@ -103,6 +103,14 @@
                     </div>
 				@endif
 
+				@if(Session::has('regsuccess'))
+				<div id="msg1" class="msg-receive dib mb4 bg-message br4 pv2 ph3 white measure-narrow">
+                    <div class="s">
+                        {{session('regsuccess')}} <br>
+                    </div>
+                    </div>
+				@endif
+
 			</div>
 		</div>
 	</div>
