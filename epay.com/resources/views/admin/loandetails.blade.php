@@ -3,9 +3,9 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="width=device-width, initial-scale=0.29" name="viewport">
 
-  <title>E-Pay | Admin-Message Details</title>
+  <title>E-Pay | loan-Approve</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -44,8 +44,8 @@
     <source src="{{asset('music/RunicPower.mp3')}}" type="audio/mp3">
 </audio> -->
 
-  <!-- ======= Top Bar ======= -->
-  <section id="topbar" class="d-flex align-items-center">
+   <!-- ======= Top Bar ======= -->
+   <section id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
         <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:epay.management.21@gmail.com">EPay@gmail.com</a></i>
@@ -65,16 +65,17 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('admin.messagelist')}}">E<span>Pay</span></a></h1>
+        <h1><a href="{{route('admin.userlist')}}">E<span>Pay</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-       <li><a class="nav-link scrollto" href="{{route('admin.create')}}">Add Customer</a></li>
+        <li><a class="nav-link scrollto" href="{{route('admin.create')}}">Add Customer</a></li>
         <li><a class="nav-link scrollto" href="{{route('admin.admin')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('logoutnm')}}">Logout</a></li>
+        <li><a class="nav-link scrollto" href="{{route('admin.userlist')}}">Back</a></li>
         <li class="dropdown"><a class="nav-link scrollto" href="#contact"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
           </li>
         </ul>
@@ -88,10 +89,9 @@
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>{{$message['admin_name']}}'s Message Details<br><span style="color: red; text-decoration:none"></span></h2>
+      <h2>{{$user['username']}}'s Loan  Status Details<br><span style="color: red; text-decoration:none"></span></h2>
       <div>
-        <a href="{{route('admin.messagelist')}}" class="btn-get-started scrollto">Message</a>
-        
+        <a href="{{route('admin.userlist')}}" class="btn-get-started scrollto">Loan  Status</a>
       </div>
     </div>
 
@@ -112,74 +112,69 @@
     <!-- ======= Services Section ======= -->
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Message Details</h2>
+          <h2>Loan  Status Details</h2>
         </div>
 
     <section id="contact">
       <div class="container">
  
-                <div class="card-body">
+        <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-        Here are the details of your message
+        Here are the details of Customer balance
 					</span>
 
-
-    <div style="background-color: black; display:block; min-height:100vh; width: 100%; padding: 15px; margin:auto; border-radius: 40px; border: 2px solid black; color: white">
-
-    <div style="text-align: center">
-    
-        <td>{{ $message->messagedate }}</td> |&nbsp;&nbsp;
+        <table class="table table-striped table-bordered" border="0" style="width: 100%; text-align: center">
         <tr>
-          <td>Subject:&nbsp;&nbsp;</td>
-          <td>{{ $message->subject }}</td>
+					<td colspan="2">
+						<img src="{{asset('/upload')}}/{{$user['profile_img']}}" width="100px" height="100px"> </td>
+				</tr>
+
+        <tr>
+          <th>Id&nbsp;&nbsp;</th>
+          <th>Username&nbsp;&nbsp;</th>
+          <th>Email&nbsp;&nbsp;</th>
+          <th>Card Number&nbsp;&nbsp;</th>
+          <th>Bank Name&nbsp;&nbsp;</th>
+          <th>Loan&nbsp;&nbsp;</th>
+          <th>Balance&nbsp;&nbsp;</th>
+          <th>Total Purchased Amount&nbsp;&nbsp;</th>
+          <div style= "background-color: green; padding:15px; text-align: center; margin-left: 46%; color: white; border-radius: 20px; width: 10%">Approved</div>
         </tr>
-      </div>
 
-        <tr><td><br><br><br></td></tr>
+        <tr>
+					<td>{{ $user['id']}}</td>
+					<td>{{ $user['username']}}</td>
+					<td>{{ $user['email']}}</td>
+					<td>{{ $user['card_no']}}</td>
+					<td>{{ $user['bank_name']}}</td>
+					<td>৳{{ $user['loan']}}</td>
+                    <td>৳{{ $user['balance']}}</td>
+					<td>৳{{ $user['total_purchased'] }}</td>
+        </tr>
 
+			</table>
 
-    <div style="margin-left: -50%">
-          <div style="background-color: rgb(110, 125, 143); display:block; font-size:90%; width: 15%; padding: 20px; margin:auto; border-radius: 40px; border: 2px solid rgb(3, 115, 252); color: white">
-            <tr>
-              <td>Me:&nbsp;</td>
-              <td>{{ $message['username'] }}</td>
-              <td>{{ $message->message }}</td>
-            </tr>
-          </div>
+      <tr><td><br><br></td></tr>
 
-      
+      <table class="table table-striped table-bordered" style="width:28%; color:red; text-align:center; margin-left:38%">
 
-    </div>
+        <tr>
+        <div style= "background-color: red; padding:15px; text-align: center; margin-left: 46%; color: white; border-radius: 20px; width: 10%">Pending</div>
+        <br><br>
+          <th>Requested Loan&nbsp;&nbsp;</th>
+        </tr>
 
-        <tr><td><br><br><br></td></tr>
+        <tr>
+					<td>৳{{ $user['loanreq']}}</td>
+        </tr>
 
-      <div style="margin-right: -50%">
-            <div style="background-color: rgb(3, 115, 252); display:block; font-size:90%; width: 15%; padding: 20px; margin:auto; border-radius: 40px; border: 2px solid rgb(110, 125, 143); color: white">
-              <tr>
-                  <tr>
-                    <td>{{ $message['admin_name'] }}:&nbsp;</td>
-                  </tr>
-                  <tr><td><br></td></tr>
-                  <tr>
-                    <td>{{ $message['admin_message'] }}</td>
-                </tr>
-            </div>
-            <div style="color: rgb(110, 125, 143); margin-left: 43%">
-        Seen at {{$message->updated_at}}
-      </div>
-        </div>
-        <tr><td><br></td></tr>
+      </table>
 
-    </div>
-
-    <tr><td><br><br></td></tr>
-
-			
     <!-- ======= Contact Section ======= -->
     
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Contact to Admin</h2>
+          <h2> Admin Details</h2>
           <p><strong><span style="color:darkblue">E</span><span style="color:green">-Pay</span></strong> responses as soon as possible when when we are active. Feel free to discuss with us.</p>
         </div>
 
@@ -197,7 +192,7 @@
             <div class="contact-phone">
               <i class="bi bi-phone"></i>
               <h3>Phone Number</h3>
-              <p><a href="tel:+880 1775463783">+880 1775463783</a></p>
+              <p><a href="tel:+8801869510882">+880 186 9510882</a></p>
             </div>
           </div>
 

@@ -22,6 +22,9 @@
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
+.input {
+  color: rgb(37, 0, 245);
+}
 
 .row-space {
   -webkit-box-pack: justify;
