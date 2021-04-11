@@ -25,7 +25,6 @@
     <!-- Main CSS-->
     <link href="{{asset('css/Registration.css')}}" rel="stylesheet" media="all">
 	<link href="{{asset('css/login1.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('css/alert.css')}}" rel="stylesheet" media="all">
     <div>
 	<h1><strong><span style="font-size:40px; font-family: Sans-Serif; color:darkblue">E</span><span style="font-size:40px; font-family: Sans-Serif; color:rgb(81, 219, 187)">Pay</span></strong></h1>
     </div>
@@ -33,10 +32,10 @@
 
 <body>
 
-<!-- <iframe src="{{asset('music/RunicPower.mp3')}}" allow="autoplay" style="display: none"></iframe>
+<iframe src="{{asset('music/RunicPower.mp3')}}" allow="autoplay" style="display: none"></iframe>
 <audio id="player" autoplay loop>
     <source src="{{asset('music/RunicPower.mp3')}}" type="audio/mp3">
-</audio> -->
+</audio>
 
     <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
         <div class="wrapper wrapper--w680">
@@ -222,16 +221,9 @@
 					</div>
                     </form>
 
-                    @if(!empty($errors->all()))
-                    <div id="msg1" class="msg-receive dib mb4 bg-message br4 pv2 ph3 white measure-narrow">
-                    <div class="i">
                     @foreach($errors->all() as $err)
                         {{$err}} <br>
                     @endforeach
-                    </div>
-                    </div>
-                    @endif
-
 
                 </div>
             </div>
@@ -239,8 +231,6 @@
     </div>
 
     <!-- Jquery JS-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="{{asset('js/alert.js')}}"></script>
     <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
     <!-- Vendor JS-->
     <script src="{{asset('vendor/select2/select2.min.js')}}"></script>
