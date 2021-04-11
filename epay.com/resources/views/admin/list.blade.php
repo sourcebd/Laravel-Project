@@ -257,12 +257,15 @@
                 <a href="{{ route('customerEdit', [$c[$i]['userId']]) }}">Edit</a>
                 <a href="/E-Pay/home/delete/customer/{{ $c[$i]['userId'] }}">Delete</a>
             <a href=" {{ route('customerShow', $c[$i]['userId'] ) }}">Details</a>
-            <!-- <a href=" {{ route('downloadpdf', $c[$i]['userId'] ) }}">Download</a> --></td>
+            <a href=" {{ route('downloadpdf', $c[$i]['userId'] ) }}">Download</a>
         </tr>
 
         <tr><td><br></td></tr>
 
         @endfor
+     
+      
+
         </table>
 
         <div class="card-body">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Exports\customer_xl;
+use App\Exports\customer_transition_xl;
 use Maatwebsite\Excel\Facades\Excel;
 use PDF;
 use Illuminate\Http\Request;
@@ -34,15 +35,25 @@ class AHomeController extends Controller
         return Excel::download(new customer_xl, 'customers.xlsx');
     }
 
+    //xl download all customer transition
+    public function exportbalance() 
+    {
+        return Excel::download(new customer_transition_xl, 'customers_transition.xlsx');
+    }
      //pdf download single customer
 
-    public function generatePDF()
+    public function generatePDF($cid)
     {
         //$user = Customer::find($cid);
-        $data = ['title' => 'Welcome to E-pay.com'];
+        /* $data = Customer::find($cid);
+        $pdf = PDF::loadView('admin.pdf', $data);
+  
+        return $pdf->download('customer-E-pay.pdf'); */
+
+        $data = Customer::find($cid);
         $pdf = PDF::loadView('admin.details', $data);
   
-        return $pdf->download('customer-E-pay.pdf');
+        return $pdf->download('customer-E-pay.pdf',compact('data'));
     }
 
    public function show($id){
