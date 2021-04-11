@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | admin-Details</title>
+  <title>E-Pay | {{$user['type']}}-Details</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -52,10 +52,10 @@
         <i class="bi bi-phone d-flex align-items-center ms-4"><a href="tel:+880 1775463783">+880 186 510882</a></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
-        <a href="https://twitter.com/Nafi71340800" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="https://www.facebook.com/nafi.king16/" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/dauntless_nafi/" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/nafi-mahmud-350141185/" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+        <a href="https://twitter.com/Emon" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.facebook.com/Emon.chowdhury/" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/emon.alam/" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/emon.alam/" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
       </div>
     </div>
   </section><!-- End Top Bar-->
@@ -72,10 +72,10 @@
 
       <nav id="navbar" class="navbar">
       <ul>
-        <li><a class="nav-link scrollto" href="{{route('customer.create')}}">Refer Customer</a></li>
+      <li><a class="nav-link scrollto" href="{{route('admin.create')}}">Add Customer</a></li>
         <li><a class="nav-link scrollto" href="{{route('admin.admin')}}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{route('admin.userlist')}}">Back</a></li>
-        <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
+        <li><a class="nav-link scrollto" href="{{route('logoutnm')}}">Logout</a></li>
     
 
         <li class="dropdown"><a class="nav-link scrollto" href="#contact"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
@@ -185,11 +185,13 @@
         <tr><td><br></td></tr>
 
 			</table>
+     
+
     <!-- ======= Contact Section ======= -->
     
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Contact to Admin</h2>
+          <h2>Admin details</h2>
           <p><strong><span style="color:darkblue">E</span><span style="color:green">-Pay</span></strong> responses as soon as possible when when we are active. Feel free to discuss with us.</p>
         </div>
 

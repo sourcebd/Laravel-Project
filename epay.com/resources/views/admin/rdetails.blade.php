@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Pay | Admin-Message Details</title>
+  <title>E-Pay | Customer-Review Details</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -52,10 +52,10 @@
         <i class="bi bi-phone d-flex align-items-center ms-4"><a href="tel:+880 1775463783">+880 186 510882</a></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
-        <a href="https://twitter.com/Emon71340800" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="https://www.facebook.com/Emon.king16/" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/dauntless_Emon/" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/Emon-mahmud-350141185/" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+        <a href="https://twitter.com/Emon" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.facebook.com/Emon.chowdhury/" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/emon.alam/" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/emon.alam/" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
       </div>
     </div>
   </section><!-- End Top Bar-->
@@ -65,16 +65,19 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="{{route('admin.messagelist')}}">E<span>Pay</span></a></h1>
+        <h1><a href="{{route('admin.userlist')}}">E<span>Pay</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="img/logo.png" alt=""></a>-->
       </div>
 
       <nav id="navbar" class="navbar">
-        <ul>
-       <li><a class="nav-link scrollto" href="{{route('admin.create')}}">Add Customer</a></li>
+      <ul>
+      <li><a class="nav-link scrollto" href="{{route('admin.create')}}">Add Customer</a></li>
         <li><a class="nav-link scrollto" href="{{route('admin.admin')}}">Home</a></li>
+        <li><a class="nav-link scrollto" href="{{route('admin.userlist')}}">Back</a></li>
         <li><a class="nav-link scrollto" href="{{route('logoutnm')}}">Logout</a></li>
+    
+
         <li class="dropdown"><a class="nav-link scrollto" href="#contact"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
           </li>
         </ul>
@@ -84,14 +87,14 @@
     </div>
   </header><!-- End Header -->
 
+
   <!-- ======= hero Section ======= -->
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
-      <h2>{{$message['admin_name']}}'s Message Details<br><span style="color: red; text-decoration:none"></span></h2>
+      <h2>{{$review['username']}}'s Review Details<br><span style="color: red; text-decoration:none"></span></h2>
       <div>
-        <a href="{{route('admin.messagelist')}}" class="btn-get-started scrollto">Message</a>
-        
+        <a href="{{route('creviewlist')}}" class="btn-get-started scrollto">Review</a>
       </div>
     </div>
 
@@ -112,7 +115,7 @@
     <!-- ======= Services Section ======= -->
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Message Details</h2>
+          <h2>Feedback Details</h2>
         </div>
 
     <section id="contact">
@@ -120,66 +123,34 @@
  
                 <div class="card-body">
 				<span class="login100-form-title" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif">
-        Here are the details of your message
+        Here are the details of your opinion
 					</span>
 
-
-    <div style="background-color: black; display:block; min-height:100vh; width: 100%; padding: 15px; margin:auto; border-radius: 40px; border: 2px solid black; color: white">
-
-    <div style="text-align: center">
-    
-        <td>{{ $message->messagedate }}</td> |&nbsp;&nbsp;
+        <table border="0" style="width: 100%; min-height: 70vh">
         <tr>
-          <td>Subject:&nbsp;&nbsp;</td>
-          <td>{{ $message->subject }}</td>
-        </tr>
-      </div>
-
-        <tr><td><br><br><br></td></tr>
-
-
-    <div style="margin-left: -50%">
-          <div style="background-color: rgb(110, 125, 143); display:block; font-size:90%; width: 15%; padding: 20px; margin:auto; border-radius: 40px; border: 2px solid rgb(3, 115, 252); color: white">
-            <tr>
-              <td>Me:&nbsp;</td>
-              <td>{{ $message['username'] }}</td>
-              <td>{{ $message->message }}</td>
-            </tr>
-          </div>
-
-      
-
-    </div>
-
-        <tr><td><br><br><br></td></tr>
-
-      <div style="margin-right: -50%">
-            <div style="background-color: rgb(3, 115, 252); display:block; font-size:90%; width: 15%; padding: 20px; margin:auto; border-radius: 40px; border: 2px solid rgb(110, 125, 143); color: white">
-              <tr>
-                  <tr>
-                    <td>{{ $message['admin_name'] }}:&nbsp;</td>
-                  </tr>
-                  <tr><td><br></td></tr>
-                  <tr>
-                    <td>{{ $message['admin_message'] }}</td>
-                </tr>
-            </div>
-            <div style="color: rgb(110, 125, 143); margin-left: 43%">
-        Seen at {{$message->updated_at}}
-      </div>
-        </div>
+					<td colspan="2">
+						<img src="{{asset('/upload')}}/{{$review['profile_img']}}" width="100px" height="100px"> </td>
+				</tr>
+				<tr>
+					<td>{{ $review['username']}}</td>
+				</tr>
+				<tr>
+					<td>{{ $review['reviewdate']}}</td>
+				</tr>
+        <tr>
+					<td>{{ $review['review'] }}</td>
+				</tr>
+				<tr>
+					<td>{{ $review['feedback'] }}</td>
+				</tr>
         <tr><td><br></td></tr>
 
-    </div>
-
-    <tr><td><br><br></td></tr>
-
-			
+			</table>
     <!-- ======= Contact Section ======= -->
     
-      <div class="container" data-aos="fade-up">
+    <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Contact to Admin</h2>
+          <h2>Admin details</h2>
           <p><strong><span style="color:darkblue">E</span><span style="color:green">-Pay</span></strong> responses as soon as possible when when we are active. Feel free to discuss with us.</p>
         </div>
 

@@ -35,13 +35,9 @@ Route::post('/E-Pay/registration/admin', 'ARegController@store');
 
 Route::get('/E-Pay/login/admin', 'ALoginController@index')->name('login.admin');
 Route::post('/E-Pay/login/admin', 'ALoginController@verify');
-Route::get('/E-Pay/logout/admin', 'ALogoutController@index')->name('logout.index');
+Route::get('/E-Pay/logout/admin', 'ALogoutController@index')->name('logoutnm');
 
-
-
-        //Route::get('/E-Pay/home/create/admin', 'AHomeController@create')->name('admin.create');
-        //Route::post('/E-Pay/home/create/admin', 'AHomeController@store');
-    
+        
 
 Route::group(['middleware'=>'sess'],function(){
 
@@ -67,7 +63,18 @@ Route::group(['middleware'=>'admin'],function(){
 
     Route::get('/E-Pay/home/details/admin/{id}', 'AHomeController@show')->name('admin.show'); 
 
+/*     loan */
+   
+    Route::get('/E-Pay/home/loan/customer/{lid}', 'AHomeController@showl')->name('loanap');
     
+    Route::get('/E-Pay/home/loan/details/customer/{lid}', 'AHomeController@loanedit')->name('ap.loan');
+    Route::post('/E-Pay/home/loan/details/customer/{lid}', 'AHomeController@loanupdate');
+   
+/*     c-list search */
+
+    Route::get('/E-Pay/home/search/user','ASearchController@index');
+    Route::get('/E-Pay/home/search/action/user','ASearchController@search')->name('csearch');
+
 /*     c-list */
 
     Route::get('/E-Pay/home/edit/customer/{cid}', 'AHomeController@editC')->name('customerEdit');
@@ -76,7 +83,15 @@ Route::group(['middleware'=>'admin'],function(){
     Route::get('/E-Pay/home/delete/customer/{cid}', 'AHomeController@deleteC')->name('customerDelete');
     Route::post('/E-Pay/home/delete/customer/{cid}', 'AHomeController@destroyC');
 
-    Route::get('/E-Pay/home/details/customer/{cid}', 'AHomeController@showcus')->name('customerShow'); 
+    Route::get('/E-Pay/home/details/customer/{cid}', 'AHomeController@showcus')->name('customerShow');
+    
+    Route::get('/E-Pay/home/download/customer/{cid}', 'AHomeController@generatePDF')->name('downloadpdf');
+
+    /* xl download all balance transition */
+    Route::get('/E-Pay/home/download/customers/transition', 'AHomeController@exportbalance')->name('downloadbalance'); 
+
+    /* xl download all customer list */
+    Route::get('/E-Pay/home/download/customers', 'AHomeController@export')->name('download'); 
 
 /*     d-list */
     Route::get('/E-Pay/home/edit/deskManager/{did}', 'AHomeController@editD')->name('deskEdit');
@@ -111,10 +126,21 @@ Route::group(['middleware'=>'admin'],function(){
 
     Route::get('/E-Pay/home/details/message/admin/{id}', 'AMessageController@show')->name('admin.messageshow');
 
+/* All C Review */
+
+    Route::get('/E-Pay/home/list/creview/customer', 'AMessageController@clist')->name('creviewlist');
+
+    Route::get('/E-Pay/home/details/creview/customer/{id}', 'AMessageController@cshow')->name('creview');
+
+ /* customer add */
+
+    Route::get('/E-Pay/home/add/customer', 'AcRefController@index')->name('admin.create');
+    Route::post('/E-Pay/home/add/customer', 'AcRefController@store');
+
 
     });
    
-   
+   /* *********************************************************************************************** */
     Route::group(['middleware'=>'customer'],function(){
 
 /* Customer */

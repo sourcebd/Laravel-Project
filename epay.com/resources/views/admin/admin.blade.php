@@ -23,6 +23,7 @@
   <link href="{{asset('vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
   <link href="{{asset('vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
   <link href="{{asset('vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
   <!-- Template Main CSS File -->
   <link href="{{asset('css/MainPage.css')}}" rel="stylesheet">
@@ -72,9 +73,40 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-        
-        <li><a class="nav-link scrollto" href="{{route('logout.index')}}">Logout</a></li>
+ 
+        <input style = "color: blue" type="text" class="searchInput" name="search" id="search" placeholder="Search..">
+            <div id='submitsearch'
+              style="">
+              
+            </div>
+        <script>
+        $(document).ready(function(){
+        fetch_all_data();
+        function fetch_all_data(query = '')
+        {
+          $.ajax({
+          url:"{{ route('csearch') }}",
+          method:'GET',
+          data:{query:query},
+          dataType:'json',
+          success:function(data)
+          {
+            $('tbody').html(data.table_data);
+            $('#total_records').text(data.total_data);
+          }
+          })
+        }
+        $(document).on('keyup', '#search', function(){
+          var query = $(this).val();
+          fetch_all_data(query);
+        });
+        });
+        </script>
+
+        <li><a class="nav-link scrollto" href="{{route('admin.create')}}">Add Customer</a></li>
+        <li><a class="nav-link scrollto" href="{{route('logoutnm')}}">Logout</a></li>
           <li class="dropdown"><a href="#"><span>{{ session('username') }}</span> <i class="bi bi-chevron-down"></i></a>
+          
           </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -83,14 +115,28 @@
     </div>
   </header><!-- End Header -->
 
+  <div class="container box">
+        
+            <table class="table table-striped table-bordered" style="width:100">
+            <tbody>
+
+            </tbody>
+            </table>
+
+      </div>
+
+
   <!-- ======= hero Section ======= -->
   <section id="hero">
 
     <div class="hero-content" data-aos="fade-up">
       <h2>Welcome Home!<br><span style="color: red; text-decoration:none">{{session('username')}}</span></h2>
       <div>
-      <a href="{{route('admin.userlist')}}" class="btn-get-started scrollto">Profile</a>
+      <a href="{{route('admin.userlist')}}" class="btn-get-started scrollto">Admin and other's Profile</a>
       <a href="{{route('admin.messagelist')}}" class="btn-get-started scrollto">Message</a>
+      <a href="{{route('creviewlist')}}" class="btn-get-started scrollto">All Reviews</a>
+      <a href="{{route('download')}}" class="btn-get-started scrollto">Download All Customer List</a>
+      <a href="{{route('downloadbalance')}}" class="btn-get-started scrollto">Download All Customer Transition</a>
       
       </div>
     </div>
