@@ -1,8 +1,8 @@
 ## Author 
-[Nafi Mahmud][author1], [Emon Chowdhury][author2]
+[Nafi Mahmud][author]
 
-[author1]: https://sourcebd.github.io/nafi.com/
-[author2]: https://www.facebook.com/emon.chowdhury017
+[author]: https://sourcebd.github.io/nafi.com/
+
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
