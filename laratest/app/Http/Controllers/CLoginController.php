@@ -46,7 +46,8 @@ class CLoginController extends Controller
 
             $req->session()->put('username', $req->username);
             $req->session()->put('type','Customer');
-            
+           
+            $req->session()->flash('msg', 'Logged in successfully...');
             return redirect()->route('customer.customer');
         }
         
