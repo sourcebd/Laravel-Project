@@ -21,9 +21,10 @@ class SearchController extends Controller
       
       if($query != '')
       {
+        $value = $request->session()->get('username');
        $data = DB::table('customer_balance')
-         ->where('id', 'like', '%'.$query.'%')
-         ->orWhere('username', 'like', '%'.$query.'%')
+         ->where('username','=',$value)  
+        /*  ->orwhere('id', 'like', '%'.$query.'%')
          ->orWhere('email', 'like', '%'.$query.'%')
          ->orWhere('card_no', 'like', '%'.$query.'%')
          ->orWhere('bank_name', 'like', '%'.$query.'%')
@@ -33,7 +34,7 @@ class SearchController extends Controller
          ->orWhere('balance', 'like', '%'.$query.'%')
          ->orWhere('total_purchased', 'like', '%'.$query.'%')
          ->orWhere('created_at', 'like', '%'.$query.'%')
-         ->orWhere('updated_at', 'like', '%'.$query.'%')
+         ->orWhere('updated_at', 'like', '%'.$query.'%') */
          ->orderBy('id', 'desc')
          ->get();
          
