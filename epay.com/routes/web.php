@@ -83,6 +83,7 @@ Route::group(['middleware'=>'admin'],function(){
 
     Route::get('/E-Pay/home/details/customer/{cid}', 'AHomeController@showcus')->name('customerShow');
     
+       /* PDF download customer */
     Route::get('/E-Pay/home/download/customer/{cid}', 'AHomeController@generatePDF')->name('downloadpdf');
 
     /* xl download all balance transition */

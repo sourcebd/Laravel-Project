@@ -48,7 +48,7 @@
 						Admin Login
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid Username is required: ex-Nafi">
+					<div class="wrap-input100 validate-input" data-validate = "Valid Username is required: ex-Emon">
 						<input class="input100" type="text" name="username" placeholder="Username" value="{{old('username')}}">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
