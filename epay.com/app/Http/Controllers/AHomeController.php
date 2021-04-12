@@ -42,18 +42,82 @@ class AHomeController extends Controller
     }
      //pdf download single customer
 
-    public function generatePDF($cid)
+     public function generatePDF(Request $request, $cid)
     {
-        //$user = Customer::find($cid);
-        /* $data = Customer::find($cid);
-        $pdf = PDF::loadView('admin.pdf', $data);
-  
-        return $pdf->download('customer-E-pay.pdf'); */
+       
 
         $data = Customer::find($cid);
-        $pdf = PDF::loadView('admin.details', $data);
-  
-        return $pdf->download('customer-E-pay.pdf',compact('data'));
+        
+      
+        
+        $pdf = \App::make('dompdf.wrapper');
+        
+
+            $html ='
+            
+            <h1 align=center> Customer '.$data->username.' Details</h1>';
+            
+            $html .='<table>
+            
+            <tbody>
+
+               
+                <tr>
+                    <td >Name:</td>
+                    <td>'.$data->username.'</td>
+                </tr>
+                <tr>
+                    <td >Full Name:</td>
+                    <td>'.$data->name.'</td>
+                </tr>
+                <tr>
+                    <td >EMAIL:</td>
+                    <td>'.$data->email.'</td>
+                </tr>
+                <tr>
+                    <td >FATHER Name:</td>
+                    <td>'.$data->father_name.'</td>
+                </tr>
+                <tr>
+                    <td >MOTHER Name:</td>
+                    <td>'.$data->mother_name.'</td>
+                </tr>
+                <tr>
+                    <td >DATE OF BIRTH:</td>
+                    <td>'.$data->dob.'</td>
+                </tr>
+                <tr>
+                    <td >GENDER:</td>
+                    <td>'.$data->gender.'</td>
+                </tr>
+                <tr>
+                    <td >ADDRESS:</td>
+                    <td>'.$data->address.'</td>
+                </tr>
+                <tr>
+                    <td >MOBILE NUMBER:</td>
+                    <td>'.$data->phone.'</td>
+                </tr>
+                <tr>
+                    <td >NID NO:</td>
+                    <td>'.$data->nid_no.'</td>
+                </tr>
+                <tr>
+                    <td >BLOOD GROUP:</td>
+                    <td>'.$data->blood_group.'</td>
+                </tr>
+                <tr>
+                    <td >USER TYPE:</td>
+                    <td>'.$data->type.'</td>
+                </tr>
+            </tbody>
+        </table>'; 
+       
+        
+       
+         $pdf->loadHTML($html);
+        $filename = $data->username.'.pdf';
+        return $pdf->download($filename);  
     }
 
    public function show($id){
