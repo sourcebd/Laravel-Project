@@ -76,13 +76,13 @@ Route::group(['middleware'=>'admin'],function(){
 
 /*     c-list */
 
-    Route::get('/E-Pay/home/edit/customer/{cid}', 'AHomeController@editC')->name('customerEdit');
-    Route::post('/E-Pay/home/edit/customer/{cid}', 'AHomeController@updateC');
+    Route::get('/E-Pay/home/admin/edit/customer/{cid}', 'AHomeController@editC')->name('customerEdit');
+    Route::post('/E-Pay/home/admin/edit/customer/{cid}', 'AHomeController@updateC');
 
-    Route::get('/E-Pay/home/delete/customer/{cid}', 'AHomeController@deleteC')->name('customerDelete');
-    Route::post('/E-Pay/home/delete/customer/{cid}', 'AHomeController@destroyC');
+    Route::get('/E-Pay/home/admin/delete/customer/{cid}', 'AHomeController@deleteC')->name('customerDelete');
+    Route::post('/E-Pay/home/admin/delete/customer/{cid}', 'AHomeController@destroyC');
 
-    Route::get('/E-Pay/home/details/customer/{cid}', 'AHomeController@showcus')->name('customerShow');
+    Route::get('/E-Pay/home/admin/details/customer/{cid}', 'AHomeController@showcus')->name('customerShow');
     
     Route::get('/E-Pay/home/download/customer/{cid}', 'AHomeController@generatePDF')->name('downloadpdf');
 
