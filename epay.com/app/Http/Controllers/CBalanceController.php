@@ -182,7 +182,9 @@ class CBalanceController extends Controller
 
         $value = $req->session()->get('username');
         $balancelist = Customer_balance::where('username','=',$value)->get();   
-        return view('customer.balancelist')->with('list', $balancelist);
+        // return view('customer.balancelist')->with('list', $balancelist);
+
+        return $value;
 
         /* $userlist = User::all();
         return view('customer.list')->with('list', $userlist); */
